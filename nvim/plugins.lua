@@ -55,5 +55,7 @@ return require('packer').startup(function()
     use 'nvim-lua/plenary.nvim'
 
     use 'christoomey/vim-tmux-navigator'
+    use 'towolf/vim-helm'
+
 end)
 
