@@ -33,6 +33,9 @@ map('n', '<leader>fr', "<cmd>lua require'telescope.builtin'.buffers({ show_all_b
 map("n", "<Leader>_", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 
 -- NvimTree
-map("n", "<Leader>n", "<cmd>NvimTreeFocus<cr>", {noremap = true, silent = true})
-map("n", "<Leader>\\", "<cmd>NvimTreeToggle<cr>", {noremap = true, silent = true})
+map("n", "<Leader>n", "<cmd>NvimTreeFocus<cr>")
+map("n", "<Leader>\\", "<cmd>NvimTreeToggle<cr>")
 
+-- Git Blame
+map("n", "<Leader>bt", ":GitBlameToggle <cr>")
+map("n", "<Leader>bo", ":GitBlameOpenCommitURL <cr>"

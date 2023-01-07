@@ -68,5 +68,9 @@ return require('packer').startup(function()
     use 'psf/black'
     use 'fisadev/vim-isort'
 
+    -- Git Blame
+    use 'f-person/git-blame.nvim'
+
 end)
+
 
