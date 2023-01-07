@@ -92,7 +92,7 @@ cmp.setup({
   },
 })
 
--- Treesitter Plugin Setup 
+-- Treesitter (syntax highlighting) 
 require('nvim-treesitter.configs').setup {
   ensure_installed = { "lua", "rust", "toml", "python" },
   auto_install = true,
