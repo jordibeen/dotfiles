@@ -6,6 +6,8 @@ set.shiftwidth = 4
 set.softtabstop = 0
 set.expandtab = true
 set.swapfile = false
+set.list = true
+set.lcs = "space:·"
 
 vim.g.mapleader = " "
 
