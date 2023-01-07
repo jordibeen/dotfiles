@@ -2,6 +2,7 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     
+
     -- Mason manages LSP servers, debuggers and linters
     use 'williamboman/mason.nvim'    
     use 'williamboman/mason-lspconfig.nvim'
@@ -55,7 +56,17 @@ return require('packer').startup(function()
     use 'nvim-lua/plenary.nvim'
 
     use 'christoomey/vim-tmux-navigator'
+
+    -- Helm files
     use 'towolf/vim-helm'
+    
+    -- Code block commenting
+    use 'tpope/vim-commentary'
+
+
+    -- Python format/lint
+    use 'psf/black'
+    use 'fisadev/vim-isort'
 
 end)
 

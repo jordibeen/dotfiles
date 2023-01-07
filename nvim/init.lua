@@ -8,8 +8,6 @@ set.expandtab = true
 set.swapfile = false
 
 vim.g.mapleader = " "
-vim.keymap.set('n', '<leader>w', ':w<CR>',{noremap = true})
-
 
 require('plugins')
 require('opts')
@@ -21,7 +19,7 @@ require("mason-lspconfig").setup({
         "sumneko_lua",
         "rust_analyzer", 
         "terraformls",
-        "pyright",
+        "pylsp",
         "marksman",
         "bashls",
         "yamlls"
@@ -36,7 +34,7 @@ require("rust-tools").setup({
       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
       -- Code action groups
       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
+    end
   },
 })
 
@@ -121,5 +119,16 @@ require("telescope").setup {
     }
 }
 
-vim.api.nvim_exec([[ autocmd BufWritePost *.py :silent! python -m black % ]], false)
+vim.api.nvim_create_augroup('AutoFormatting', {})
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = { "*.py" },
+  command = [[ Black ]],
+  group = "AutoFormatting"
+})
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = { "*.py" },
+  command = [[ Isort ]],
+  group = "AutoFormatting"
+})
 
