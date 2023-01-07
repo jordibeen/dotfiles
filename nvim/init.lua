@@ -10,6 +10,7 @@ set.swapfile = false
 vim.g.mapleader = " "
 
 require('plugins')
+require('theme')
 require('opts')
 require('keys')
 
@@ -107,17 +108,10 @@ require('nvim-treesitter.configs').setup {
   }
 }
 
+
 require("nvim-tree").setup()
 require("trouble").setup()
-
--- Setup Telescope
-require("telescope").setup {
-    pickers = {
-        live_grep = {
-            find_command = { "rg", "--hidden" }
-        },
-    }
-}
+require("telescope").setup()
 
 vim.api.nvim_create_augroup('AutoFormatting', {})
 vim.api.nvim_create_autocmd('BufWritePre', {

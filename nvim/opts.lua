@@ -7,4 +7,3 @@
 -- updatetime: set updatetime for CursorHold
 vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
 
-let g:gitblame_date_format = '%r'

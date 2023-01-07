@@ -2,7 +2,6 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     
-
     -- Mason manages LSP servers, debuggers and linters
     use 'williamboman/mason.nvim'    
     use 'williamboman/mason-lspconfig.nvim'
@@ -33,14 +32,17 @@ return require('packer').startup(function()
     -- Debug Adapter
     use 'puremourning/vimspector'
 
-    -- Floating terminal
-    use 'voldikss/vim-floaterm'
+    -- Finding files
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'BurntSushi/ripgrep',
+            'junegunn/fzf',
+        }
+    }
 
-    -- Find and jump
-    use 'nvim-telescope/telescope.nvim'
-    use 'phaazon/hop.nvim'
-
-    -- File Explorer
+    -- File Tree
     use {
         'nvim-tree/nvim-tree.lua',
          requires = {
@@ -48,13 +50,16 @@ return require('packer').startup(function()
         },
     }
 
+    -- Diagnostics
     use {
         "folke/trouble.nvim",
-        requires = {"kyazdani42/nvim-web-devicons"},
+        requires = {
+            "kyazdani42/nvim-web-devicons",
+        },
     }
 
-    use 'nvim-lua/plenary.nvim'
 
+    -- Seamless navigation between vim and tmux
     use 'christoomey/vim-tmux-navigator'
 
     -- Helm files
@@ -63,13 +68,15 @@ return require('packer').startup(function()
     -- Code block commenting
     use 'tpope/vim-commentary'
 
-
     -- Python format/lint
     use 'psf/black'
     use 'fisadev/vim-isort'
 
     -- Git Blame
     use 'f-person/git-blame.nvim'
+
+    -- Gruvbox theme
+    use "ellisonleao/gruvbox.nvim"
 
 end)
 

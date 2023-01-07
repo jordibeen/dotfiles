@@ -1,7 +1,0 @@
-# Font configuration
-font:
-  normal:
-    family: FiraCode Nerd Font Mono
-
-import:
-  - dracula.yml
