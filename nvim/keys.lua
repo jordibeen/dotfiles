@@ -12,7 +12,7 @@ map('n', "<leader>\"", ":sp <cr>")
 map('n', "<leader>x", ":tabc <cr>")
 
 -- Copy to clipboard
-map('v', "<C-c>", ":w !pbcopy<cr>")
+map('v', "<C-c>", ":'<'>w !pbcopy<cr>")
 map('n', "<C-v>", ":r !pbpaste<cr>")
 
 -- Stop search highlight
@@ -32,8 +32,8 @@ map('n', "<Leader>n", "<cmd>NvimTreeFocus<cr>")
 map('n', "<Leader>\\", "<cmd>NvimTreeToggle<cr>")
 
 -- Git Blame
-map('n', "<Leader>bt", ":GitBlameToggle <cr>")
-map('n', "<Leader>bo", ":GitBlameOpenCommitURL <cr>")
+map('n', "<Leader>bt", "<cmd>GitBlameToggle<cr>")
+map('n', "<Leader>bo", "<cmd>GitBlameOpenCommitURL<cr>")
 
 -- Trouble
 map('n', "<Leader>xx", "<cmd>TroubleToggle<cr>")
@@ -86,3 +86,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
+-- QuickFix
+map('n', "<leader>qfc", "<cmd>cclose<cr>")
+map('n', "<leader>qfo", "<cmd>copen<cr>")
