@@ -36,7 +36,20 @@ lspconfig.rust_analyzer.setup({})
 lspconfig.terraformls.setup({})
 
 -- Python
-lspconfig.pylsp.setup({})
+lspconfig.pylsp.setup({
+    settings = {
+        pylsp = {
+            plugins = {
+                black = {
+                    enabled = true
+                },
+                pycodestyle = {
+                    maxLineLength = 88
+                }
+            }
+        }
+    }
+})
 
 -- Markdown
 lspconfig.marksman.setup({})

@@ -34,3 +34,7 @@ map('n', "<Leader>\\", "<cmd>NvimTreeToggle<cr>")
 -- Git Blame
 map('n', "<Leader>bt", ":GitBlameToggle <cr>")
 map('n', "<Leader>bo", ":GitBlameOpenCommitURL <cr>")
+
+-- Trouble
+map('n', "<Leader>xx", "<cmd>TroubleToggle<cr>")
+

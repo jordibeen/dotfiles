@@ -71,7 +71,16 @@ cmp.setup({
 
 -- Treesitter (syntax highlighting)
 require('nvim-treesitter.configs').setup {
-    ensure_installed = { "lua", "rust", "toml", "python" },
+    ensure_installed = {
+        "lua",
+        "rust",
+        "toml",
+        "python",
+        "typescript",
+        "javascript",
+        "terraform",
+        "dockerfile",
+    },
     auto_install = true,
     highlight = {
         enable = true,
