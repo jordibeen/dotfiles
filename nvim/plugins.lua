@@ -1,19 +1,25 @@
-return require('packer').startup(function()
+return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    
-    -- Mason manages LSP servers, debuggers and linters
-    use 'williamboman/mason.nvim'    
-    use 'williamboman/mason-lspconfig.nvim'
 
-    -- Install collection of LSP configs
-    use 'neovim/nvim-lspconfig' 
+    -- Gruvbox theme
+    use "ellisonleao/gruvbox.nvim"
+
+    -- Mason manages LSP servers, debuggers and linters
+    use {
+        'williamboman/mason.nvim',
+        requires = {
+            'williamboman/mason-lspconfig.nvim',
+            'neovim/nvim-lspconfig',
+            'jose-elias-alvarez/null-ls.nvim',
+        },
+    }
 
     -- Automatically set up lspconfig for rust-analyzer
     use 'simrat39/rust-tools.nvim'
 
     -- Completion framework:
-    use 'hrsh7th/nvim-cmp' 
+    use 'hrsh7th/nvim-cmp'
 
     -- LSP completion source:
     use 'hrsh7th/cmp-nvim-lsp'
@@ -21,10 +27,10 @@ return require('packer').startup(function()
     -- Useful completion sources:
     use 'hrsh7th/cmp-nvim-lua'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
-    use 'hrsh7th/cmp-vsnip'                             
-    use 'hrsh7th/cmp-path'                              
-    use 'hrsh7th/cmp-buffer'                            
-    use 'hrsh7th/vim-vsnip'                                 
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/vim-vsnip'
 
     -- Parsing library
     use 'nvim-treesitter/nvim-treesitter'
@@ -40,6 +46,10 @@ return require('packer').startup(function()
             'BurntSushi/ripgrep',
             'junegunn/fzf',
         }
+    }
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make'
     }
 
     -- File Tree
@@ -75,8 +85,6 @@ return require('packer').startup(function()
     -- Git Blame
     use 'f-person/git-blame.nvim'
 
-    -- Gruvbox theme
-    use "ellisonleao/gruvbox.nvim"
 
 end)
 

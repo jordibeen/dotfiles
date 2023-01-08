@@ -6,10 +6,6 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- FloaTerm configuration
-map('n', "t", ":FloatermToggle myfloat<CR>")
-map('t', "<Esc>", "<C-\\><C-n>:q<CR>")
-
 -- Split
 map('n', "<leader>%", ":vsp <cr>")
 map('n', "<leader>\"", ":sp <cr>")
@@ -26,7 +22,6 @@ map('n', "<leader>-", ":noh <cr>")
 map('n', "<leader>sv", ":source $MYVIMRC<cr>")
 
 -- Telescope
-local builtin = require('telescope.builtin')
 map('n', "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>")
 map('n', "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 map('n', "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
