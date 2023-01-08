@@ -12,5 +12,8 @@ vim.opt.scrolloff = 10
 vim.opt.list = true
 vim.opt.lcs = "space:·"
 
+-- Autocompletion
+vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
+
 -- GitBlame
 vim.g.gitblame_date_format = '%r'
