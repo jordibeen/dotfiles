@@ -68,24 +68,17 @@ return require('packer').startup(function(use)
         },
     }
 
-
     -- Seamless navigation between vim and tmux
     use 'christoomey/vim-tmux-navigator'
 
     -- Helm files
     use 'towolf/vim-helm'
-    
+
     -- Code block commenting
     use 'tpope/vim-commentary'
 
-    -- Python format/lint
-    use 'psf/black'
-    use 'fisadev/vim-isort'
-
     -- Git Blame
     use 'f-person/git-blame.nvim'
-
-
 end)
 
 

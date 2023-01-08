@@ -101,15 +101,3 @@ require("telescope").setup {
 }
 require("telescope").load_extension('fzf')
 
--- vim.api.nvim_create_augroup('AutoFormatting', {})
--- vim.api.nvim_create_autocmd('BufWritePre', {
---   pattern = { "*.py" },
---   command = [[ Black ]],
---   group = "AutoFormatting"
--- })
-
--- vim.api.nvim_create_autocmd('BufWritePre', {
---   pattern = { "*.py" },
---   command = [[ Isort ]],
---   group = "AutoFormatting"
--- })
