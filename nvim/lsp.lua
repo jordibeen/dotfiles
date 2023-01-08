@@ -10,6 +10,8 @@ require("mason-lspconfig").setup({
         "bashls",
         "yamlls",
         "vimls",
+        "tsserver",
+        "eslint",
     },
 })
 
@@ -61,12 +63,20 @@ lspconfig.yamlls.setup({})
 -- Vim
 lspconfig.vimls.setup({})
 
+-- TypeScript
+lspconfig.tsserver.setup({})
+
+-- ESLint
+lspconfig.eslint.setup({})
+
 -- Auto formatting
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
     sources = {
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.isort,
+        null_ls.builtins.code_actions.eslint,
+        null_ls.builtins.formatting.prettier,
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
