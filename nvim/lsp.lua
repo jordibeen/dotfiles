@@ -10,45 +10,45 @@ require("mason-lspconfig").setup({
         "bashls",
         "yamlls",
         "vimls",
-    }
+    },
 })
 
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 
 -- Lua
-lspconfig.sumneko_lua.setup {
+lspconfig.sumneko_lua.setup({
     settings = {
         Lua = {
             diagnostics = {
                 globals = {
-                    'vim'
-                }
-            }
-        }
-    }
-}
+                    "vim",
+                },
+            },
+        },
+    },
+})
 
 -- Rust
-lspconfig.rust_analyzer.setup {}
+lspconfig.rust_analyzer.setup({})
 
 -- Terraform
-lspconfig.terraformls.setup {}
+lspconfig.terraformls.setup({})
 
 -- Python
-lspconfig.pylsp.setup {}
+lspconfig.pylsp.setup({})
 
 -- Markdown
-lspconfig.marksman.setup {}
+lspconfig.marksman.setup({})
 
 -- Bash
-lspconfig.bashls.setup {}
+lspconfig.bashls.setup({})
 
 -- Yaml
-lspconfig.yamlls.setup {}
+lspconfig.yamlls.setup({})
 
 -- Vim
-lspconfig.vimls.setup {}
+lspconfig.vimls.setup({})
 
 -- Auto formatting
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -56,7 +56,6 @@ null_ls.setup({
     sources = {
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.isort,
-        null_ls.builtins.formatting.stylua,
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
