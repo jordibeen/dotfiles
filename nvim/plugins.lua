@@ -18,21 +18,20 @@ return require('packer').startup(function(use)
     -- Automatically set up lspconfig for rust-analyzer
     use 'simrat39/rust-tools.nvim'
 
-    -- Completion framework:
-    use 'hrsh7th/nvim-cmp'
+    -- Completion framework
+    use {
+        'hrsh7th/nvim-cmp',
+        requires = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-vsnip",
+            "hrsh7th/vim-vsnip",
+        }
+    }
 
-    -- LSP completion source:
-    use 'hrsh7th/cmp-nvim-lsp'
-
-    -- Useful completion sources:
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'hrsh7th/cmp-nvim-lsp-signature-help'
-    use 'hrsh7th/cmp-vsnip'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/vim-vsnip'
-
-    -- Parsing library
+    -- Syntax Highlighting
     use 'nvim-treesitter/nvim-treesitter'
 
     -- Debug Adapter
