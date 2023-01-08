@@ -1,4 +1,4 @@
--- Install LSPs
+-- Setup LSPs
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
@@ -41,9 +41,6 @@ lspconfig.pylsp.setup({
     settings = {
         pylsp = {
             plugins = {
-                black = {
-                    enabled = true
-                },
                 pycodestyle = {
                     maxLineLength = 88
                 }

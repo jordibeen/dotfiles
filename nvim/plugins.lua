@@ -1,11 +1,11 @@
 return require('packer').startup(function(use)
-    -- Packer can manage itself
+    -- Packer
     use 'wbthomason/packer.nvim'
 
     -- Gruvbox theme
     use "ellisonleao/gruvbox.nvim"
 
-    -- Mason manages LSP servers, debuggers and linters
+    -- LSP
     use {
         'williamboman/mason.nvim',
         requires = {
@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
     -- Automatically set up lspconfig for rust-analyzer
     use 'simrat39/rust-tools.nvim'
 
-    -- Completion framework
+    -- Autocompletion framework
     use {
         'hrsh7th/nvim-cmp',
         requires = {
