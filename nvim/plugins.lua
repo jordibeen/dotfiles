@@ -78,6 +78,9 @@ return require('packer').startup(function(use)
 
     -- Git Blame
     use 'f-person/git-blame.nvim'
+
+    -- Undotree
+    use 'mbbill/undotree'
 end)
 
 
