@@ -86,6 +86,41 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
+
 -- QuickFix
 map('n', "<leader>qfc", "<cmd>cclose<cr>")
 map('n', "<leader>qfo", "<cmd>copen<cr>")
+map('n', "<C-k>", "<cmd>cnext<cr>zz")
+map('n', "<C-j>", "<cmd>cprev<cr>zz")
+map('n', "<leader>k", "<cmd>lnext<cr>zz")
+map('n', "<leader>j", "<cmd>lprev<cr>zz")
+
+
+-- Undotree Toggle
+map('n', "<leader>u", ":UndotreeToggle<cr>")
+
+-- Move visual selection up and down
+map('v', "J", ":m '>+1<cr>gv=gv")
+map('v', "K", ":m '<-2<cr>gv=gv")
+
+-- Improved J (cursor stays in place instead of end of line)
+map('n', "J", "mzJ`z")
+
+-- Improved Up and Down (cursor stays in the middle)
+map('n', "<C-d>", "<C-d>zz")
+map('n', "<C-u>", "<C-u>zz")
+
+-- Improved search (cursor stays in the middle
+map('n', "n", "nzzzv")
+map('n', "N", "Nzzzv")
+
+-- Preserve yank after paste
+map('x', "<leader>p", "\"_dP")
+
+-- Yank to clip
+map('n', "<leader>y", "\"+y")
+map('v', "<leader>y", "\"+y")
+map('n', "<leader>Y", "\"+Y")
+
+-- Awesome prime keymap to replace current selected word
+map('n', "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
