@@ -12,6 +12,7 @@ require("mason-lspconfig").setup({
         "vimls",
         "tsserver",
         "eslint",
+        "tailwindcss"
     },
 })
 
@@ -68,6 +69,9 @@ lspconfig.tsserver.setup({})
 
 -- ESLint
 lspconfig.eslint.setup({})
+
+-- ESLint
+lspconfig.tailwindcss.setup({})
 
 -- Auto formatting
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
