@@ -42,7 +42,14 @@ require('nvim-treesitter.configs').setup {
 }
 
 
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+    git = {
+        ignore = false
+    },
+    filters = {
+        dotfiles = false
+    }
+})
 require("trouble").setup()
 
 require("telescope").setup {
