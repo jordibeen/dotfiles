@@ -46,7 +46,7 @@ vim.opt.list = true
 vim.opt.lcs = "space:·"
 
 -- Autocompletion
-vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
 -- GitBlame
 vim.g.gitblame_date_format = '%r'
