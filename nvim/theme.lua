@@ -13,6 +13,7 @@ require("catppuccin").setup({
         nvimtree = true,
         telescope = true,
         barbar = true,
+        mason = true,
     },
 })
 
