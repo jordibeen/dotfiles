@@ -5,18 +5,6 @@ require('keys')
 require('lsp')
 require('tabs')
 
--- Rust Tools setup
-require("rust-tools").setup({
-    server = {
-        on_attach = function(_, bufnr)
-            -- Hover actions
-            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-            -- Code action groups
-            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-        end
-    },
-})
-
 -- Treesitter (syntax highlighting)
 require('nvim-treesitter.configs').setup {
     ensure_installed = {
@@ -42,7 +30,7 @@ require('nvim-treesitter.configs').setup {
     }
 }
 
-
+ -- Tree
 require("nvim-tree").setup({
     git = {
         ignore = false
@@ -51,8 +39,11 @@ require("nvim-tree").setup({
         dotfiles = false
     }
 })
+
+-- Diagnostics
 require("trouble").setup({})
 
+-- Telescope
 require("telescope").setup {
     extensions = {
         fzf = {

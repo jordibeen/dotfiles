@@ -2,8 +2,8 @@ return require('packer').startup(function(use)
     -- Packer
     use 'wbthomason/packer.nvim'
 
-    -- Gruvbox theme
-    use "ellisonleao/gruvbox.nvim"
+    -- catppuccin theme
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- LSP
     use {
@@ -90,6 +90,7 @@ return require('packer').startup(function(use)
 
     -- Git
     use 'tpope/vim-fugitive'
+
 end)
 
 

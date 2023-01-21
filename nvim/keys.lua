@@ -1,4 +1,4 @@
-function map(mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then
         options = vim.tbl_extend("force", options, opts)
@@ -9,6 +9,9 @@ end
 -- Split
 map('n', "<leader>%", ":vsp <cr>")
 map('n', "<leader>\"", ":sp <cr>")
+
+-- Previous buffer position
+map('n', "<leader>\'\'", ":b# <cr>")
 
 -- Copy to clipboard
 map('v', "<C-c>", ":'<'>w !pbcopy<cr>")
@@ -37,7 +40,7 @@ map('n', "<Leader>bo", "<cmd>GitBlameOpenCommitURL<cr>")
 -- Trouble
 map('n', "<Leader>xx", "<cmd>TroubleToggle<cr>")
 
--- LSP: Go to defintion
+-- LSP: Definition functions
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function()
@@ -85,15 +88,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-
--- QuickFix
+-- QuickFix tab
 map('n', "<leader>qfc", "<cmd>cclose<cr>")
 map('n', "<leader>qfo", "<cmd>copen<cr>")
 map('n', "<C-k>", "<cmd>cnext<cr>zz")
 map('n', "<C-j>", "<cmd>cprev<cr>zz")
 map('n', "<leader>k", "<cmd>lnext<cr>zz")
 map('n', "<leader>j", "<cmd>lprev<cr>zz")
-
 
 -- Undotree Toggle
 map('n', "<leader>u", ":UndotreeToggle<cr>")

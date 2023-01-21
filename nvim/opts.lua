@@ -39,7 +39,7 @@ vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 
 -- Color column
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 
 -- Show spaces
 vim.opt.list = true
