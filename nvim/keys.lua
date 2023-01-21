@@ -124,3 +124,18 @@ map('n', "<leader>Y", "\"+Y")
 
 -- Awesome prime keymap to replace current selected word
 map('n', "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+
+-- Tabs
+map('n', '<leader><Left>', '<Cmd>BufferPrevious<CR>')
+map('n', '<leader><Right>', '<Cmd>BufferNext<CR>')
+map('n', '<leader>w', '<Cmd>BufferClose<CR>')
+map('n', '<leader>1', '<Cmd>BufferGoto 1<CR>')
+map('n', '<leader>2', '<Cmd>BufferGoto 2<CR>')
+map('n', '<leader>3', '<Cmd>BufferGoto 3<CR>')
+map('n', '<leader>4', '<Cmd>BufferGoto 4<CR>')
+map('n', '<leader>5', '<Cmd>BufferGoto 5<CR>')
+map('n', '<leader>6', '<Cmd>BufferGoto 6<CR>')
+map('n', '<leader>7', '<Cmd>BufferGoto 7<CR>')
+map('n', '<leader>8', '<Cmd>BufferGoto 8<CR>')
+map('n', '<leader>9', '<Cmd>BufferGoto 9<CR>')
+

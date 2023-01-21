@@ -3,6 +3,7 @@ require('theme')
 require('opts')
 require('keys')
 require('lsp')
+require('tabs')
 
 -- Rust Tools setup
 require("rust-tools").setup({
@@ -50,7 +51,7 @@ require("nvim-tree").setup({
         dotfiles = false
     }
 })
-require("trouble").setup()
+require("trouble").setup({})
 
 require("telescope").setup {
     extensions = {
@@ -64,3 +65,5 @@ require("telescope").setup {
 }
 require("telescope").load_extension('fzf')
 
+-- Tabs
+require("bufferline").setup()

@@ -81,6 +81,9 @@ return require('packer').startup(function(use)
 
     -- Undotree
     use 'mbbill/undotree'
+
+    -- Tabs
+    use 'romgrk/barbar.nvim'
 end)
 
 
