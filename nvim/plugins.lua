@@ -91,6 +91,11 @@ return require('packer').startup(function(use)
     -- Git
     use 'tpope/vim-fugitive'
 
+    -- Colorful window separation
+    use 'nvim-zh/colorful-winsep.nvim'
+
+    -- lualine
+    use 'nvim-lualine/lualine.nvim'
 end)
 
 

@@ -59,3 +59,10 @@ require("telescope").load_extension('fzf')
 
 -- Tabs
 require("bufferline").setup()
+
+-- Colorful window separation
+require('colorful-winsep').setup()
+
+-- Lualine
+require('lualine').setup()
+
