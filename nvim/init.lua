@@ -11,6 +11,7 @@ require('nvim-treesitter.configs').setup {
         "lua",
         "rust",
         "toml",
+        "yaml",
         "python",
         "typescript",
         "javascript",

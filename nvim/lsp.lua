@@ -93,6 +93,11 @@ null_ls.setup({
                 end,
             })
         end
+
+        -- Disable diagnostics for helm files
+        if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+          vim.diagnostic.disable(bufnr)
+        end
     end,
 })
 
@@ -142,3 +147,4 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' }
     }
 })
+
