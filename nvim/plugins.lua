@@ -84,6 +84,12 @@ return require('packer').startup(function(use)
 
     -- Tabs
     use 'romgrk/barbar.nvim'
+
+    -- Multiline
+    use 'mg979/vim-visual-multi'
+
+    -- Git
+    use 'tpope/vim-fugitive'
 end)
 
 

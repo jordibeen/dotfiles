@@ -9,7 +9,6 @@ end
 -- Split
 map('n', "<leader>%", ":vsp <cr>")
 map('n', "<leader>\"", ":sp <cr>")
-map('n', "<leader>x", ":tabc <cr>")
 
 -- Copy to clipboard
 map('v', "<C-c>", ":'<'>w !pbcopy<cr>")
