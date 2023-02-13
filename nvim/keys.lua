@@ -138,4 +138,5 @@ map('n', '<leader>6', '<Cmd>BufferGoto 6<CR>')
 map('n', '<leader>7', '<Cmd>BufferGoto 7<CR>')
 map('n', '<leader>8', '<Cmd>BufferGoto 8<CR>')
 map('n', '<leader>9', '<Cmd>BufferGoto 9<CR>')
+map('n', '<leader>W', '<Cmd>BufferCloseAllButVisible<CR>')
 
