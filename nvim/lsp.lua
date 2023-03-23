@@ -2,10 +2,10 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "sumneko_lua",
+        "lua_ls",
         "rust_analyzer",
         "terraformls",
-        "pylsp",
+        "ruff_lsp",
         "marksman",
         "bashls",
         "yamlls",
@@ -21,7 +21,7 @@ local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 
 -- Lua
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
     settings = {
         Lua = {
             diagnostics = {
@@ -40,17 +40,7 @@ lspconfig.rust_analyzer.setup({})
 lspconfig.terraformls.setup({})
 
 -- Python
-lspconfig.pylsp.setup({
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = {
-                    maxLineLength = 88
-                }
-            }
-        }
-    }
-})
+lspconfig.ruff_lsp.setup({})
 
 -- Markdown
 lspconfig.marksman.setup({})
@@ -77,10 +67,10 @@ lspconfig.tailwindcss.setup({})
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
     sources = {
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.isort,
         null_ls.builtins.code_actions.eslint,
         null_ls.builtins.formatting.prettier,
+        null_ls.builtins.diagnostics.ruff,
+        null_ls.builtins.formatting.ruff
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
