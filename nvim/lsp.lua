@@ -5,7 +5,7 @@ require("mason-lspconfig").setup({
         "lua_ls",
         "rust_analyzer",
         "terraformls",
-        "ruff_lsp",
+        "pylsp",
         "marksman",
         "bashls",
         "yamlls",
@@ -40,7 +40,26 @@ lspconfig.rust_analyzer.setup({})
 lspconfig.terraformls.setup({})
 
 -- Python
-lspconfig.ruff_lsp.setup({})
+lspconfig.pylsp.setup({
+    settings = {
+        pylsp = {
+            plugins = {
+                ruff = {
+                    enabled = true,
+                    extendSelect = { -- for reference, see https://beta.ruff.rs/docs/rules/#error-e
+                        "I", -- isort
+                        "E", -- pycodestyle Error
+                        "W", -- pycodestyle Warning
+                    },
+                    format = {
+                        "I",
+                    },
+                    lineLength = 88
+                }
+            }
+        }
+    }
+})
 
 -- Markdown
 lspconfig.marksman.setup({})
@@ -70,7 +89,8 @@ null_ls.setup({
         null_ls.builtins.code_actions.eslint,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.ruff,
-        null_ls.builtins.formatting.ruff
+        null_ls.builtins.formatting.ruff,
+        null_ls.builtins.formatting.black
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
