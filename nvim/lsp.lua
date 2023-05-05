@@ -54,7 +54,8 @@ lspconfig.pylsp.setup({
                     format = {
                         "I",
                     },
-                    lineLength = 88
+                    lineLength = 88,
+                    exclude = {"./alembic"}
                 }
             }
         }
