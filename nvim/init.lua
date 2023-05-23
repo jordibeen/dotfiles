@@ -58,7 +58,7 @@ require("telescope").setup {
 require("telescope").load_extension('fzf')
 
 -- Tabs
-require("bufferline").setup()
+require("barbar").setup()
 
 -- Colorful window separation
 require('colorful-winsep').setup()
