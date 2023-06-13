@@ -17,6 +17,7 @@ require('nvim-treesitter.configs').setup {
         "javascript",
         "terraform",
         "dockerfile",
+        "sql",
     },
     auto_install = true,
     highlight = {

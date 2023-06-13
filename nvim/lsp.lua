@@ -12,7 +12,8 @@ require("mason-lspconfig").setup({
         "vimls",
         "tsserver",
         "eslint",
-        "tailwindcss"
+        "tailwindcss",
+        "sqlls"
     },
 })
 
@@ -91,7 +92,13 @@ null_ls.setup({
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.ruff,
         null_ls.builtins.formatting.ruff,
-        null_ls.builtins.formatting.black
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.diagnostics.sqlfluff.with({
+            extra_args = { "--dialect", "postgres" },
+        }),
+        null_ls.builtins.formatting.sqlfluff.with({
+            extra_args = { "--dialect", "postgres" },
+        }),
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
