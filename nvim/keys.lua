@@ -17,6 +17,9 @@ map('n', "<leader>\'\'", ":b# <cr>")
 map('v', "<C-c>", ":'<'>w !pbcopy<cr>")
 map('n', "<C-v>", ":r !pbpaste<cr>")
 
+-- Yank file path to clipboard
+map('n', '<leader>cfp', '<Cmd>let @+ = expand("%")<CR>')
+
 -- Stop search highlight
 map('n', "<leader>-", ":noh <cr>")
 
@@ -139,4 +142,5 @@ map('n', '<leader>7', '<Cmd>BufferGoto 7<CR>')
 map('n', '<leader>8', '<Cmd>BufferGoto 8<CR>')
 map('n', '<leader>9', '<Cmd>BufferGoto 9<CR>')
 map('n', '<leader>W', '<Cmd>BufferCloseAllButVisible<CR>')
+
 
