@@ -13,7 +13,8 @@ require("mason-lspconfig").setup({
         "tsserver",
         "eslint",
         "tailwindcss",
-        "sqlls"
+        "sqlls",
+        "helm_ls"
     },
 })
 
@@ -110,11 +111,6 @@ null_ls.setup({
                     vim.lsp.buf.format({ bufnr = bufnr })
                 end,
             })
-        end
-
-        -- Disable diagnostics for helm files
-        if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
-          vim.diagnostic.disable(bufnr)
         end
     end,
 })
