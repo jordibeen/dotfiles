@@ -46,6 +46,9 @@ lspconfig.pylsp.setup({
     settings = {
         pylsp = {
             plugins = {
+                pycodestyle = {
+                    enabled = false
+                },
                 ruff = {
                     enabled = true,
                     extendSelect = { -- for reference, see https://beta.ruff.rs/docs/rules/#error-e
