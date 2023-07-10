@@ -59,7 +59,9 @@ require("telescope").setup {
 require("telescope").load_extension('fzf')
 
 -- Tabs
-require("barbar").setup()
+require("barbar").setup({
+      exclude_ft = { 'NvimTree' },
+})
 
 -- Colorful window separation
 require('colorful-winsep').setup()
