@@ -5,7 +5,7 @@ require("mason-lspconfig").setup({
         "lua_ls",
         "rust_analyzer",
         "terraformls",
-        "pylsp",
+        "ruff_lsp",
         "marksman",
         "bashls",
         "yamlls",
@@ -20,7 +20,9 @@ require("mason-lspconfig").setup({
 
 local cmp = require("cmp")
 local lspconfig = require("lspconfig")
-local null_ls = require("null-ls")
+local format_on_save = require("format-on-save")
+local formatters = require("format-on-save.formatters")
+
 
 -- Lua
 lspconfig.lua_ls.setup({
@@ -42,27 +44,14 @@ lspconfig.rust_analyzer.setup({})
 lspconfig.terraformls.setup({})
 
 -- Python
-lspconfig.pylsp.setup({
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = {
-                    enabled = false
-                },
-                ruff = {
-                    enabled = true,
-                    extendSelect = { -- for reference, see https://beta.ruff.rs/docs/rules/#error-e
-                        "I", -- isort
-                        "E", -- pycodestyle Error
-                        "W", -- pycodestyle Warning
-                    },
-                    format = {
-                        "I",
-                    },
-                    lineLength = 88,
-                    exclude = {"./alembic"}
-                }
-            }
+lspconfig.ruff_lsp.setup({
+    init_options = {
+        settings = {
+            args = {
+                "--extend-select", "E",
+                "--extend-select", "F",
+                "--extend-select", "W"
+            },
         }
     }
 })
@@ -88,35 +77,8 @@ lspconfig.eslint.setup({})
 -- ESLint
 lspconfig.tailwindcss.setup({})
 
--- Auto formatting
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-null_ls.setup({
-    sources = {
-        null_ls.builtins.code_actions.eslint,
-        null_ls.builtins.formatting.prettier,
-        null_ls.builtins.diagnostics.ruff,
-        null_ls.builtins.formatting.ruff,
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.diagnostics.sqlfluff.with({
-            extra_args = { "--dialect", "postgres" },
-        }),
-        null_ls.builtins.formatting.sqlfluff.with({
-            extra_args = { "--dialect", "postgres" },
-        }),
-    },
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({ bufnr = bufnr })
-                end,
-            })
-        end
-    end,
-})
+-- SQL
+lspconfig.sqlls.setup({})
 
 -- Autocompletion
 cmp.setup({
@@ -165,3 +127,27 @@ cmp.setup.cmdline(':', {
     }
 })
 
+-- Formatting
+format_on_save.setup({
+    formatter_by_ft = {
+        html = formatters.lsp,
+        css = formatters.lsp,
+        javascript = formatters.lsp,
+        json = formatters.lsp,
+        lua = formatters.lsp,
+        markdown = formatters.prettierd,
+        python = {
+            formatters.black,
+            formatters.shell({
+                cmd = { "ruff", "--fix", "-e", "-n", "--stdin-filename", "%", "-" }
+            }),
+        },
+        rust = formatters.lsp,
+        sh = formatters.shfmt,
+        sql = formatters.shell({ cmd = { "sqlfluff", "render", "--dialect", "postgres", "-" } }),
+        terraform = formatters.lsp,
+        typescript = formatters.prettierd,
+        typescriptreact = formatters.prettierd,
+        yaml = formatters.lsp,
+    }
+})

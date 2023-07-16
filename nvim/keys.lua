@@ -146,3 +146,6 @@ map('n', "<Leader>\\", "<cmd>Neotree reveal toggle<cr>")
 
 -- NeoGit
 map('n', "<Leader>go", "<cmd>Neogit<cr>")
+
+-- Disable q recording
+map('n', "q", "<Nop>")

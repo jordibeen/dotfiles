@@ -11,12 +11,8 @@ return require('packer').startup(function(use)
         requires = {
             'williamboman/mason-lspconfig.nvim',
             'neovim/nvim-lspconfig',
-            'jose-elias-alvarez/null-ls.nvim',
         },
     }
-
-    -- Automatically set up lspconfig for rust-analyzer
-    use 'simrat39/rust-tools.nvim'
 
     -- Autocompletion framework
     use {
@@ -88,21 +84,23 @@ return require('packer').startup(function(use)
 
     -- File Tree
     use {
-      "nvim-neo-tree/neo-tree.nvim",
+        "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
         requires = {
-          "nvim-lua/plenary.nvim",
-          "nvim-tree/nvim-web-devicons",
-          "MunifTanjim/nui.nvim",
-      }
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        }
     }
 
+    -- NeoGit
     use {
         'NeogitOrg/neogit',
         requires = {
             'nvim-lua/plenary.nvim',
         }
     }
+
+    -- Formatter
+    use 'elentok/format-on-save.nvim'
 end)
-
-
