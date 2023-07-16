@@ -51,14 +51,6 @@ return require('packer').startup(function(use)
         run = 'make'
     }
 
-    -- File Tree
-    use {
-        'nvim-tree/nvim-tree.lua',
-         requires = {
-            'nvim-tree/nvim-web-devicons',
-        },
-    }
-
     -- Diagnostics
     use {
         "folke/trouble.nvim",
@@ -88,14 +80,29 @@ return require('packer').startup(function(use)
     -- Multiline
     use 'mg979/vim-visual-multi'
 
-    -- Git
-    use 'tpope/vim-fugitive'
-
     -- Colorful window separation
     use 'nvim-zh/colorful-winsep.nvim'
 
     -- lualine
     use 'nvim-lualine/lualine.nvim'
+
+    -- File Tree
+    use {
+      "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        requires = {
+          "nvim-lua/plenary.nvim",
+          "nvim-tree/nvim-web-devicons",
+          "MunifTanjim/nui.nvim",
+      }
+    }
+
+    use {
+        'NeogitOrg/neogit',
+        requires = {
+            'nvim-lua/plenary.nvim',
+        }
+    }
 end)
 
 

@@ -24,21 +24,25 @@ require('nvim-treesitter.configs').setup {
         enable = true,
         additional_vim_regex_highlighting = false,
     },
-    ident = { enable = true },
-    rainbow = {
-        enable = true,
-        extended_mode = true,
-        max_file_lines = nil,
-    }
 }
 
- -- Tree
-require("nvim-tree").setup({
-    git = {
-        ignore = false
+-- File Tree
+require("neo-tree").setup({
+    buffers = {
+        follow_current_file = {
+            enabled = true,
+            leave_dirs_open = false,
+        },
     },
-    filters = {
-        dotfiles = false
+
+    filesystem = {
+        filtered_items = {
+            always_show = {
+                ".gitignored",
+                ".env",
+                ".github"
+            }
+        }
     }
 })
 
@@ -60,7 +64,7 @@ require("telescope").load_extension('fzf')
 
 -- Tabs
 require("barbar").setup({
-      exclude_ft = { 'NvimTree' },
+    insert_at_end = true,
 })
 
 -- Colorful window separation
@@ -68,4 +72,9 @@ require('colorful-winsep').setup()
 
 -- Lualine
 require('lualine').setup()
+
+-- NeoGit
+require ('neogit').setup({
+    use_telescope = true,
+})
 

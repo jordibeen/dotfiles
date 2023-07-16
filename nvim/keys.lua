@@ -32,10 +32,6 @@ map('n', "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 map('n', "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
 map('n', "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>")
 
--- NvimTree
-map('n', "<Leader>n", "<cmd>NvimTreeFocus<cr>")
-map('n', "<Leader>\\", "<cmd>NvimTreeToggle<cr>")
-
 -- Git Blame
 map('n', "<Leader>bt", "<cmd>GitBlameToggle<cr>")
 map('n', "<Leader>bo", "<cmd>GitBlameOpenCommitURL<cr>")
@@ -144,3 +140,9 @@ map('n', '<leader>9', '<Cmd>BufferGoto 9<CR>')
 map('n', '<leader>W', '<Cmd>BufferCloseAllButVisible<CR>')
 
 
+-- NeoTree
+map('n', "<Leader>n", "<cmd>Neotree reveal focus<cr>")
+map('n', "<Leader>\\", "<cmd>Neotree reveal toggle<cr>")
+
+-- NeoGit
+map('n', "<Leader>go", "<cmd>Neogit<cr>")

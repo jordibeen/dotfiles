@@ -1,22 +1,24 @@
--- Tabs config
-
-local nvim_tree_events = require('nvim-tree.events')
-local barbar_api = require('barbar.api')
-
-local function get_tree_size()
-  return require'nvim-tree.view'.View.width
+local filetreename = 'neo-tree'
+local function get_filetree_window()
+    for _, windowId in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+        local buffer = vim.api.nvim_win_get_buf(windowId)
+        if vim.api.nvim_buf_get_option(buffer, 'ft') == filetreename then
+            return windowId
+        end
+    end
+    return nil
 end
 
-nvim_tree_events.subscribe('TreeOpen', function()
-  barbar_api.set_offset(get_tree_size())
-end)
+local function get_filetree_width()
+    local windowId = get_filetree_window()
+    if windowId == nil then return end
+    return vim.fn.winwidth(windowId)
+end
 
-nvim_tree_events.subscribe('Resize', function()
-  barbar_api.set_offset(get_tree_size())
-end)
+vim.api.nvim_create_autocmd({ 'BufWinEnter', 'WinScrolled', 'BufWinLeave', 'BufWipeout' }, {
+    callback = function()
+        local width = get_filetree_width()
 
-nvim_tree_events.subscribe('TreeClose', function()
-  barbar_api.set_offset(0)
-end)
-
-
+        require('barbar.api').set_offset(width or 0)
+    end
+})
