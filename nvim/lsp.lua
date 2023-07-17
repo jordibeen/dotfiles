@@ -18,6 +18,7 @@ require("mason-lspconfig").setup({
     },
 })
 
+
 local cmp = require("cmp")
 local lspconfig = require("lspconfig")
 local format_on_save = require("format-on-save")

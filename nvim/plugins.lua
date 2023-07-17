@@ -73,9 +73,6 @@ return require('packer').startup(function(use)
     -- Tabs
     use 'romgrk/barbar.nvim'
 
-    -- Multiline
-    use 'mg979/vim-visual-multi'
-
     -- Colorful window separation
     use 'nvim-zh/colorful-winsep.nvim'
 
@@ -103,4 +100,7 @@ return require('packer').startup(function(use)
 
     -- Formatter
     use 'elentok/format-on-save.nvim'
+
+    -- Which Key
+    use 'folke/which-key.nvim'
 end)

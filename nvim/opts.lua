@@ -46,7 +46,11 @@ vim.opt.list = true
 vim.opt.lcs = "space:·"
 
 -- Autocompletion
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 -- GitBlame
 vim.g.gitblame_date_format = '%r'
+
+-- Which Key
+vim.o.timeout = true
+vim.o.timeoutlen = 300

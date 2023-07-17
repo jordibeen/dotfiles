@@ -74,7 +74,9 @@ require('colorful-winsep').setup()
 require('lualine').setup()
 
 -- NeoGit
-require ('neogit').setup({
+require('neogit').setup({
     use_telescope = true,
 })
 
+-- Which Key
+require('which-key').setup()
