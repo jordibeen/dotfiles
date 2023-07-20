@@ -14,7 +14,8 @@ require("mason-lspconfig").setup({
         "eslint",
         "tailwindcss",
         "sqlls",
-        "helm_ls"
+        "helm_ls",
+        "pylsp"
     },
 })
 
@@ -56,6 +57,7 @@ lspconfig.ruff_lsp.setup({
         }
     }
 })
+lspconfig.pylsp.setup({}) -- Just for go to definition capabilities
 
 -- Markdown
 lspconfig.marksman.setup({})
