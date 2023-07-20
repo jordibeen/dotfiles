@@ -142,7 +142,7 @@ format_on_save.setup({
         python = {
             formatters.black,
             formatters.shell({
-                cmd = { "ruff", "--fix", "-e", "-n", "--stdin-filename", "%", "-" }
+                cmd = { "ruff", "--fix", "-e", "-n", "-q", "--stdin-filename", "%", "-" }
             }),
         },
         rust = formatters.lsp,
