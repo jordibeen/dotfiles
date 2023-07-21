@@ -57,7 +57,20 @@ lspconfig.ruff_lsp.setup({
         }
     }
 })
-lspconfig.pylsp.setup({}) -- Just for go to definition capabilities
+lspconfig.pylsp.setup({
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    enabled = false
+                },
+                flake8 = {
+                    enabled = false
+                }
+            }
+        }
+    }
+}) -- Just for go to definition capabilities
 
 -- Markdown
 lspconfig.marksman.setup({})
