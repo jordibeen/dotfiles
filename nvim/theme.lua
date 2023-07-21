@@ -11,6 +11,7 @@ require("catppuccin").setup({
         telescope = true,
         mason = true,
         lsp_trouble = true,
+        beacon = true,
     },
 })
 

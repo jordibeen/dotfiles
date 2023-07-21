@@ -103,4 +103,7 @@ return require('packer').startup(function(use)
 
     -- Which Key
     use 'folke/which-key.nvim'
+
+    -- Beacon
+    use 'danilamihailov/beacon.nvim'
 end)
