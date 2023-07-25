@@ -38,7 +38,7 @@ require("neo-tree").setup({
     filesystem = {
         filtered_items = {
             always_show = {
-                ".gitignored",
+                ".gitignore",
                 ".env",
                 ".github"
             }
