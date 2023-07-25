@@ -1,8 +1,12 @@
 # Colorful ls -la
+alias ls='ls --color=auto'
 alias ll='ls -alF --color'
 
 # Colorful grep
 alias grep='grep --color'
+
+# Vi
+alias vi='nvim'
 
 # Source zprofile
 alias zsource='source ~/.zprofile'
