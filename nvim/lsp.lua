@@ -160,7 +160,7 @@ format_on_save.setup({
         },
         rust = formatters.lsp,
         sh = formatters.shfmt,
-        sql = formatters.shell({ cmd = { "sqlfluff", "render", "--dialect", "postgres", "-" } }),
+        sql = formatters.shell({ cmd = { "sqlfluff", "format", "--dialect", "postgres", "-" } }),
         terraform = formatters.lsp,
         typescript = formatters.prettierd,
         typescriptreact = formatters.prettierd,
