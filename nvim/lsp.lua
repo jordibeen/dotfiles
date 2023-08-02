@@ -15,7 +15,8 @@ require("mason-lspconfig").setup({
         "tailwindcss",
         "sqlls",
         "helm_ls",
-        "pylsp"
+        "pylsp",
+        "jsonls",
     },
 })
 
@@ -96,6 +97,9 @@ lspconfig.tailwindcss.setup({})
 -- SQL
 lspconfig.sqlls.setup({})
 
+-- JSON
+lspconfig.jsonls.setup({})
+
 -- Autocompletion
 cmp.setup({
     snippet = {
@@ -155,7 +159,7 @@ format_on_save.setup({
         python = {
             formatters.black,
             formatters.shell({
-                cmd = { "ruff", "--fix", "-e", "-n", "-q", "--stdin-filename", "%", "-" }
+                cmd = { "ruff", "--fix", "-e", "-n", "-q", "-" }
             }),
         },
         rust = formatters.lsp,

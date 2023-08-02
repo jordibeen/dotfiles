@@ -40,7 +40,10 @@ require("neo-tree").setup({
             always_show = {
                 ".gitignore",
                 ".env",
-                ".github"
+                ".github",
+                ".test.yaml",
+                ".production.yaml",
+                "terraform.tfvars"
             }
         }
     }
