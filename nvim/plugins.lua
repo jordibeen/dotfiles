@@ -1,23 +1,41 @@
-return require('packer').startup(function(use)
-    -- Packer
-    use 'wbthomason/packer.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
 
-    -- catppuccin theme
-    use { "catppuccin/nvim", as = "catppuccin" }
+
+local plugins = {
+    -- -- Packer
+    -- 'wbthomason/packer.nvim',
+
+    -- catppuccin theme--
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        lazy = false,
+    },
 
     -- LSP
-    use {
+    {
         'williamboman/mason.nvim',
-        requires = {
+        dependencies = {
             'williamboman/mason-lspconfig.nvim',
             'neovim/nvim-lspconfig',
         },
-    }
+    },
 
     -- Autocompletion framework
-    use {
+    {
         'hrsh7th/nvim-cmp',
-        requires = {
+        dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
@@ -25,85 +43,87 @@ return require('packer').startup(function(use)
             "hrsh7th/cmp-vsnip",
             "hrsh7th/vim-vsnip",
         }
-    }
+    },
 
     -- Syntax Highlighting
-    use 'nvim-treesitter/nvim-treesitter'
+    'nvim-treesitter/nvim-treesitter',
 
     -- Debug Adapter
-    use 'puremourning/vimspector'
+    'puremourning/vimspector',
 
     -- Finding files
-    use {
+    {
         'nvim-telescope/telescope.nvim',
-        requires = {
+        dependencies = {
             'nvim-lua/plenary.nvim',
             'BurntSushi/ripgrep',
             'junegunn/fzf',
         }
-    }
-    use {
+    },
+    {
         'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'make'
-    }
+        build = 'make'
+    },
 
     -- Diagnostics
-    use {
+    {
         "folke/trouble.nvim",
-        requires = {
+        dependencies = {
             "kyazdani42/nvim-web-devicons",
         },
-    }
+    },
 
     -- Seamless navigation between vim and tmux
-    use 'christoomey/vim-tmux-navigator'
+    'christoomey/vim-tmux-navigator',
 
     -- Helm files
-    use 'towolf/vim-helm'
+    'towolf/vim-helm',
 
     -- Code block commenting
-    use 'tpope/vim-commentary'
+    'tpope/vim-commentary',
 
     -- Git Blame
-    use 'f-person/git-blame.nvim'
+    'f-person/git-blame.nvim',
 
     -- Undotree
-    use 'mbbill/undotree'
+    'mbbill/undotree',
 
     -- Tabs
-    use 'romgrk/barbar.nvim'
+    'romgrk/barbar.nvim',
 
     -- Colorful window separation
-    use 'nvim-zh/colorful-winsep.nvim'
+    'nvim-zh/colorful-winsep.nvim',
 
     -- lualine
-    use 'nvim-lualine/lualine.nvim'
+    'nvim-lualine/lualine.nvim',
 
     -- File Tree
-    use {
+    {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
-        requires = {
+        dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
         }
-    }
+    },
 
     -- NeoGit
-    use {
+    {
         'NeogitOrg/neogit',
-        requires = {
+        dependencies = {
             'nvim-lua/plenary.nvim',
         }
-    }
+    },
 
     -- Formatter
-    use 'elentok/format-on-save.nvim'
+    'elentok/format-on-save.nvim',
 
     -- Which Key
-    use 'folke/which-key.nvim'
+    'folke/which-key.nvim',
 
     -- Beacon
-    use 'danilamihailov/beacon.nvim'
-end)
+    'danilamihailov/beacon.nvim',
+
+}
+
+require("lazy").setup(plugins, {})
