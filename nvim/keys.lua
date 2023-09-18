@@ -156,3 +156,7 @@ map('n', "<S-F10>", "<Cmd>5 winc +<CR>") -- increase width
 map('n', "<S-F11>", "<Cmd>5 winc -<CR>") -- decrease height
 map('n', "<S-F12>", "<Cmd>5 winc ><CR>") -- increase width
 map('n', "<S-F8>", "<Cmd>winc =<CR>")    -- reset all
+
+-- Duck
+map('n', "<leader>dd", "<Cmd>lua require(\"duck\").hatch()<CR>")
+map('n', "<leader>dk", "<Cmd>lua require(\"duck\").cook()<CR>")

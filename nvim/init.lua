@@ -43,7 +43,7 @@ require("neo-tree").setup({
                 ".github",
                 ".test.yaml",
                 ".production.yaml",
-                "terraform.tfvars"
+                "terraform.tfvars",
             }
         }
     }

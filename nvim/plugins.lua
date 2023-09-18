@@ -13,9 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 
 local plugins = {
-    -- -- Packer
-    -- 'wbthomason/packer.nvim',
-
     -- catppuccin theme--
     {
         "catppuccin/nvim",
@@ -124,6 +121,8 @@ local plugins = {
     -- Beacon
     'danilamihailov/beacon.nvim',
 
+    -- Duck
+    'tamton-aquib/duck.nvim',
 }
 
 require("lazy").setup(plugins, {})
