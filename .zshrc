@@ -18,6 +18,9 @@ cheat () {
   curl "cheat.sh/$1"
 }
 
+# Fix backwards search
+bindkey '^R' history-incremental-search-backward
+
 # Install: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
