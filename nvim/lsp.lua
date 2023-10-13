@@ -80,7 +80,7 @@ lspconfig.marksman.setup({})
 lspconfig.bashls.setup({})
 
 -- Yaml
-lspconfig.yamlls.setup({})
+-- lspconfig.yamlls.setup({})
 
 -- Vim
 lspconfig.vimls.setup({})
@@ -99,6 +99,9 @@ lspconfig.sqlls.setup({})
 
 -- JSON
 lspconfig.jsonls.setup({})
+
+-- Helm
+lspconfig.helm_ls.setup({})
 
 -- Autocompletion
 cmp.setup({
