@@ -85,9 +85,6 @@ local plugins = {
     -- Undotree
     'mbbill/undotree',
 
-    -- Tabs
-    'romgrk/barbar.nvim',
-
     -- Colorful window separation
     'nvim-zh/colorful-winsep.nvim',
 
