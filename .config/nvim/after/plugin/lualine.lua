@@ -1,0 +1,2 @@
+-- Lualine
+require('lualine').setup()

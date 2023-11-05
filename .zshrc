@@ -1,5 +1,8 @@
 export PATH=/opt/homebrew/bin:$PATH
 
+# Tracking dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
 # Use modern completion system
 autoload -U +X bashcompinit && bashcompinit
 
