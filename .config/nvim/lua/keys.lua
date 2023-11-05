@@ -87,13 +87,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 })
 
--- QuickFix tab
-map('n', "<leader>qfc", "<cmd>cclose<cr>")
-map('n', "<leader>qfo", "<cmd>copen<cr>")
-map('n', "<C-k>", "<cmd>cnext<cr>zz")
-map('n', "<C-j>", "<cmd>cprev<cr>zz")
-map('n', "<leader>k", "<cmd>lnext<cr>zz")
-map('n', "<leader>j", "<cmd>lprev<cr>zz")
+-- -- QuickFix tab
+-- map('n', "<leader>qfc", "<cmd>cclose<cr>")
+-- map('n', "<leader>qfo", "<cmd>copen<cr>")
+-- map('n', "<C-k>", "<cmd>cnext<cr>zz")
+-- map('n', "<C-j>", "<cmd>cprev<cr>zz")
+-- map('n', "<leader>k", "<cmd>lnext<cr>zz")
+-- map('n', "<leader>j", "<cmd>lprev<cr>zz")
 
 -- Undotree Toggle
 map('n', "<leader>u", ":UndotreeToggle<cr>")
