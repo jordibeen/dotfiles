@@ -6,6 +6,11 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Use modern completion system
 autoload -U +X bashcompinit && bashcompinit
 
+# K8s autocompletion
+autoload -Uz compinit
+compinit
+source <(kubectl completion zsh)
+
 # Global environment variables
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
