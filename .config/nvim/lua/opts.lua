@@ -41,9 +41,9 @@ vim.opt.updatetime = 50
 -- Color column
 -- vim.opt.colorcolumn = "80"
 
--- Show spaces
-vim.opt.list = true
-vim.opt.lcs = "space:·"
+-- -- Show spaces
+-- vim.opt.list = true
+-- vim.opt.lcs = "space:·"
 
 -- Autocompletion
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -54,3 +54,6 @@ vim.g.gitblame_date_format = '%r'
 -- Which Key
 vim.o.timeout = true
 vim.o.timeoutlen = 300
+
+-- Hide '~' end of buffer indication
+vim.opt.fillchars = { eob = ' ' }

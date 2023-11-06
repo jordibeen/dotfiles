@@ -174,3 +174,24 @@ format_on_save.setup({
         yaml = formatters.lsp,
     }
 })
+
+-- Treesitter (syntax highlighting)
+require('nvim-treesitter.configs').setup {
+    ensure_installed = {
+        "lua",
+        "rust",
+        "toml",
+        "yaml",
+        "python",
+        "typescript",
+        "javascript",
+        "terraform",
+        "dockerfile",
+        "sql",
+    },
+    auto_install = true,
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+}
