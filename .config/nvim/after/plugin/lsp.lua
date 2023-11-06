@@ -41,7 +41,29 @@ lspconfig.lua_ls.setup({
 })
 
 -- Rust
-lspconfig.rust_analyzer.setup({})
+lspconfig.rust_analyzer.setup({
+    on_attach = function(client)
+        require('completion').on_attach(client)
+    end,
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
 
 -- Terraform
 lspconfig.terraformls.setup({})
@@ -116,16 +138,18 @@ cmp.setup({
     },
     sources = {
         { name = "nvim_lsp" },
-        { name = "vsnip" },
+        { name = 'nvim_lsp_signature_help' },
         { name = "buffer" },
         { name = "path" },
+        { name = "vsnip" },
+        { name = "calc" },
     },
     mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
@@ -195,3 +219,16 @@ require('nvim-treesitter.configs').setup {
         additional_vim_regex_highlighting = false,
     },
 }
+
+-- Rust
+local rt = require("rust-tools")
+rt.setup({
+    server = {
+        on_attach = function(_, bufnr)
+            -- Hover actions
+            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+            -- Code action groups
+            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+        end,
+    },
+})

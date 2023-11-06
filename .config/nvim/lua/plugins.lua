@@ -120,6 +120,9 @@ local plugins = {
 
     -- Duck
     'tamton-aquib/duck.nvim',
+
+    -- Rust
+    'simrat39/rust-tools.nvim'
 }
 
 require("lazy").setup(plugins, {})
