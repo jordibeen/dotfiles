@@ -16,6 +16,7 @@ require("neo-tree").setup({
                 ".test.yaml",
                 ".production.yaml",
                 "terraform.tfvars",
+                ".cargo",
             }
         }
     },
