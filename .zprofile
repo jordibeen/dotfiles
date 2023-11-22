@@ -16,8 +16,8 @@ alias tsource='tmux source-file ~/.tmux.conf'
 
 # AWS profiles
 alias aws-default='export AWS_PROFILE=default'
-alias aws-do='export AWS_PROFILE=digitalocean'
+alias aws-check='export AWS_PROFILE=check'
+alias aws-do='export AWS_PROFILE=do'
 
 # K8s
 alias k='kubectl'
-
