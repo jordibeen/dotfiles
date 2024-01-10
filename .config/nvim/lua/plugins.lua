@@ -110,7 +110,7 @@ local plugins = {
     },
 
     -- Formatter
-    'elentok/format-on-save.nvim',
+    'nvimtools/none-ls.nvim',
 
     -- Which Key
     'folke/which-key.nvim',

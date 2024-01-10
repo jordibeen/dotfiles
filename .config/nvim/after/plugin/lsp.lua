@@ -23,9 +23,22 @@ require("mason-lspconfig").setup({
 
 local cmp = require("cmp")
 local lspconfig = require("lspconfig")
-local format_on_save = require("format-on-save")
-local formatters = require("format-on-save.formatters")
+local null_ls = require("null-ls")
 
+-- LSP: OnAttach autoformat
+vim.api.nvim_create_autocmd('LspAttach', {
+    desc = 'LSP auto formatting on save',
+
+    callback = function(ev)
+        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = ev.buf,
+            callback = function()
+                vim.lsp.buf.format({ async = false })
+            end,
+        })
+    end
+})
 
 -- Lua
 lspconfig.lua_ls.setup({
@@ -88,6 +101,9 @@ lspconfig.pylsp.setup({
                     enabled = false
                 },
                 flake8 = {
+                    enabled = false
+                },
+                pyflakes = {
                     enabled = false
                 }
             }
@@ -175,28 +191,24 @@ cmp.setup.cmdline(':', {
 })
 
 -- Formatting
-format_on_save.setup({
-    formatter_by_ft = {
-        html = formatters.lsp,
-        css = formatters.lsp,
-        javascript = formatters.lsp,
-        json = formatters.lsp,
-        lua = formatters.lsp,
-        markdown = formatters.prettierd,
-        python = {
-            formatters.black,
-            formatters.shell({
-                cmd = { "ruff", "--fix", "-e", "-n", "-q", "-" }
-            }),
-        },
-        rust = formatters.lsp,
-        sh = formatters.shfmt,
-        sql = formatters.shell({ cmd = { "sqlfluff", "format", "--dialect", "postgres", "-" } }),
-        terraform = formatters.lsp,
-        typescript = formatters.prettierd,
-        typescriptreact = formatters.prettierd,
-        yaml = formatters.lsp,
-    }
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+null_ls.setup({
+    sources = {
+        null_ls.builtins.code_actions.eslint,
+        null_ls.builtins.formatting.prettier,
+    },
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = bufnr })
+                end,
+            })
+        end
+    end,
 })
 
 -- Treesitter (syntax highlighting)

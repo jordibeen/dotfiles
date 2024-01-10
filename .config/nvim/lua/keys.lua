@@ -31,6 +31,7 @@ map('n', "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>")
 map('n', "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 map('n', "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
 map('n', "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>")
+map('n', "<leader>fs", "<cmd>lua require('telescope.builtin').git_status()<cr>")
 
 -- Git Blame
 map('n', "<Leader>bt", "<cmd>GitBlameToggle<cr>")
@@ -39,7 +40,7 @@ map('n', "<Leader>bo", "<cmd>GitBlameOpenCommitURL<cr>")
 -- Trouble
 map('n', "<Leader>xx", "<cmd>TroubleToggle<cr>")
 
--- LSP: Definition functions
+-- LSP: OnAttach keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function()
