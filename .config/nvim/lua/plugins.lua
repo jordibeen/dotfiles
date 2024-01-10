@@ -22,16 +22,16 @@ local plugins = {
 
     -- LSP
     {
-        'williamboman/mason.nvim',
+        "williamboman/mason.nvim",
         dependencies = {
-            'williamboman/mason-lspconfig.nvim',
-            'neovim/nvim-lspconfig',
+            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
         },
     },
 
     -- Autocompletion framework
     {
-        'hrsh7th/nvim-cmp',
+        "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
@@ -43,23 +43,23 @@ local plugins = {
     },
 
     -- Syntax Highlighting
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
 
     -- Debug Adapter
-    'puremourning/vimspector',
+    "puremourning/vimspector",
 
     -- Finding files
     {
-        'nvim-telescope/telescope.nvim',
+        "nvim-telescope/telescope.nvim",
         dependencies = {
-            'nvim-lua/plenary.nvim',
-            'BurntSushi/ripgrep',
-            'junegunn/fzf',
+            "nvim-lua/plenary.nvim",
+            "BurntSushi/ripgrep",
+            "junegunn/fzf",
         }
     },
     {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make'
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make"
     },
 
     -- Diagnostics
@@ -71,25 +71,25 @@ local plugins = {
     },
 
     -- Seamless navigation between vim and tmux
-    'christoomey/vim-tmux-navigator',
+    "christoomey/vim-tmux-navigator",
 
     -- Helm files
-    'towolf/vim-helm',
+    "towolf/vim-helm",
 
     -- Code block commenting
-    'tpope/vim-commentary',
+    "tpope/vim-commentary",
 
     -- Git Blame
-    'f-person/git-blame.nvim',
+    "f-person/git-blame.nvim",
 
     -- Undotree
-    'mbbill/undotree',
+    "mbbill/undotree",
 
     -- Colorful window separation
-    'nvim-zh/colorful-winsep.nvim',
+    "nvim-zh/colorful-winsep.nvim",
 
     -- lualine
-    'nvim-lualine/lualine.nvim',
+    "nvim-lualine/lualine.nvim",
 
     -- File Tree
     {
@@ -103,26 +103,26 @@ local plugins = {
 
     -- NeoGit
     {
-        'NeogitOrg/neogit',
+        "NeogitOrg/neogit",
         dependencies = {
-            'nvim-lua/plenary.nvim',
+            "nvim-lua/plenary.nvim",
         }
     },
 
     -- Formatter
-    'nvimtools/none-ls.nvim',
+    "nvimtools/none-ls.nvim",
 
     -- Which Key
-    'folke/which-key.nvim',
+    "folke/which-key.nvim",
 
     -- Beacon
-    'danilamihailov/beacon.nvim',
+    "danilamihailov/beacon.nvim",
 
     -- Duck
-    'tamton-aquib/duck.nvim',
+    "tamton-aquib/duck.nvim",
 
     -- Rust
-    'simrat39/rust-tools.nvim'
+    "simrat39/rust-tools.nvim"
 }
 
 require("lazy").setup(plugins, {})

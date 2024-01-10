@@ -26,8 +26,8 @@ local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 
 -- LSP: OnAttach autoformat
-vim.api.nvim_create_autocmd('LspAttach', {
-    desc = 'LSP auto formatting on save',
+vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "LSP auto formatting on save",
 
     callback = function(ev)
         vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
@@ -56,7 +56,7 @@ lspconfig.lua_ls.setup({
 -- Rust
 lspconfig.rust_analyzer.setup({
     on_attach = function(client)
-        require('completion').on_attach(client)
+        require("completion").on_attach(client)
     end,
     settings = {
         ["rust-analyzer"] = {
@@ -154,39 +154,39 @@ cmp.setup({
     },
     sources = {
         { name = "nvim_lsp" },
-        { name = 'nvim_lsp_signature_help' },
+        { name = "nvim_lsp_signature_help" },
         { name = "buffer" },
         { name = "path" },
         { name = "vsnip" },
         { name = "calc" },
     },
     mapping = {
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+        ["<Tab>"] = cmp.mapping.select_next_item(),
+        ["<C-S-f>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
     }
 })
 
 -- Autocompletion: Commandline
-cmp.setup.cmdline({ '/', '?' }, {
+cmp.setup.cmdline({ "/", "?" }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-        { name = 'buffer' }
+        { name = "buffer" }
     }
 })
 
 -- Autocompletion: Search
-cmp.setup.cmdline(':', {
+cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-        { name = 'path' },
-        { name = 'cmdline' }
+        { name = "path" },
+        { name = "cmdline" }
     }
 })
 
@@ -212,7 +212,7 @@ null_ls.setup({
 })
 
 -- Treesitter (syntax highlighting)
-require('nvim-treesitter.configs').setup {
+require("nvim-treesitter.configs").setup {
     ensure_installed = {
         "lua",
         "rust",

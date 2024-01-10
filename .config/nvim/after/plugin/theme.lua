@@ -18,17 +18,17 @@ require("catppuccin").setup({
 vim.cmd.colorscheme "catppuccin"
 
 -- Colorful window separation
-require('colorful-winsep').setup()
+require("colorful-winsep").setup()
 
 -- Lualine
 require("lualine").setup({
     sections = {
-        lualine_a = { 'mode' },
+        lualine_a = { "mode" },
         lualine_b = {},
         lualine_c = { { "filename", path = 1 } },
         lualine_x = {},
         lualine_y = {},
-        lualine_z = { 'location' }
+        lualine_z = { "location" }
     },
     options = {
         icons_enabled = false,
@@ -36,6 +36,6 @@ require("lualine").setup({
         component_separators = "|",
         section_separators = "",
     },
-    extensions = { 'neo-tree' }
+    extensions = { "neo-tree" }
 
 })

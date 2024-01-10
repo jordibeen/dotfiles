@@ -1,3 +1,3 @@
-require('plugins')
-require('opts')
-require('keys')
+require("plugins")
+require("opts")
+require("keys")

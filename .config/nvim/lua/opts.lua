@@ -21,7 +21,7 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
 
--- Long running undo's
+-- Long running undo"s
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
@@ -46,14 +46,14 @@ vim.opt.updatetime = 50
 -- vim.opt.lcs = "space:·"
 
 -- Autocompletion
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- GitBlame
-vim.g.gitblame_date_format = '%r'
+vim.g.gitblame_date_format = "%r"
 
 -- Which Key
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
--- Hide '~' end of buffer indication
-vim.opt.fillchars = { eob = ' ' }
+-- Hide "~" end of buffer indication
+vim.opt.fillchars = { eob = " " }
