@@ -88,8 +88,13 @@ lspconfig.ruff_lsp.setup({
             args = {
                 "--extend-select", "E",
                 "--extend-select", "F",
-                "--extend-select", "W"
+                "--extend-select", "W",
             },
+            lint = {
+                args = {
+                    "--fix", "true"
+                }
+            }
         }
     }
 })
@@ -105,6 +110,12 @@ lspconfig.pylsp.setup({
                 },
                 pyflakes = {
                     enabled = false
+                },
+                mccabe = {
+                    enabled = false
+                },
+                ruff = {
+                    enabled = false -- enabled with Mason's ruff_lsp
                 }
             }
         }
@@ -196,6 +207,7 @@ null_ls.setup({
     sources = {
         null_ls.builtins.code_actions.eslint,
         null_ls.builtins.formatting.prettier,
+        -- null_ls.builtins.formatting.black,
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
