@@ -3,6 +3,9 @@ export PATH=/opt/homebrew/bin:$PATH
 # Tracking dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# python3 as default
+alias python=/opt/homebrew/bin/python3
+
 # Use modern completion system
 autoload -U +X bashcompinit && bashcompinit
 
@@ -19,6 +22,7 @@ export LC_TYPE=en_US.UTF-8
 export EDITOR="nvim"
 export THEME="catppuccin"
 
+# Hostname viz
 PS1="🔥 %n %~ $ "
 
 # Friendly consise man pages with examples from "cheat" and tldr
