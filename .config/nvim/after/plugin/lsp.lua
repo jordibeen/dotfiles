@@ -89,16 +89,11 @@ lspconfig.ruff_lsp.setup({
                 "--extend-select", "E",
                 "--extend-select", "F",
                 "--extend-select", "W",
-            },
-            lint = {
-                args = {
-                    "--fix", "true"
-                }
             }
         }
     }
 })
-lspconfig.pylsp.setup({
+lspconfig.pylsp.setup({ -- used for Go To Definition capabilities and black formatting
     settings = {
         pylsp = {
             plugins = {
@@ -115,7 +110,13 @@ lspconfig.pylsp.setup({
                     enabled = false
                 },
                 ruff = {
-                    enabled = false -- enabled with Mason's ruff_lsp
+                    enabled = false -- enabled with Mason's ruff_lsp instead
+                },
+                black = {
+                    enabled = true
+                },
+                isort = {
+                    enabled = true
                 }
             }
         }
