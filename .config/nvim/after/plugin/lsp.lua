@@ -23,7 +23,6 @@ require("mason-lspconfig").setup({
 
 local cmp = require("cmp")
 local lspconfig = require("lspconfig")
-local null_ls = require("null-ls")
 
 -- LSP: OnAttach autoformat
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -89,11 +88,12 @@ lspconfig.ruff_lsp.setup({
                 "--extend-select", "E",
                 "--extend-select", "F",
                 "--extend-select", "W",
+                "--extend-select", "I",
             }
         }
     }
 })
-lspconfig.pylsp.setup({ -- used for Go To Definition capabilities and black formatting
+lspconfig.pylsp.setup({ -- used only for Go To Definition capabilities and black formatting
     settings = {
         pylsp = {
             plugins = {
@@ -115,13 +115,10 @@ lspconfig.pylsp.setup({ -- used for Go To Definition capabilities and black form
                 black = {
                     enabled = true
                 },
-                isort = {
-                    enabled = true
-                }
             }
         }
     }
-}) -- Just for go to definition capabilities
+})
 
 -- Markdown
 lspconfig.marksman.setup({})
@@ -200,28 +197,6 @@ cmp.setup.cmdline(":", {
         { name = "path" },
         { name = "cmdline" }
     }
-})
-
--- Formatting
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-null_ls.setup({
-    sources = {
-        null_ls.builtins.code_actions.eslint,
-        null_ls.builtins.formatting.prettier,
-        -- null_ls.builtins.formatting.black,
-    },
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({ bufnr = bufnr })
-                end,
-            })
-        end
-    end,
 })
 
 -- Treesitter (syntax highlighting)
