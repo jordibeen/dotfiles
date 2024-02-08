@@ -11,7 +11,6 @@ require("mason-lspconfig").setup({
         "yamlls",
         "vimls",
         "tsserver",
-        "eslint",
         "tailwindcss",
         "sqlls",
         "helm_ls",
@@ -127,7 +126,7 @@ lspconfig.marksman.setup({})
 lspconfig.bashls.setup({})
 
 -- Yaml
--- lspconfig.yamlls.setup({})
+lspconfig.yamlls.setup({})
 
 -- Vim
 lspconfig.vimls.setup({})
@@ -135,10 +134,7 @@ lspconfig.vimls.setup({})
 -- TypeScript
 lspconfig.tsserver.setup({})
 
--- ESLint
-lspconfig.eslint.setup({})
-
--- ESLint
+-- Tailwind CSS
 lspconfig.tailwindcss.setup({})
 
 -- SQL
@@ -220,15 +216,23 @@ require("nvim-treesitter.configs").setup {
     },
 }
 
--- Rust
-local rt = require("rust-tools")
-rt.setup({
-    server = {
-        on_attach = function(_, bufnr)
-            -- Hover actions
-            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-            -- Code action groups
-            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-        end,
+-- Formatter
+require("conform").setup({
+    formatters_by_ft = {
+        javascript = { "biome" },
+        typescript = { "biome" },
+        typescriptreact = { "biome" },
+        sql = { "sqlfluff" },
     },
+    format_on_save = {
+        lsp_fallback = true,
+        timeout_ms = 500,
+    },
+    formatters = {
+        sqlfluff = {
+            command = "sqlfluff",
+            args = { "format", "--dialect", "postgres", "-" },
+            stdin = true,
+        }
+    }
 })

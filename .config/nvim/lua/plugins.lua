@@ -109,9 +109,6 @@ local plugins = {
         }
     },
 
-    -- Formatter
-    "nvimtools/none-ls.nvim",
-
     -- Which Key
     "folke/which-key.nvim",
 
@@ -121,8 +118,8 @@ local plugins = {
     -- Duck
     "tamton-aquib/duck.nvim",
 
-    -- Rust
-    "simrat39/rust-tools.nvim"
+    -- Formatting
+    'stevearc/conform.nvim',
 }
 
 require("lazy").setup(plugins, {})
