@@ -119,7 +119,7 @@ local plugins = {
     "tamton-aquib/duck.nvim",
 
     -- Formatting
-    'stevearc/conform.nvim',
+    "stevearc/conform.nvim",
 }
 
 require("lazy").setup(plugins, {})

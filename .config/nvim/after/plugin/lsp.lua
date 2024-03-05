@@ -112,7 +112,7 @@ lspconfig.pylsp.setup({ -- used only for Go To Definition capabilities and black
                     enabled = false -- enabled with Mason's ruff_lsp instead
                 },
                 black = {
-                    enabled = true
+                    enabled = false
                 },
             }
         }
@@ -223,6 +223,7 @@ require("conform").setup({
         typescript = { "biome" },
         typescriptreact = { "biome" },
         sql = { "sqlfluff" },
+        python = { "black" },
     },
     format_on_save = {
         lsp_fallback = true,
