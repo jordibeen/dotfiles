@@ -14,7 +14,7 @@ require("mason-lspconfig").setup({
         "tailwindcss",
         "sqlls",
         "helm_ls",
-        "pylsp",
+        "jedi_language_server",
         "jsonls",
     },
 })
@@ -92,32 +92,7 @@ lspconfig.ruff_lsp.setup({
         }
     }
 })
-lspconfig.pylsp.setup({ -- used only for Go To Definition capabilities and black formatting
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = {
-                    enabled = false
-                },
-                flake8 = {
-                    enabled = false
-                },
-                pyflakes = {
-                    enabled = false
-                },
-                mccabe = {
-                    enabled = false
-                },
-                ruff = {
-                    enabled = false -- enabled with Mason's ruff_lsp instead
-                },
-                black = {
-                    enabled = false
-                },
-            }
-        }
-    }
-})
+lspconfig.jedi_language_server.setup({}) -- Go To Definition capabilities
 
 -- Markdown
 lspconfig.marksman.setup({})
