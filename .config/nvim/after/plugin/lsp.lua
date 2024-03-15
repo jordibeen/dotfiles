@@ -14,8 +14,8 @@ require("mason-lspconfig").setup({
         "tailwindcss",
         "sqlls",
         "helm_ls",
-        "jedi_language_server",
         "jsonls",
+        "pyright",
     },
 })
 
@@ -88,11 +88,23 @@ lspconfig.ruff_lsp.setup({
                 "--extend-select", "F",
                 "--extend-select", "W",
                 "--extend-select", "I",
+                "--extend-select", "F401" -- unused imports
             }
         }
     }
 })
-lspconfig.jedi_language_server.setup({}) -- Go To Definition capabilities
+lspconfig.pyright.setup { -- Go To Definition capabilities
+    settings = {
+        pyright = {
+            disableOrganizeImports = true,
+        },
+        python = {
+            analysis = {
+                ignore = { '*' },
+            },
+        },
+    },
+}
 
 -- Markdown
 lspconfig.marksman.setup({})
@@ -198,7 +210,7 @@ require("conform").setup({
         typescript = { "biome" },
         typescriptreact = { "biome" },
         sql = { "sqlfluff" },
-        python = { "black" },
+        python = { "isort" },
     },
     format_on_save = {
         lsp_fallback = true,
