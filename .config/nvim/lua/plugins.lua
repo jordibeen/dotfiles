@@ -120,6 +120,11 @@ local plugins = {
 
     -- Formatting
     "stevearc/conform.nvim",
+
+    {
+        'mrcjkb/rustaceanvim',
+        ft = { 'rust' },
+    }
 }
 
 require("lazy").setup(plugins, {})
