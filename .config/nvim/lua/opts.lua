@@ -15,7 +15,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Disable linewrap
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- No vim backups
 vim.opt.swapfile = false

@@ -55,6 +55,7 @@ local plugins = {
             "nvim-lua/plenary.nvim",
             "BurntSushi/ripgrep",
             "junegunn/fzf",
+            "nvim-telescope/telescope-ui-select.nvim",
         }
     },
     {
@@ -124,7 +125,10 @@ local plugins = {
     {
         'mrcjkb/rustaceanvim',
         ft = { 'rust' },
-    }
+    },
+
+    -- LLM
+    "David-Kunz/gen.nvim",
 }
 
 require("lazy").setup(plugins, {})
