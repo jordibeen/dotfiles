@@ -21,3 +21,13 @@ alias aws-do='export AWS_PROFILE=do'
 
 # K8s
 alias k='kubectl'
+
+# Darkmode switch
+darkmode () {
+    export COLORSCHEME=dark
+    tmux set -g @catppuccin_flavour 'frappe'
+}
+lightmode () {
+    export COLORSCHEME=light
+    tmux set -g @catppuccin_flavour 'latte'
+}
