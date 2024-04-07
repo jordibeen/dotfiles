@@ -145,3 +145,7 @@ map("n", "<S-F8>", "<Cmd>winc =<CR>")    -- reset all
 -- Duck
 map("n", "<leader>dd", '<Cmd>lua require("duck").hatch()<CR>')
 map("n", "<leader>dk", '<Cmd>lua require("duck").cook()<CR>')
+
+-- Notes
+map("n", "<leader>mdp", '<Cmd>MarkdownPreview<CR>')
+map("n", "<leader>mds", '<Cmd>MarkdownPreviewStop<CR>')
