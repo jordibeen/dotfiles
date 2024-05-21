@@ -77,9 +77,6 @@ local plugins = {
     -- Helm files
     "towolf/vim-helm",
 
-    -- Code block commenting
-    "tpope/vim-commentary",
-
     -- Git Blame
     "f-person/git-blame.nvim",
 
