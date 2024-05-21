@@ -110,7 +110,24 @@ lspconfig.marksman.setup({})
 lspconfig.bashls.setup({})
 
 -- Yaml
-lspconfig.yamlls.setup({})
+lspconfig.yamlls.setup({
+    on_attach = function(client, bufnr)
+        local workspace_path = vim.api.nvim_buf_get_name(bufnr)
+        if workspace_path then
+            local file_path = vim.fn.expand('%:' .. workspace_path .. ':.')
+            if string.match(file_path, "helm") then
+                vim.diagnostic.disable(bufnr)
+            end
+        end
+    end,
+    settings = {
+        yaml = {
+            format = {
+                enable = true
+            }
+        }
+    }
+})
 
 -- Vim
 lspconfig.vimls.setup({})
