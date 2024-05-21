@@ -119,11 +119,6 @@ local plugins = {
     -- Formatting
     "stevearc/conform.nvim",
 
-    {
-        'mrcjkb/rustaceanvim',
-        ft = { 'rust' },
-    },
-
     -- LLM
     "David-Kunz/gen.nvim",
 
