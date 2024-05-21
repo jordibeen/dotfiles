@@ -10,21 +10,12 @@ end
 map("n", "<leader>%", ":vsp <cr>")
 map("n", "<leader>\"", ":sp <cr>")
 
--- Previous buffer position
-map("n", "<leader>\"\"", ":b# <cr>")
-
 -- Copy to clipboard
 map("v", "<C-c>", ':" < ">w !pbcopy<cr>')
 map("n", "<C-v>", ":r !pbpaste<cr>")
 
 -- Yank file path to clipboard
 map("n", "<leader>cfp", '<Cmd>let @+ = expand(" % ")<CR>')
-
--- Stop search highlight
-map("n", "<leader>-", ":noh <cr>")
-
--- Reload nvim config
-map("n", "<leader>sv", ":source $MYVIMRC<cr>")
 
 -- Telescope
 map("n", "<leader>ff", '<cmd>lua require("telescope.builtin").find_files()<cr>')
