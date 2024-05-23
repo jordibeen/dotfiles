@@ -5,6 +5,10 @@ vim.g.mapleader = " "
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Cursor line number
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
+
 -- Four space indents
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -57,3 +61,6 @@ vim.o.timeoutlen = 300
 
 -- Hide "~" end of buffer indication
 vim.opt.fillchars = { eob = " " }
+
+-- Substitution panel
+vim.opt.inccommand = "split"

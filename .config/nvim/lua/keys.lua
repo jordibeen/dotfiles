@@ -10,21 +10,12 @@ end
 map("n", "<leader>%", ":vsp <cr>")
 map("n", "<leader>\"", ":sp <cr>")
 
--- Previous buffer position
-map("n", "<leader>\"\"", ":b# <cr>")
-
 -- Copy to clipboard
 map("v", "<C-c>", ':" < ">w !pbcopy<cr>')
 map("n", "<C-v>", ":r !pbpaste<cr>")
 
 -- Yank file path to clipboard
 map("n", "<leader>cfp", '<Cmd>let @+ = expand(" % ")<CR>')
-
--- Stop search highlight
-map("n", "<leader>-", ":noh <cr>")
-
--- Reload nvim config
-map("n", "<leader>sv", ":source $MYVIMRC<cr>")
 
 -- Telescope
 map("n", "<leader>ff", '<cmd>lua require("telescope.builtin").find_files()<cr>')
@@ -44,14 +35,13 @@ map("n", "<Leader>xx", "<cmd>TroubleToggle<cr>")
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "LSP actions",
     callback = function()
+        -- enable inlay hints (0.10)
+        vim.lsp.inlay_hint.enable()
+
         local bufmap = function(mode, lhs, rhs)
             local opts = { buffer = true }
             vim.keymap.set(mode, lhs, rhs, opts)
         end
-
-        -- Displays hover information about the symbol under the cursor
-        bufmap("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
-
         -- Jump to the definition
         bufmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 
@@ -76,15 +66,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         -- Selects a code action available at the current cursor position
         bufmap("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
         bufmap("x", "<F4>", "<cmd>lua vim.lsp.buf.range_code_action()<cr>")
-
-        -- Show diagnostics in a floating window
-        bufmap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>")
-
-        -- Move to the previous diagnostic
-        bufmap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
-
-        -- Move to the next diagnostic
-        bufmap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
     end
 })
 
