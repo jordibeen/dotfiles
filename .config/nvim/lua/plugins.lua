@@ -128,7 +128,10 @@ local plugins = {
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
-    }
+    },
+
+    -- Arrow
+    "otavioschwanck/arrow.nvim",
 }
 
 require("lazy").setup(plugins, {})
