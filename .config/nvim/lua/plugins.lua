@@ -138,6 +138,9 @@ local plugins = {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl"
     },
+
+    -- Code block commenting
+    "tpope/vim-commentary",
 }
 
 require("lazy").setup(plugins, {})
