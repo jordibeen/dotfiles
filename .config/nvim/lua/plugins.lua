@@ -132,6 +132,12 @@ local plugins = {
 
     -- Arrow
     "otavioschwanck/arrow.nvim",
+
+    -- Indent Blankline
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl"
+    },
 }
 
 require("lazy").setup(plugins, {})
