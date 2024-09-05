@@ -1,0 +1,6 @@
+android-platform-tools
+font-hack-nerd-font
+font-monofur-nerd-font
+font-fira-code-nerd-font
+font-inconsolata-nerd-font
+ngrok
