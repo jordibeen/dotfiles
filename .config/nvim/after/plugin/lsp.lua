@@ -10,7 +10,7 @@ require("mason-lspconfig").setup({
         "bashls",
         "yamlls",
         "vimls",
-        "tsserver",
+        "ts_ls",
         "tailwindcss",
         "sqlls",
         "helm_ls",
@@ -133,7 +133,7 @@ lspconfig.yamlls.setup({
 lspconfig.vimls.setup({})
 
 -- TypeScript
-lspconfig.tsserver.setup({})
+lspconfig.ts_ls.setup({})
 
 -- Tailwind CSS
 lspconfig.tailwindcss.setup({})

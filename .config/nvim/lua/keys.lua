@@ -117,11 +117,11 @@ map("n", "<Leader>go", "<cmd>Neogit<cr>")
 map("n", "q", "<Nop>")
 
 -- Resize panels
-map("n", "<S-F9>", "<Cmd>5 winc <<CR>")  -- decrease width
-map("n", "<S-F10>", "<Cmd>5 winc +<CR>") -- increase width
-map("n", "<S-F11>", "<Cmd>5 winc -<CR>") -- decrease height
-map("n", "<S-F12>", "<Cmd>5 winc ><CR>") -- increase width
-map("n", "<S-F8>", "<Cmd>winc =<CR>")    -- reset all
+map("n", "<S-F9>", "<Cmd>vertical resize -5<CR>")  -- decrease width
+map("n", "<S-F10>", "<Cmd>vertical resize +5<CR>") -- increase width
+map("n", "<S-F11>", "<Cmd>resize -5<CR>")          -- decrease height
+map("n", "<S-F12>", "<Cmd>resize +5<CR>")          -- increase width
+map("n", "<S-F8>", "<Cmd>winc =<CR>")              -- reset all
 
 -- Duck
 map("n", "<leader>dd", '<Cmd>lua require("duck").hatch()<CR>')
