@@ -69,14 +69,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
--- -- QuickFix tab
--- map("n", "<leader>qfc", "<cmd>cclose<cr>")
--- map("n", "<leader>qfo", "<cmd>copen<cr>")
--- map("n", "<C-k>", "<cmd>cnext<cr>zz")
--- map("n", "<C-j>", "<cmd>cprev<cr>zz")
--- map("n", "<leader>k", "<cmd>lnext<cr>zz")
--- map("n", "<leader>j", "<cmd>lprev<cr>zz")
-
 -- Undotree Toggle
 map("n", "<leader>u", ":UndotreeToggle<cr>")
 
@@ -117,11 +109,10 @@ map("n", "<Leader>go", "<cmd>Neogit<cr>")
 map("n", "q", "<Nop>")
 
 -- Resize panels
-map("n", "<S-F9>", "<Cmd>vertical resize -5<CR>")  -- decrease width
-map("n", "<S-F10>", "<Cmd>vertical resize +5<CR>") -- increase width
-map("n", "<S-F11>", "<Cmd>resize -5<CR>")          -- decrease height
-map("n", "<S-F12>", "<Cmd>resize +5<CR>")          -- increase width
-map("n", "<S-F8>", "<Cmd>winc =<CR>")              -- reset all
+map("n", "<F9>", "<Cmd>vertical resize -5<CR>")  -- decrease width
+map("n", "<F10>", "<Cmd>resize -5<CR>")          -- decrease height
+map("n", "<F11>", "<Cmd>resize +5<CR>")          -- increase width
+map("n", "<F12>", "<Cmd>vertical resize +5<CR>") -- increase width
 
 -- Duck
 map("n", "<leader>dd", '<Cmd>lua require("duck").hatch()<CR>')
