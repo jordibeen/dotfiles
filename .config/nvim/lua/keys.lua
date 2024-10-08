@@ -121,3 +121,6 @@ map("n", "<leader>dk", '<Cmd>lua require("duck").cook()<CR>')
 -- Notes
 map("n", "<leader>mdp", '<Cmd>MarkdownPreview<CR>')
 map("n", "<leader>mds", '<Cmd>MarkdownPreviewStop<CR>')
+
+-- LLM
+map("n", "<leader>qq", '<Cmd>Gen Chat<CR>')
