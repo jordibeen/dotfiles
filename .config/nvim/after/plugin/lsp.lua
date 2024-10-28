@@ -16,6 +16,7 @@ require("mason-lspconfig").setup({
         "helm_ls",
         "jsonls",
         "pyright",
+        "biome",
     },
 })
 
@@ -133,7 +134,15 @@ lspconfig.yamlls.setup({
 lspconfig.vimls.setup({})
 
 -- TypeScript
-lspconfig.ts_ls.setup({})
+lspconfig.ts_ls.setup({
+    server_capabilities = {
+        documentFormattingProvider = false, -- disable ts_ls formatter (using biome instead)
+    },
+})
+lspconfig.biome.setup({
+    cmd = { "biome", "lsp-proxy" },
+    root_dir = lspconfig.util.root_pattern("package.json", "node_modules", "biome.json"),
+});
 
 -- Tailwind CSS
 lspconfig.tailwindcss.setup({})
@@ -220,9 +229,6 @@ require("nvim-treesitter.configs").setup {
 -- Formatter
 require("conform").setup({
     formatters_by_ft = {
-        javascript = { "biome" },
-        typescript = { "biome" },
-        typescriptreact = { "biome" },
         sql = { "sqlfluff" },
         python = { "isort" },
     },
