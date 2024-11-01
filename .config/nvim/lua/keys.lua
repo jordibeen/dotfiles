@@ -29,7 +29,7 @@ map("n", "<Leader>bt", "<cmd>GitBlameToggle<cr>")
 map("n", "<Leader>bo", "<cmd>GitBlameOpenCommitURL<cr>")
 
 -- Trouble
-map("n", "<Leader>xx", "<cmd>TroubleToggle<cr>")
+map("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle<cr>")
 
 -- LSP: OnAttach keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
