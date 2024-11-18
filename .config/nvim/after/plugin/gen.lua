@@ -1,5 +1,8 @@
+local default_model = "llama3.2"
+local coding_model = "qwen2.5-coder"
+
 require('gen').setup({
-    model = "llama3.2",
+    model = default_model,
     quit_map = "q",         -- set keymap for close the response window
     retry_map = "<c-r>",    -- set keymap to re-send the current prompt
     accept_map = "<c-cr>",  -- set keymap to replace the previous selection with the last result
@@ -24,3 +27,13 @@ require('gen').setup({
     -- list_models = '<omitted lua function>', -- Retrieves a list of model names
     debug = false -- Prints errors and the command which is run.
 })
+
+require('gen').prompts['Explain_Code'] = {
+    model = coding_model,
+    prompt = "Please explain the following code in detail:\n$text",
+}
+
+require('gen').prompts['Improve_Code'] = {
+    model = coding_model,
+    prompt = "Please make a suggestion on how to improve the following code:\n$text",
+}

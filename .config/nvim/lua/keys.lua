@@ -123,4 +123,7 @@ map("n", "<leader>mdp", '<Cmd>MarkdownPreview<CR>')
 map("n", "<leader>mds", '<Cmd>MarkdownPreviewStop<CR>')
 
 -- LLM
-map("n", "<leader>qq", '<Cmd>Gen Chat<CR>')
+map("n", "<leader>ql", '<Cmd>lua require("gen").select_model()<CR>')
+map("n", "<leader>qq", ':Gen Chat<CR>')
+map("v", "<leader>qe", ':Gen Explain_Code<CR>')
+map("v", "<leader>qi", ':Gen Improve_Code<CR>')
