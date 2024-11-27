@@ -134,12 +134,6 @@ local plugins = {
     -- Arrow
     "otavioschwanck/arrow.nvim",
 
-    -- Indent Blankline
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl"
-    },
-
     -- Code block commenting
     "tpope/vim-commentary",
 }
