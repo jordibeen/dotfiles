@@ -29,5 +29,10 @@ require("neo-tree").setup({
             end
         },
 
-    }
+    },
+    window = {
+        mappings = {
+            ["<bs>"] = "",
+        },
+    },
 })
