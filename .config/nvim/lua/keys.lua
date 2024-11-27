@@ -102,8 +102,9 @@ map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 map("n", "<Leader>n", "<cmd>Neotree reveal focus<cr>")
 map("n", "\\", "<cmd>Neotree reveal toggle<cr>")
 
--- NeoGit
-map("n", "<Leader>go", "<cmd>Neogit<cr>")
+-- Git
+map("n", "<Leader>gos", "<cmd>Git<cr>")
+map("n", "<Leader>gov", "<cmd>Gvdiffsplit<cr>")
 
 -- Disable q recording
 map("n", "q", "<Nop>")

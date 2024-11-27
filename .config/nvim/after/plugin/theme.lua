@@ -7,7 +7,6 @@ require("catppuccin").setup({
         barbar = true,
         cmp = true,
         neotree = true,
-        neogit = true,
         telescope = true,
         mason = true,
         lsp_trouble = true,

@@ -100,13 +100,8 @@ local plugins = {
         }
     },
 
-    -- NeoGit
-    {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        }
-    },
+    -- Fugitive
+    "tpope/vim-fugitive",
 
     -- Which Key
     "folke/which-key.nvim",
