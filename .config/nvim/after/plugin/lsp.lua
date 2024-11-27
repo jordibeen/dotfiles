@@ -5,7 +5,7 @@ require("mason-lspconfig").setup({
         "lua_ls",
         "rust_analyzer",
         "terraformls",
-        "ruff_lsp",
+        "ruff",
         "marksman",
         "bashls",
         "yamlls",
@@ -78,7 +78,7 @@ lspconfig.rust_analyzer.setup({
 lspconfig.terraformls.setup({})
 
 -- Python
-lspconfig.ruff_lsp.setup({
+lspconfig.ruff.setup({
     init_options = {
         settings = {
             args = {
