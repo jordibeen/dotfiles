@@ -19,6 +19,8 @@ dotfiles config --local status.showUntrackedFiles no
 - [tpm](https://github.com/tmux-plugins/tpm)
 - [brew](https://github.com/Homebrew/brew)
 - [mistral](https://ollama.com/library/mistral)
+- [llama3.2](https://ollama.com/library/llama3.2)
+- [qwen2.5-coder](https://ollama.com/library/qwen2.5-coder)
 
 ### zsh
 ```sh
