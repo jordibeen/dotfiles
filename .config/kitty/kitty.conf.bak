@@ -53,6 +53,6 @@ map f2 kitten themes lightmode
 ## }}}
 
 # BEGIN_KITTY_THEME
-# Darkmode
+# Lightmode
 include current-theme.conf
 # END_KITTY_THEME
