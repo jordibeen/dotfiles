@@ -3,6 +3,7 @@ doctl
 fd
 fzf
 helm
+helm-ls
 helm-docs
 jq
 k6
