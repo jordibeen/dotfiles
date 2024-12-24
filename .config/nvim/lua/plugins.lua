@@ -106,9 +106,6 @@ local plugins = {
     -- Which Key
     "folke/which-key.nvim",
 
-    -- Beacon
-    "danilamihailov/beacon.nvim",
-
     -- Duck
     "tamton-aquib/duck.nvim",
 
