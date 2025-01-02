@@ -1,4 +1,5 @@
 bat
+btop
 doctl
 fd
 fzf
@@ -13,6 +14,7 @@ neofetch
 neovim
 nmap
 node
+qrencode
 parquet-cli
 pgcli
 python@3.12
