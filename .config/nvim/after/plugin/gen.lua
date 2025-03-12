@@ -1,5 +1,6 @@
-local default_model = "llama3.2"
+local default_model = "deepseek-r1"
 local coding_model = "qwen2.5-coder"
+local alternative_model = "llama3.2"
 
 require('gen').setup({
     model = default_model,
