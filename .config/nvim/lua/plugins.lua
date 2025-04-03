@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 
 local plugins = {
-    -- catppuccin theme--
+    -- catppuccin theme
     {
         "catppuccin/nvim",
         name = "catppuccin",
