@@ -1,42 +1,26 @@
--- Setup LSPs
+-- LSP installer
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "lua_ls",
-        "rust_analyzer",
-        "terraformls",
-        "ruff",
-        "marksman",
         "bashls",
-        "yamlls",
-        "vimls",
-        "ts_ls",
-        "tailwindcss",
-        "sqlls",
+        "biome",
         "helm_ls",
         "jsonls",
+        "lua_ls",
+        "marksman",
         "pyright",
-        "biome",
+        "ruff",
+        "rust_analyzer",
+        "sqlls",
+        "tailwindcss",
+        "terraformls",
+        "ts_ls",
+        "vimls",
+        "yamlls",
     },
 })
 
-
-
--- LSP: OnAttach autoformat
-vim.api.nvim_create_autocmd("LspAttach", {
-    desc = "LSP auto formatting on save",
-
-    callback = function(ev)
-        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = ev.buf,
-            callback = function()
-                vim.lsp.buf.format({ async = false })
-            end,
-        })
-    end
-})
-
+-- Setup LSPs
 local lspconfig = require('lspconfig')
 
 -- Lua
@@ -51,6 +35,34 @@ lspconfig.lua_ls.setup({
         },
     },
 })
+
+-- Python
+lspconfig.ruff.setup({
+    init_options = {
+        settings = {
+            args = {
+                "--extend-select", "E",
+                "--extend-select", "F",
+                "--extend-select", "W",
+                "--extend-select", "I",
+                "--extend-select", "F401" -- unused imports
+            }
+        }
+    }
+})
+lspconfig.pyright.setup({ -- Go To Definition capabilities
+    settings = {
+        pyright = {
+            disableOrganizeImports = true,
+        },
+        python = {
+            analysis = {
+                ignore = { '*' },
+            },
+        },
+    },
+})
+
 
 -- Rust
 lspconfig.rust_analyzer.setup({
@@ -73,43 +85,17 @@ lspconfig.rust_analyzer.setup({
         }
     }
 })
-
--- Terraform
-lspconfig.terraformls.setup({})
-
--- Python
-lspconfig.ruff.setup({
-    init_options = {
-        settings = {
-            args = {
-                "--extend-select", "E",
-                "--extend-select", "F",
-                "--extend-select", "W",
-                "--extend-select", "I",
-                "--extend-select", "F401" -- unused imports
-            }
-        }
-    }
-})
-
-lspconfig.pyright.setup({ -- Go To Definition capabilities
-    settings = {
-        pyright = {
-            disableOrganizeImports = true,
-        },
-        python = {
-            analysis = {
-                ignore = { '*' },
-            },
-        },
+ 
+-- TypeScript
+lspconfig.ts_ls.setup({
+    server_capabilities = {
+        documentFormattingProvider = false, -- disable ts_ls formatter (using biome instead)
     },
 })
-
--- Markdown
-lspconfig.marksman.setup({})
-
--- Bash
-lspconfig.bashls.setup({})
+lspconfig.biome.setup({
+    cmd = { "biome", "lsp-proxy" },
+    root_dir = lspconfig.util.root_pattern("package.json", "node_modules", "biome.json")
+})
 
 -- Yaml
 lspconfig.yamlls.setup({
@@ -131,19 +117,17 @@ lspconfig.yamlls.setup({
     end,
 })
 
+-- Terraform
+lspconfig.terraformls.setup({})
+
+-- Markdown
+lspconfig.marksman.setup({})
+
+-- Bash
+lspconfig.bashls.setup({})
+
 -- Vim
 lspconfig.vimls.setup({})
-
--- TypeScript
-lspconfig.ts_ls.setup({
-    server_capabilities = {
-        documentFormattingProvider = false, -- disable ts_ls formatter (using biome instead)
-    },
-})
-lspconfig.biome.setup({
-    cmd = { "biome", "lsp-proxy" },
-    root_dir = lspconfig.util.root_pattern("package.json", "node_modules", "biome.json")
-})
 
 -- Tailwind CSS
 lspconfig.tailwindcss.setup({})
@@ -157,19 +141,34 @@ lspconfig.jsonls.setup({})
 -- Helm
 lspconfig.helm_ls.setup({})
 
+-- LSP: OnAttach autoformat
+vim.api.nvim_create_autocmd("LspAttach", {
+    desc = "LSP auto formatting on save",
+
+    callback = function(ev)
+        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = ev.buf,
+            callback = function()
+                vim.lsp.buf.format({ async = false })
+            end,
+        })
+    end
+})
+
 -- Treesitter (syntax highlighting)
 require("nvim-treesitter.configs").setup {
     ensure_installed = {
-        "lua",
-        "rust",
-        "toml",
-        "yaml",
-        "python",
-        "typescript",
-        "javascript",
-        "terraform",
         "dockerfile",
+        "javascript",
+        "lua",
+        "python",
+        "rust",
         "sql",
+        "terraform",
+        "toml",
+        "typescript",
+        "yaml",
     },
     auto_install = true,
     highlight = {
