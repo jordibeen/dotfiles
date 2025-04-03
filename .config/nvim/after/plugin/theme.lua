@@ -5,11 +5,11 @@ require("catppuccin").setup({
     term_colors = false,
     integrations = {
         barbar = true,
-        cmp = true,
         neotree = true,
         telescope = true,
         mason = true,
         lsp_trouble = true,
+        blink_cmp = true,
     },
 })
 

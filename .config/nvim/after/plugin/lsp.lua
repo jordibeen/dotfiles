@@ -21,7 +21,6 @@ require("mason-lspconfig").setup({
 })
 
 
-local cmp = require("cmp")
 local lspconfig = require("lspconfig")
 
 -- LSP: OnAttach autoformat
@@ -155,58 +154,6 @@ lspconfig.jsonls.setup({})
 
 -- Helm
 lspconfig.helm_ls.setup({})
-
--- Autocompletion
-cmp.setup({
-    snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-        end,
-    },
-    window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-    },
-    sources = {
-        { name = "nvim_lsp" },
-        { name = "nvim_lsp_signature_help" },
-        { name = "buffer" },
-        { name = "path" },
-        { name = "vsnip" },
-        { name = "calc" },
-    },
-    mapping = {
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-        ["<Tab>"] = cmp.mapping.select_next_item(),
-        ["<C-S-f>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    },
-    formatting = {
-        format = require("tailwindcss-colorizer-cmp").formatter
-    }
-})
-
--- Autocompletion: Commandline
-cmp.setup.cmdline({ "/", "?" }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-        { name = "buffer" }
-    }
-})
-
--- Autocompletion: Search
-cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-        { name = "path" },
-        { name = "cmdline" }
-    }
-})
 
 -- Treesitter (syntax highlighting)
 require("nvim-treesitter.configs").setup {
