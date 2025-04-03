@@ -4,7 +4,6 @@ require("catppuccin").setup({
     transparent_background = true,
     term_colors = false,
     integrations = {
-        barbar = true,
         neotree = true,
         telescope = true,
         mason = true,
