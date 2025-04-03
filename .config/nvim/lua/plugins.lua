@@ -21,6 +21,12 @@ local plugins = {
     },
 
     -- LSP
+    "neovim/nvim-lspconfig",
+    --
+    -- Syntax Highlighting
+    "nvim-treesitter/nvim-treesitter",
+
+    -- LSP package manager
     {
         "williamboman/mason.nvim",
         dependencies = {
@@ -28,23 +34,15 @@ local plugins = {
         },
     },
 
-    -- Autocompletion framework
+    -- Autocompletion
     {
         "saghen/blink.cmp",
         dependencies = { "rafamadriz/friendly-snippets" },
         version = "1.*",
     },
 
-    {
-        "neovim/nvim-lspconfig",
-        dependencies = { "saghen/blink.cmp" },
-    },
-
-    -- Syntax Highlighting
-    "nvim-treesitter/nvim-treesitter",
-
-    -- Debug Adapter
-    "puremourning/vimspector",
+    -- Custom Formatters
+    "stevearc/conform.nvim",
 
     -- Finding files
     {
@@ -105,9 +103,6 @@ local plugins = {
 
     -- Duck
     "tamton-aquib/duck.nvim",
-
-    -- Formatting
-    "stevearc/conform.nvim",
 
     -- LLM
     "David-Kunz/gen.nvim",
