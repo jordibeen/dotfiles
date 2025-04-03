@@ -6,7 +6,6 @@ require("neo-tree").setup({
             leave_dirs_open = false,
         },
     },
-
     filesystem = {
         filtered_items = {
             always_show = {
@@ -20,7 +19,6 @@ require("neo-tree").setup({
             }
         }
     },
-
     event_handlers = {
         {
             event = "file_opened",

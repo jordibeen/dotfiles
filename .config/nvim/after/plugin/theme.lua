@@ -55,12 +55,15 @@ require("lualine").setup({
         section_separators = "",
     },
     extensions = { "neo-tree" }
-
 })
 
-function Light() vim.cmd("set background=light") end
+function Light()
+    vim.cmd("set background=light")
+end
 
-function Dark() vim.cmd("set background=dark") end
+function Dark()
+    vim.cmd("set background=dark")
+end
 
 vim.cmd("command Light silent lua Light()")
 vim.cmd("command Dark silent lua Dark()")
