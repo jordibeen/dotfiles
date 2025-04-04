@@ -164,6 +164,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
+-- LSP: Diagnostics
+vim.diagnostic.config({
+    virtual_lines = true
+})
+
+
 -- Treesitter (syntax highlighting)
 require("nvim-treesitter.configs").setup {
     ensure_installed = {
