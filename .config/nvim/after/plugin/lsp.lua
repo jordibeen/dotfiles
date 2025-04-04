@@ -85,7 +85,7 @@ lspconfig.rust_analyzer.setup({
         }
     }
 })
- 
+
 -- TypeScript
 lspconfig.ts_ls.setup({
     server_capabilities = {
@@ -111,7 +111,7 @@ lspconfig.yamlls.setup({
         if workspace_path then
             local file_path = vim.fn.expand('%:' .. workspace_path .. ':.')
             if string.match(file_path, "helm") then
-                vim.diagnostic.disable(bufnr)
+                vim.diagnostic.enable(false, { bufnr = bufnr })
             end
         end
     end,
@@ -139,7 +139,15 @@ lspconfig.sqlls.setup({})
 lspconfig.jsonls.setup({})
 
 -- Helm
-lspconfig.helm_ls.setup({})
+lspconfig.helm_ls.setup({
+    settings = {
+        ['helm-ls'] = {
+            yamlls = {
+                path = "yaml-language-server",
+            }
+        }
+    }
+})
 
 -- LSP: OnAttach autoformat
 vim.api.nvim_create_autocmd("LspAttach", {
