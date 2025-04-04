@@ -1,5 +1,5 @@
 -- Telescope
-require("telescope").setup {
+require("telescope").setup({
     extensions = {
         fzf = {
             fuzzy = true,
@@ -8,10 +8,9 @@ require("telescope").setup {
             case_mode = "smart_case",
         },
         ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-            }
+            require("telescope.themes").get_dropdown()
         }
     }
-}
+})
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("ui-select")

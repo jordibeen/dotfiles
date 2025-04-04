@@ -4,12 +4,31 @@ require("catppuccin").setup({
     transparent_background = true,
     term_colors = false,
     integrations = {
-        barbar = true,
-        cmp = true,
         neotree = true,
         telescope = true,
         mason = true,
         lsp_trouble = true,
+        blink_cmp = true,
+        native_lsp = {
+            enabled = true,
+            virtual_text = {
+                errors = { "italic" },
+                hints = { "italic" },
+                warnings = { "italic" },
+                information = { "italic" },
+                ok = { "italic" },
+            },
+            underlines = {
+                errors = { "underline" },
+                hints = { "underline" },
+                warnings = { "underline" },
+                information = { "underline" },
+                ok = { "underline" },
+            },
+            inlay_hints = {
+                background = true,
+            },
+        },
     },
 })
 
@@ -35,12 +54,15 @@ require("lualine").setup({
         section_separators = "",
     },
     extensions = { "neo-tree" }
-
 })
 
-function Light() vim.cmd("set background=light") end
+function Light()
+    vim.cmd("set background=light")
+end
 
-function Dark() vim.cmd("set background=dark") end
+function Dark()
+    vim.cmd("set background=dark")
+end
 
 vim.cmd("command Light silent lua Light()")
 vim.cmd("command Dark silent lua Dark()")

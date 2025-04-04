@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 
 local plugins = {
-    -- catppuccin theme--
+    -- catppuccin theme
     {
         "catppuccin/nvim",
         name = "catppuccin",
@@ -21,33 +21,28 @@ local plugins = {
     },
 
     -- LSP
+    "neovim/nvim-lspconfig",
+    --
+    -- Syntax Highlighting
+    "nvim-treesitter/nvim-treesitter",
+
+    -- LSP package manager
     {
         "williamboman/mason.nvim",
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
-            "neovim/nvim-lspconfig",
         },
     },
 
-    -- Autocompletion framework
+    -- Autocompletion
     {
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/cmp-vsnip",
-            "hrsh7th/vim-vsnip",
-            "roobert/tailwindcss-colorizer-cmp.nvim",
-        }
+        "saghen/blink.cmp",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        version = "1.*",
     },
 
-    -- Syntax Highlighting
-    "nvim-treesitter/nvim-treesitter",
-
-    -- Debug Adapter
-    "puremourning/vimspector",
+    -- Custom Formatters
+    "stevearc/conform.nvim",
 
     -- Finding files
     {
@@ -108,9 +103,6 @@ local plugins = {
 
     -- Duck
     "tamton-aquib/duck.nvim",
-
-    -- Formatting
-    "stevearc/conform.nvim",
 
     -- LLM
     "David-Kunz/gen.nvim",
