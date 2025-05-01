@@ -11,6 +11,7 @@ jq
 k6
 k9s
 kubernetes-cli
+meetingbar
 neofetch
 neovim
 nmap
