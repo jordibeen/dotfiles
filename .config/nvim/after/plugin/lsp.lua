@@ -20,11 +20,9 @@ require("mason-lspconfig").setup({
     },
 })
 
--- Setup LSPs
-local lspconfig = require('lspconfig')
-
 -- Lua
-lspconfig.lua_ls.setup({
+vim.lsp.enable("lua_ls")
+vim.lsp.config("lua_ls", {
     settings = {
         Lua = {
             diagnostics = {
@@ -37,7 +35,8 @@ lspconfig.lua_ls.setup({
 })
 
 -- Python
-lspconfig.ruff.setup({
+vim.lsp.enable("ruff")
+vim.lsp.config("ruff", {
     init_options = {
         settings = {
             args = {
@@ -50,14 +49,15 @@ lspconfig.ruff.setup({
         }
     }
 })
-lspconfig.pyright.setup({ -- Go To Definition capabilities
+vim.lsp.enable("pyright")
+vim.lsp.config("pyright", { -- Go To Definition capabilities
     settings = {
         pyright = {
             disableOrganizeImports = true,
         },
         python = {
             analysis = {
-                ignore = { '*' },
+                ignore = { '*' }
             },
         },
     },
@@ -65,7 +65,8 @@ lspconfig.pyright.setup({ -- Go To Definition capabilities
 
 
 -- Rust
-lspconfig.rust_analyzer.setup({
+vim.lsp.enable("rust_analyzer")
+vim.lsp.config("rust_analyzer", {
     settings = {
         ["rust-analyzer"] = {
             imports = {
@@ -87,18 +88,21 @@ lspconfig.rust_analyzer.setup({
 })
 
 -- TypeScript
-lspconfig.ts_ls.setup({
+vim.lsp.enable("ts_ls")
+vim.lsp.config("ts_ls", {
     server_capabilities = {
         documentFormattingProvider = false, -- disable ts_ls formatter (using biome instead)
     },
 })
-lspconfig.biome.setup({
+vim.lsp.enable("biome")
+vim.lsp.config("biome", {
     cmd = { "biome", "lsp-proxy" },
-    root_dir = lspconfig.util.root_pattern("package.json", "node_modules", "biome.json")
+    root_markers = { "package.json", "node_modules", "biome.json" }
 })
 
 -- Yaml
-lspconfig.yamlls.setup({
+vim.lsp.enable("yamlls")
+vim.lsp.config("yamlls", {
     settings = {
         yaml = {
             format = {
@@ -118,28 +122,36 @@ lspconfig.yamlls.setup({
 })
 
 -- Terraform
-lspconfig.terraformls.setup({})
+vim.lsp.enable("terraformls")
+vim.lsp.config("terraformls", {})
 
 -- Markdown
-lspconfig.marksman.setup({})
+vim.lsp.enable("marksman")
+vim.lsp.config("marksman", {})
 
 -- Bash
-lspconfig.bashls.setup({})
+vim.lsp.enable("bashls")
+vim.lsp.config("bashls", {})
 
 -- Vim
-lspconfig.vimls.setup({})
+vim.lsp.enable("vimls")
+vim.lsp.config("vimls", {})
 
 -- Tailwind CSS
-lspconfig.tailwindcss.setup({})
+vim.lsp.enable("tailwindcss")
+vim.lsp.config("tailwindcss", {})
 
 -- SQL
-lspconfig.sqlls.setup({})
+vim.lsp.enable("sqlls")
+vim.lsp.config("sqlls", {})
 
 -- JSON
-lspconfig.jsonls.setup({})
+vim.lsp.enable("jsonls")
+vim.lsp.config("jsonls", {})
 
 -- Helm
-lspconfig.helm_ls.setup({
+vim.lsp.enable("helm_ls")
+vim.lsp.config("helm_ls", {
     settings = {
         ['helm-ls'] = {
             yamlls = {
