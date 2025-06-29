@@ -20,6 +20,9 @@ local plugins = {
         lazy = false,
     },
 
+    -- LSP
+    "neovim/nvim-lspconfig",
+    --
     -- Syntax Highlighting
     "nvim-treesitter/nvim-treesitter",
 
