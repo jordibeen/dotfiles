@@ -87,10 +87,10 @@ require("conform").setup({
         python = { "isort" },
         json = { "jq" },
         jsonc = { "jq" },
-        -- javascript = { "biome", "biome-organize-imports" },
-        -- javascriptreact = { "biome", "biome-organize-imports" },
-        -- typescript = { "biome", "biome-organize-imports" },
-        -- typescriptreact = { "biome", "biome-organize-imports" },
+        javascript = { "biome-organize-imports" },
+        javascriptreact = { "biome-organize-imports" },
+        typescript = { "biome-organize-imports" },
+        typescriptreact = { "biome-organize-imports" },
     },
     formatters = {
         sqlfluff = {
