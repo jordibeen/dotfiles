@@ -21,8 +21,7 @@ return {
                 "ts_ls",
                 "vimls",
                 "yamlls",
-            },
-
+            }
         }
     }
 }

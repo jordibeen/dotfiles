@@ -16,6 +16,5 @@ return {
             section_separators = "",
         },
         extensions = { "neo-tree" }
-
     }
 }

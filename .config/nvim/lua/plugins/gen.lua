@@ -43,5 +43,5 @@ return {
             model = coding_model,
             prompt = "Please make a suggestion on how to improve the following code:\n$text",
         }
-    end,
+    end
 }

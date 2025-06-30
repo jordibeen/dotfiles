@@ -52,7 +52,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end
     end,
-
 })
 
 -- Fix Terraform commenting (https://github.com/LazyVim/LazyVim/discussions/654#discussioncomment-10978917)
