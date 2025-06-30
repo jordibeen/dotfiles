@@ -85,6 +85,8 @@ require("conform").setup({
     formatters_by_ft = {
         sql = { "sqlfluff" },
         python = { "isort" },
+        json = { "jq" },
+        jsonc = { "jq" },
         -- javascript = { "biome", "biome-organize-imports" },
         -- javascriptreact = { "biome", "biome-organize-imports" },
         -- typescript = { "biome", "biome-organize-imports" },
