@@ -1,12 +1,11 @@
--- highlight yank
+-- Highlight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.hl.on_yank()
     end,
 })
 
-
--- go to last cursor location when opening buffer
+-- Go to last cursor location when opening buffer
 vim.api.nvim_create_autocmd("BufReadPost", {
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')

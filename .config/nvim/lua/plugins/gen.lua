@@ -30,5 +30,17 @@ return {
         -- list_models = '<omitted lua function>', -- Retrieves a list of model names
         debug = false -- Prints errors and the command which is run.
 
-    }
+    },
+    config = function(_, opts)
+        local gen = require("gen")
+        gen.setup(opts)
+        gen.prompts['Explain_Code'] = {
+            model = coding_model,
+            prompt = "Please explain the following code in detail:\n$text",
+        }
+        gen.prompts['Improve_Code'] = {
+            model = coding_model,
+            prompt = "Please make a suggestion on how to improve the following code:\n$text",
+        }
+    end,
 }
