@@ -8,10 +8,7 @@ return {
         },
         python = {
             analysis = {
-                autoSearchPaths = true,
-                diagnosticMode = "openFilesOnly",
                 ignore = { "*" },
-                useLibraryCodeForTypes = true
             }
         }
     }
