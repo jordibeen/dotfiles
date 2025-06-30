@@ -31,41 +31,33 @@ map("n", "<Leader>bo", "<cmd>GitBlameOpenCommitURL<cr>")
 -- Trouble
 map("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle<cr>")
 
--- LSP: OnAttach keymaps
+-- LSP buffer
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "LSP actions",
-    callback = function()
-        -- enable inlay hints (0.10)
-        vim.lsp.inlay_hint.enable()
-
-        local bufmap = function(mode, lhs, rhs)
-            local opts = { buffer = true }
-            vim.keymap.set(mode, lhs, rhs, opts)
+    callback = function(event)
+        local bufmap = function(keys, func, desc)
+            vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
         end
-        -- Jump to the definition
-        bufmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 
-        -- Jump to declaration
-        bufmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
+        -- defaults:
+        -- https://neovim.io/doc/user/news-0.11.html#_defaults
 
-        -- Lists all the implementations for the symbol under the cursor
-        bufmap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>")
+        bufmap("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
+        bufmap("K", vim.lsp.buf.hover, "Hover Documentation")
+        bufmap("gs", vim.lsp.buf.signature_help, "Signature Documentation")
+        bufmap("gd", vim.lsp.buf.definition, "Goto definition")
+        bufmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
+        bufmap("<leader>la", vim.lsp.buf.code_action, "Code Action")
+        bufmap("<leader>lr", vim.lsp.buf.rename, "Rename all references")
+        bufmap("<leader>lf", vim.lsp.buf.format, "Format")
+        bufmap("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
 
-        -- Jumps to the definition of the type symbol
-        bufmap("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>")
-
-        -- Lists all the references
-        bufmap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>")
-
-        -- Displays a function"s signature information
-        bufmap("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
-
-        -- Renames all references to the symbol under the cursor
-        bufmap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
-
-        -- Selects a code action available at the current cursor position
-        bufmap("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
-        bufmap("x", "<F4>", "<cmd>lua vim.lsp.buf.range_code_action()<cr>")
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+            bufmap('<leader>th', function()
+                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            end, '[T]oggle Inlay [H]ints')
+        end
     end
 })
 

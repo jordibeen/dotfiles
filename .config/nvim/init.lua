@@ -1,3 +1,5 @@
-require("plugins")
-require("opts")
-require("keys")
+require("config.options")
+require("core.lsp")
+require("core.plugins")
+require("config.keymaps")
+require("config.autocmds")
