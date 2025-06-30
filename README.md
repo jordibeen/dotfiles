@@ -16,11 +16,12 @@ dotfiles config --local status.showUntrackedFiles no
 - [kitty](https://github.com/kovidgoyal/kitty)
 - [neovim](https://github.com/neovim/neovim)
 - [tmux](https://github.com/tmux/tmux)
-- [tpm](https://github.com/tmux-plugins/tpm)
+    - [tpm](https://github.com/tmux-plugins/tpm)
 - [brew](https://github.com/Homebrew/brew)
-- [mistral](https://ollama.com/library/mistral)
-- [llama3.2](https://ollama.com/library/llama3.2)
-- [qwen2.5-coder](https://ollama.com/library/qwen2.5-coder)
+- [ollama](https://ollama.com/download)
+    - [gemma3:4b](https://ollama.com/library/gemma3)
+    - [qwen3:4b](https://ollama.com/library/qwen3)
+    - [qwen2.5-coder](https://ollama.com/library/qwen2.5-coder)
 
 ### zsh
 ```sh
