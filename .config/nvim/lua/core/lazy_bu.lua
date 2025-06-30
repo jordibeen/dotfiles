@@ -56,13 +56,13 @@ local plugins = {
         build = "make"
     },
 
-    -- Diagnostics
-    {
-        "folke/trouble.nvim",
-        dependencies = {
-            "kyazdani42/nvim-web-devicons",
-        },
-    },
+    -- -- Diagnostics
+    -- {
+    --     "folke/trouble.nvim",
+    --     dependencies = {
+    --         "kyazdani42/nvim-web-devicons",
+    --     },
+    -- },
 
     -- Seamless navigation between vim and tmux
     "christoomey/vim-tmux-navigator",
@@ -94,9 +94,6 @@ local plugins = {
 
     -- Fugitive
     "tpope/vim-fugitive",
-
-    -- Which Key
-    "folke/which-key.nvim",
 
     -- Duck
     "tamton-aquib/duck.nvim",
