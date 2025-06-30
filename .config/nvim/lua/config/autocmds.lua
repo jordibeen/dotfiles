@@ -55,3 +55,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 
 })
+
+-- Fix Terraform commenting (https://github.com/LazyVim/LazyVim/discussions/654#discussioncomment-10978917)
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "terraform",
+    callback = function()
+        vim.bo.commentstring = "# %s"
+    end
+})

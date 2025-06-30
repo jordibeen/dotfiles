@@ -1,12 +1,19 @@
 return {
     cmd = { "biome", "lsp-proxy" },
     filetypes = {
+        "astro",
+        "css",
+        "graphql",
+        "html",
         "javascript",
         "javascriptreact",
-        "javascript.jsx",
+        "json",
+        "jsonc",
+        "svelte",
         "typescript",
+        "typescript.tsx",
         "typescriptreact",
-        "typescript.jsx"
+        "vue"
     },
     root_markers = { "package.json", "node_modules", "biome.json" },
     workspace_required = true,
@@ -15,4 +22,6 @@ return {
             enabled = true,
         }
     }
+
+
 }
