@@ -109,11 +109,6 @@ local plugins = {
         build = function() vim.fn["mkdp#util#install"]() end,
     },
 
-    -- Arrow
-    "otavioschwanck/arrow.nvim",
-
     -- Code block commenting
     "tpope/vim-commentary",
 }
-
-require("lazy").setup(plugins, {})
