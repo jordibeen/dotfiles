@@ -6,7 +6,6 @@ return {
         "MunifTanjim/nui.nvim",
     },
     opts = {
-
         buffers = {
             follow_current_file = {
                 enabled = true,
@@ -33,7 +32,6 @@ return {
                     vim.cmd("Neotree close")
                 end
             },
-
         },
         window = {
             mappings = {
