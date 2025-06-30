@@ -8,7 +8,6 @@ vim.lsp.enable({
     "pyright",
     "ruff",
     "rust_analyzer",
-    "sqlls",
     "tailwindcss",
     "terraformls",
     "ts_ls",

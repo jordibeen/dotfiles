@@ -11,7 +11,6 @@ require("mason-lspconfig").setup({
         "pyright",
         "ruff",
         "rust_analyzer",
-        "sqlls",
         "tailwindcss",
         "terraformls",
         "ts_ls",
@@ -83,7 +82,6 @@ require("conform").setup({
         lsp_fallback = true,
     },
     formatters_by_ft = {
-        sql = { "sqlfluff" },
         python = { "isort" },
         json = { "jq" },
         jsonc = { "jq" },
@@ -91,12 +89,5 @@ require("conform").setup({
         javascriptreact = { "biome-organize-imports" },
         typescript = { "biome-organize-imports" },
         typescriptreact = { "biome-organize-imports" },
-    },
-    formatters = {
-        sqlfluff = {
-            command = "sqlfluff",
-            args = { "format", "--dialect", "postgres", "-" },
-            stdin = true,
-        }
     }
 })
