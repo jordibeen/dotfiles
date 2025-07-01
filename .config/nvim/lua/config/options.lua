@@ -65,5 +65,5 @@ vim.opt.fillchars = { eob = " " }
 -- Substitution panel
 vim.opt.inccommand = "split"
 
--- -- Cursor
+-- Cursor
 vim.guicorsor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"

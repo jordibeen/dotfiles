@@ -64,10 +64,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- Undotree Toggle
 map("n", "<leader>u", ":UndotreeToggle<cr>")
 
--- Move visual selection up and down
-map("v", "J", ':m ">+1<cr>gv=gv')
-map("v", "K", ':m "<-2<cr>gv=gv')
-
 -- Improved J (cursor stays in place instead of end of line)
 map("n", "J", "mzJ`z")
 

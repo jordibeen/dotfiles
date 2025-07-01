@@ -1,12 +1,11 @@
--- highlight yank
+-- Highlight yank
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.hl.on_yank()
     end,
 })
 
-
--- go to last cursor location when opening buffer
+-- Go to last cursor location when opening buffer
 vim.api.nvim_create_autocmd("BufReadPost", {
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
@@ -53,7 +52,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end
     end,
-
 })
 
 -- Fix Terraform commenting (https://github.com/LazyVim/LazyVim/discussions/654#discussioncomment-10978917)
@@ -63,3 +61,14 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.bo.commentstring = "# %s"
     end
 })
+
+function Light()
+    vim.cmd("set background=light")
+end
+
+function Dark()
+    vim.cmd("set background=dark")
+end
+
+vim.cmd("command Light silent lua Light()")
+vim.cmd("command Dark silent lua Dark()")
