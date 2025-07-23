@@ -33,7 +33,7 @@ require("lazy").setup({
     },
     checker = {
         enabled = true,
-        notify = false
+        notify = true
     },
     profiling = {
         loader = true,
