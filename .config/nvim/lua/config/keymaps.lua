@@ -103,12 +103,15 @@ map("n", "<F12>", "<Cmd>vertical resize +5<CR>") -- increase width
 map("n", "<leader>dd", '<Cmd>lua require("duck").hatch()<CR>')
 map("n", "<leader>dk", '<Cmd>lua require("duck").cook()<CR>')
 
--- Notes
+-- Markdown Preview
 map("n", "<leader>mdp", '<Cmd>MarkdownPreview<CR>')
 map("n", "<leader>mds", '<Cmd>MarkdownPreviewStop<CR>')
 
--- LLM
-map("n", "<leader>ql", '<Cmd>lua require("gen").select_model()<CR>')
-map("n", "<leader>qq", ':Gen Chat<CR>')
-map("v", "<leader>qe", ':Gen Explain_Code<CR>')
-map("v", "<leader>qi", ':Gen Improve_Code<CR>')
+-- Toggle dark mode
+vim.keymap.set('n', '<leader>tdm', function()
+    if vim.opt.background:get() == 'dark' then
+        vim.cmd(':set background=light')
+    else
+        vim.cmd(':set background=dark')
+    end
+end, { desc = '[T]oggle [D]ark [M]ode' })
