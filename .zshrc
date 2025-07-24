@@ -21,6 +21,7 @@ export LANG=en_US.UTF-8
 export LC_TYPE=en_US.UTF-8
 export EDITOR="nvim"
 export THEME="catppuccin"
+export $(cat ~/.env)
 
 # Hostname viz
 PS1="🔥 %n %~ $ "
