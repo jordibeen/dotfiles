@@ -10,12 +10,12 @@ end
 map("n", "<leader>%", ":vsp <cr>")
 map("n", "<leader>\"", ":sp <cr>")
 
--- Copy to clipboard
-map("v", "<C-c>", ':" < ">w !pbcopy<cr>')
+-- Copy from clipboard
 map("n", "<C-v>", ":r !pbpaste<cr>")
+map("i", "<C-v>", "<cmd>r !pbpaste<cr>")
 
--- Yank file path to clipboard
-map("n", "<leader>cfp", '<Cmd>let @+ = expand(" % ")<CR>')
+-- Copy file path to clipboard
+map("n", "<leader>cfp", '<Cmd>let @+ = expand("%:p")<CR>')
 
 -- Telescope
 map("n", "<leader>ff", '<cmd>lua require("telescope.builtin").find_files()<cr>')
