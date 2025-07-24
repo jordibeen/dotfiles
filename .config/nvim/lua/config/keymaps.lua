@@ -24,10 +24,6 @@ map("n", "<leader>fb", '<cmd>lua require("telescope.builtin").buffers()<cr>')
 map("n", "<leader>fh", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 map("n", "<leader>fs", '<cmd>lua require("telescope.builtin").git_status()<cr>')
 
--- Git Blame
-map("n", "<Leader>bt", "<cmd>GitBlameToggle<cr>")
-map("n", "<Leader>bo", "<cmd>GitBlameOpenCommitURL<cr>")
-
 -- Trouble
 map("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle<cr>")
 

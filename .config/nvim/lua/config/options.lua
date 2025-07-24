@@ -52,9 +52,6 @@ vim.opt.updatetime = 50
 -- Autocompletion
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
--- GitBlame
-vim.g.gitblame_date_format = "%r"
-
 -- Which Key
 vim.o.timeout = true
 vim.o.timeoutlen = 300
