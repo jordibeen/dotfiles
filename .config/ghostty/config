@@ -1,0 +1,18 @@
+# font 
+font-family = Hack Nerd Font
+font-size = 14
+
+# theme
+theme = dark:catppuccin-mocha,light:catppuccin-latte
+background-opacity = 100
+background-blur = 12
+cursor-color = #9b41ff
+
+# window
+macos-icon = glass
+fullscreen = true
+macos-non-native-fullscreen = visible-menu
+window-decoration = none
+ 
+# misc
+mouse-hide-while-typing = true
