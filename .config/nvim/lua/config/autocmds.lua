@@ -51,6 +51,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 end,
             })
         end
+
+        if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+            vim.api.nvim_create_autocmd("InsertEnter", {
+                callback = function()
+                    vim.lsp.inlay_hint.enable(false, event.buf)
+                end,
+            })
+
+            vim.api.nvim_create_autocmd("InsertLeave", {
+                callback = function()
+                    vim.lsp.inlay_hint.enable(true, event.buf)
+                end,
+            })
+        end
     end,
 })
 
