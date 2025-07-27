@@ -4,8 +4,8 @@ return
     name = "catppuccin",
     priority = 1000,
     opts = {
-        flavour = "frappe",
-        transparent_background = true,
+        flavour = "mocha",
+        transparent_background = false,
         term_colors = false,
         integrations = {
             neotree = true,
