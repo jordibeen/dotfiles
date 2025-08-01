@@ -8,10 +8,6 @@ alias grep='grep --color'
 # Vi
 alias vi='nvim'
 
-# Fuzzy finding
-alias fzf='fzf -i --tmux=center'
-alias fzfo='vi $(fzf)'
-
 # Source zprofile
 alias zsource='source ~/.zprofile'
 
@@ -35,3 +31,4 @@ lightmode () {
     export COLORSCHEME=light
     tmux set -g @catppuccin_flavour 'latte'
 }
+
