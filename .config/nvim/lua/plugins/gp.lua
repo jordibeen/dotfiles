@@ -1,8 +1,15 @@
 return {
     "robitx/gp.nvim",
     config = function()
+        local prompts = {
+            default = "You are a general AI assistant",
+            ticket_creator =
+            "You are an amazing assistant that helps with creating JIRA tickets for a software engineering tool. The title should not be a user story but rather a task that needs to be done. The description is in markdown and contains information for the ticket assignee to complete the ticket, it must always contain a definition of done. If the definition of done is unclear, ask the user for clarification on when the ticket can be considered done.\nThe ticket only contains a title and a description. Information regarding estimation, urgency or difficulty will be decided on later. All information regarding the ticket must be put in the ticket description, this description can contain multiple paragraphs and is formatted in markdown.\nAlways return the ticket in the following format:\n# [ticket title here]\n## Ticket Description\n[ticket description here]",
+            docstring_creator =
+            "You generate docstrings for functions that are passed to you.\nAnalyze the function for which language is used, and based on the language, generate a docstring based on that language's industry leading docstring format.\nIn case of Python, make sure to use Google Style.\nKeep it concise, returning at least a brief summary of the function, the arguments that can be passed, the return type and the exceptions it can raise.\nRespond with just the dosctring."
+        }
         local conf = {
-            default_chat_agent = "claude",
+            default_chat_agent = "qwen3",
             default_command_agent = "qwen2.5-coder",
 
             providers = {
@@ -13,7 +20,7 @@ return {
                     disable = false,
                     chat = true,
                     command = true,
-                    endpoint = "http://localhost:11434/v1/chat/completions",
+                    endpoint = "http://localhost:11434/api/chat",
                 },
                 anthropic = {
                     disable = false,
@@ -27,16 +34,27 @@ return {
             agents = {
                 {
                     disable = false,
-                    name = "claude",
+                    name = "claude-sonnet",
                     provider = "anthropic",
                     chat = true,
                     command = true,
                     model = {
                         model = "claude-sonnet-4-20250514",
                         temperature = 0.8,
-                        top_p = 1
                     },
-                    system_prompt = "You are a general AI assistant.",
+                    system_prompt = prompts["default"],
+                },
+                {
+                    disable = false,
+                    name = "claude-opus",
+                    provider = "anthropic",
+                    chat = true,
+                    command = true,
+                    model = {
+                        model = "claude-opus-4-1-20250805",
+                        temperature = 0.8,
+                    },
+                    system_prompt = prompts["default"],
                 },
                 {
                     disable = false,
@@ -45,12 +63,34 @@ return {
                     chat = true,
                     command = true,
                     model = {
-                        model = "gemma3:4b",
                         temperature = 0.6,
-                        top_p = 1,
-                        min_p = 0.05,
+                        model = "gemma3:4b",
                     },
-                    system_prompt = "You are a general AI assistant.",
+                    system_prompt = prompts["default"],
+                },
+                {
+                    disable = false,
+                    name = "ticket-creator",
+                    provider = "ollama",
+                    chat = true,
+                    command = false,
+                    model = {
+                        temperature = 0.2,
+                        model = "qwen3:8b",
+                    },
+                    system_prompt = prompts["ticket_creator"],
+                },
+                {
+                    disable = false,
+                    name = "docstring-creator",
+                    provider = "ollama",
+                    chat = true,
+                    command = false,
+                    model = {
+                        temperature = 0.2,
+                        model = "qwen3:8b",
+                    },
+                    system_prompt = prompts["docstring_creator"],
                 },
                 {
                     disable = false,
@@ -60,11 +100,9 @@ return {
                     command = true,
                     model = {
                         model = "qwen2.5-coder:latest",
-                        temperature = 0.6,
-                        top_p = 1,
-                        min_p = 0.05,
+                        temperature = 0.6
                     },
-                    system_prompt = "You are a general AI assistant.",
+                    system_prompt = prompts["default"],
                 },
                 {
                     disable = false,
@@ -73,12 +111,10 @@ return {
                     chat = true,
                     command = true,
                     model = {
-                        model = "qwen3:4b",
-                        temperature = 0.6,
-                        top_p = 1,
-                        min_p = 0.05,
+                        model = "qwen3:8b",
+                        think = false
                     },
-                    system_prompt = "You are a general AI assistant.",
+                    system_prompt = prompts["default"],
                 },
                 { name = "ChatGPT4o",                 disable = true, },
                 { name = "ChatGPT-o3-mini",           disable = true, },
@@ -89,6 +125,8 @@ return {
                 { name = "ChatClaude-3-7-Sonnet",     disable = true, },
                 { name = "ChatClaude-3-5-Haiku",      disable = true, },
                 { name = "ChatOllamaLlama3.1-8B",     disable = true, },
+                { name = "CodeOllamaLlama3.1-8B",     disable = true, },
+                { name = "ChatQwen3-8B",              disable = true, },
                 { name = "ChatLMStudio",              disable = true, },
                 { name = "CodeGPT4o",                 disable = true, },
                 { name = "CodeGPT-o3-mini",           disable = true, },
@@ -99,14 +137,15 @@ return {
                 { name = "CodeClaude-3-7-Sonnet",     disable = true, },
                 { name = "CodeClaude-3-5-Haiku",      disable = true, },
                 { name = "CodeOllamaLlama3.1-8B",     disable = true, },
+                { name = "CodeOllamaLlama3.1-8B",     disable = true, },
             },
             whisper = { disable = true, },
             image = { disable = true, },
 
+            chat_dir = vim.fn.expand(os.getenv("GP_CHATS_DIR")),
+            state_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/persisted",
             log_file = vim.fn.stdpath("log"):gsub("/$", "") .. "/gp.nvim.log",
             log_sensitive = false,
-            state_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/persisted",
-            chat_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/chats",
             chat_user_prefix = "🔥:",
             chat_assistant_prefix = { "🤖:", "[{{agent}}]" },
             chat_template = require("gp.defaults").short_chat_template,
@@ -212,6 +251,7 @@ return {
                 { "<C-g>gv",    ":<C-u>'<,'>GpVnew<cr>",           desc = "Visual GpVnew" },
                 { "<C-g>i",     ":<C-u>'<,'>GpImplement<cr>",      desc = "Implement selection" },
                 { "<C-g>n",     "<cmd>GpNextAgent<cr>",            desc = "Next Agent" },
+                { "<C-g>l",     "<cmd>GpSelectAgent<cr>",          desc = "Select Agent" },
                 { "<C-g>p",     ":<C-u>'<,'>GpChatPaste<cr>",      desc = "Visual Chat Paste" },
                 { "<C-g>r",     ":<C-u>'<,'>GpRewrite<cr>",        desc = "Visual Rewrite" },
                 { "<C-g>s",     "<cmd>GpStop<cr>",                 desc = "GpStop" },
@@ -237,6 +277,7 @@ return {
                 { "<C-g>gt",    "<cmd>GpTabnew<cr>",           desc = "GpTabnew" },
                 { "<C-g>gv",    "<cmd>GpVnew<cr>",             desc = "GpVnew" },
                 { "<C-g>n",     "<cmd>GpNextAgent<cr>",        desc = "Next Agent" },
+                { "<C-g>l",     "<cmd>GpSelectAgent<cr>",      desc = "Select Agent" },
                 { "<C-g>r",     "<cmd>GpRewrite<cr>",          desc = "Inline Rewrite" },
                 { "<C-g>s",     "<cmd>GpStop<cr>",             desc = "GpStop" },
                 { "<C-g>t",     "<cmd>GpChatToggle<cr>",       desc = "Toggle Chat" },
@@ -262,6 +303,7 @@ return {
                 { "<C-g>gt",    "<cmd>GpTabnew<cr>",           desc = "GpTabnew" },
                 { "<C-g>gv",    "<cmd>GpVnew<cr>",             desc = "GpVnew" },
                 { "<C-g>n",     "<cmd>GpNextAgent<cr>",        desc = "Next Agent" },
+                { "<C-g>l",     "<cmd>GpSelectAgent<cr>",      desc = "Select Agent" },
                 { "<C-g>r",     "<cmd>GpRewrite<cr>",          desc = "Inline Rewrite" },
                 { "<C-g>s",     "<cmd>GpStop<cr>",             desc = "GpStop" },
                 { "<C-g>t",     "<cmd>GpChatToggle<cr>",       desc = "Toggle Chat" },
