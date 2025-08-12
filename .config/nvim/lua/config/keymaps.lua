@@ -94,9 +94,9 @@ map("n", "<Leader>gov", "<cmd>Gvdiffsplit<cr>")
 map("n", "q", "<Nop>")
 
 -- Resize panels
-map("n", "<F9>", "<Cmd>vertical resize -5<CR>")  -- decrease width
-map("n", "<F10>", "<Cmd>resize -5<CR>")          -- decrease height
-map("n", "<F11>", "<Cmd>resize +5<CR>")          -- increase width
+map("n", "<F9>", "<Cmd>resize -5<CR>")           -- decrease height
+map("n", "<F10>", "<Cmd>resize +5<CR>")          -- increase width
+map("n", "<F11>", "<Cmd>vertical resize -5<CR>") -- decrease width
 map("n", "<F12>", "<Cmd>vertical resize +5<CR>") -- increase width
 
 -- Duck

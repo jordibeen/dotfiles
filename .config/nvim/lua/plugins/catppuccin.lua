@@ -5,7 +5,7 @@ return
     priority = 1000,
     opts = {
         flavour = "mocha",
-        transparent_background = false,
+        transparent_background = true,
         term_colors = false,
         integrations = {
             neotree = true,

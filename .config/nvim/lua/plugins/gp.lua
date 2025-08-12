@@ -1,7 +1,7 @@
 return {
-    -- "robitx/gp.nvim",
-    dir = "~/jordaye/gp.nvim",
-    name = "gp.nvim",
+    "robitx/gp.nvim",
+    -- dir = "~/jordaye/gp.nvim",
+    -- name = "gp.nvim",
     config = function()
         local prompts = {
             default = "You are a general AI assistant",
@@ -105,6 +105,7 @@ return {
                     model = {
                         temperature = 0.2,
                         model = "qwen3:8b",
+                        think = false,
                     },
                     system_prompt = prompts["ticket_creator"],
                 },
@@ -117,6 +118,7 @@ return {
                     model = {
                         temperature = 0.2,
                         model = "qwen3:8b",
+                        think = false,
                     },
                     system_prompt = prompts["docstring_creator"],
                 },
