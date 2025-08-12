@@ -1,18 +1,28 @@
+auto-update-channel = tip
+
 # font 
-font-family = Hack Nerd Font
-font-size = 14
+font-family = Cousine
+font-size = 16
+font-thicken = false
 
 # theme
 theme = dark:catppuccin-mocha,light:catppuccin-latte
-background-opacity = 100
-background-blur = 12
-cursor-color = #9b41ff
-
-# window
-macos-icon = glass
 fullscreen = true
-macos-non-native-fullscreen = visible-menu
 window-decoration = none
- 
+window-padding-x = 10
+window-padding-y = 10
+
+# background image
+background-image = ~/.config/ghostty/backgrounds/dark.png
+background-image-opacity = 0.2
+background-image-position = center
+background-image-fit = cover
+
+# cursor
+cursor-color = #FF5F1F
+custom-shader = shaders/cursor_blaze.glsl
+custom-shader-animation = true
+
 # misc
 mouse-hide-while-typing = true
+macos-icon = glass
