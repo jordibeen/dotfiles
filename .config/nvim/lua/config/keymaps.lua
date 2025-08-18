@@ -15,7 +15,9 @@ map("n", "<C-v>", ":r !pbpaste<cr>")
 map("i", "<C-v>", "<cmd>r !pbpaste<cr>")
 
 -- Copy file path to clipboard
-map("n", "<leader>cfp", '<Cmd>let @+ = expand("%:p")<CR>')
+map("n", "<leader>cfp", '<Cmd>let @+ = expand("%:p")<CR>', { desc = "[c]opy [f]ile [p]ath" })
+map("n", "<leader>ofp", '<Cmd>!open -R %<CR>', { desc = "[o]pen [f]ile [p]ath in Finder" })
+map("n", "<leader>ofd", '<Cmd>!open %:h<CR>', { desc = "[o]pen [f]ile's [d]irectory in Finder" })
 
 -- Telescope
 map("n", "<leader>ff", '<cmd>lua require("telescope.builtin").find_files()<cr>')
