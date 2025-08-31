@@ -31,6 +31,11 @@ cheat () {
   curl "cheat.sh/$1"
 }
 
+# Fix cursor shape after every command
+precmd() {
+    printf '\e[5 q'
+}
+
 # Fix backwards search
 bindkey '^R' history-incremental-search-backward
 
