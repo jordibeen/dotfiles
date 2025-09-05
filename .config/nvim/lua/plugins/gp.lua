@@ -16,7 +16,11 @@ return {
 
             providers = {
                 openai = {
-                    disable = true,
+                    disable = false,
+                    chat = true,
+                    command = true,
+                    endpoint = "https://api.openai.com/v1/chat/completions",
+                    secret = os.getenv("OPENAI_API_KEY"),
                 },
                 ollama = {
                     disable = false,
@@ -34,6 +38,18 @@ return {
             },
 
             agents = {
+                {
+                    disable = false,
+                    name = "gpt-5",
+                    provider = "openai",
+                    chat = true,
+                    command = true,
+                    model = {
+                        model = "gpt-5-2025-08-07",
+                        temperature = 0.8,
+                    },
+                    system_prompt = prompts["default"],
+                },
                 {
                     disable = false,
                     name = "claude-sonnet",
