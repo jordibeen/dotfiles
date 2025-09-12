@@ -14,6 +14,10 @@ autoload -Uz compinit
 compinit
 source <(kubectl completion zsh)
 
+# docker autocompletion
+# (first store docker's completion script using 'docker completion zsh > ~/.zsh/completions/_docker')
+FPATH="$HOME/.zsh/completions:$FPATH"
+
 # Global environment variables
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
