@@ -24,7 +24,18 @@ export THEME="catppuccin"
 export $(cat ~/.env)
 
 # Hostname viz
-PS1="🔥 %n %~ $ "
+setopt PROMPT_SUBST
+
+# catppuccin
+local peach='%F{#fab387}'
+local mauve='%F{#cba6f7}'
+local blue='%F{#89b4fa}'
+local yellow='%F{#f9e2af}'
+local text='%F{#cdd6f4}'
+local reset='%f'
+
+PS1="${peach}🔥${reset} ${mauve}%n${reset} ${blue}%~${reset}${yellow}\$(git branch --show-current 2>/dev/null | sed 's/.*/ (&)/')${reset}${text} \$ ${reset}"
+
 
 # Friendly consise man pages with examples from "cheat" and tldr
 cheat () {
