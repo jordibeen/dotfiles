@@ -13,8 +13,8 @@ window-padding-x = 10
 window-padding-y = 10
 
 # background image
-background-image = ~/.config/ghostty/backgrounds/dark.png
-background-image-opacity = 0.2
+background-image = ~/.config/ghostty/backgrounds/fuji.png
+background-image-opacity = 0.5
 background-image-position = center
 background-image-fit = cover
 
