@@ -1,34 +1,24 @@
-# Colorful ls -la
-alias ls='ls --color=auto'
-alias ll='ls -alF --color'
+# PATH setup
+export PATH=/opt/homebrew/bin:$PATH
 
-# Colorful grep
-alias grep='grep --color'
+# Homebrew
+[[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Vi
-alias vi='nvim'
+# Cargo
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
-# Source zprofile
-alias zsource='source ~/.zprofile'
+# Language/locale
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_TYPE=en_US.UTF-8
 
-# Source tmux file
-alias tsource='tmux source-file ~/.tmux.conf'
+# Global tools
+export EDITOR="nvim"
+export THEME="catppuccin"
 
-# AWS profiles
-alias aws-default='export AWS_PROFILE=default'
-alias aws-check='export AWS_PROFILE=check'
-alias aws-do='export AWS_PROFILE=do'
-
-# K8s
-alias k='kubectl'
-
-# Darkmode switch
-darkmode () {
-    export COLORSCHEME=dark
-    tmux set -g @catppuccin_flavour 'frappe'
-}
-lightmode () {
-    export COLORSCHEME=light
-    tmux set -g @catppuccin_flavour 'latte'
-}
-
+# fzf navigation
+export FZF_DEFAULT_OPTS='
+  --bind=ctrl-j:down,ctrl-k:up
+  --bind=ctrl-d:half-page-down,ctrl-u:half-page-up
+'
