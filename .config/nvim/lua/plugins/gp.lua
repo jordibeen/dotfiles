@@ -46,7 +46,6 @@ return {
                     command = true,
                     model = {
                         model = "gpt-5-2025-08-07",
-                        temperature = 0.8,
                     },
                     system_prompt = prompts["default"],
                 },
