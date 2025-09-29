@@ -1,6 +1,8 @@
 android-platform-tools
-font-hack-nerd-font
-font-monofur-nerd-font
+font-cousine
 font-fira-code-nerd-font
+font-hack-nerd-font
 font-inconsolata-nerd-font
+font-monofur-nerd-font
+ghostty
 ngrok

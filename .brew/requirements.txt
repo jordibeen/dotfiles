@@ -4,6 +4,7 @@ cbonsai
 doctl
 fd
 fzf
+gh
 helm
 helm-ls
 helm-docs
