@@ -51,24 +51,24 @@ return {
                 },
                 {
                     disable = false,
-                    name = "claude-sonnet",
+                    name = "claude-sonnet-4.5",
                     provider = "anthropic",
                     chat = true,
                     command = true,
                     model = {
-                        model = "claude-sonnet-4-20250514",
+                        model = "claude-sonnet-4-5-20250929",
                         temperature = 0.8,
                     },
                     system_prompt = prompts["default"],
                 },
                 {
                     disable = false,
-                    name = "claude-sonnet-thinking",
+                    name = "claude-sonnet-4.5-think",
                     provider = "anthropic",
                     chat = true,
                     command = true,
                     model = {
-                        model = "claude-sonnet-4-20250514",
+                        model = "claude-sonnet-4-5-20250929",
                         max_tokens = 8192,
                         thinking_budget = 4096,
                     },
@@ -76,7 +76,7 @@ return {
                 },
                 {
                     disable = false,
-                    name = "claude-opus",
+                    name = "claude-opus-4.1",
                     provider = "anthropic",
                     chat = true,
                     command = true,
@@ -88,7 +88,7 @@ return {
                 },
                 {
                     disable = false,
-                    name = "claude-opus-thinking",
+                    name = "claude-opus-4.1-think",
                     provider = "anthropic",
                     chat = true,
                     command = true,
