@@ -36,6 +36,13 @@ return {
         window = {
             mappings = {
                 ["<bs>"] = "",
+                ["P"] = {
+                    "toggle_preview",
+                    config = {
+                        use_float = false,
+                        use_image_nvim = true
+                    }
+                }
             },
         },
     }
