@@ -66,3 +66,5 @@ vim.opt.inccommand = "split"
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false -- Don't fold by default
+
+vim.opt.clipboard = "unnamedplus"
