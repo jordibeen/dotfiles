@@ -22,9 +22,10 @@ local peach='%F{#fab387}'
 local mauve='%F{#cba6f7}'
 local blue='%F{#89b4fa}'
 local yellow='%F{#f9e2af}'
+local green='%F{#a6e3a1}'
 local text='%F{#cdd6f4}'
 local reset='%f'
-PS1="${peach}🔥${reset} ${mauve}%n${reset} ${blue}%~${reset}${yellow}\$(git branch --show-current 2>/dev/null | sed 's/.*/ (&)/')${reset}${text} \$ ${reset}"
+PS1="${peach}🔥${reset} ${mauve}%n${reset} ${blue}%~${reset}${yellow}\$(git branch --show-current 2>/dev/null | sed 's/.*/ (&)/')${reset}${green}\$(kubectl config current-context 2>/dev/null | sed 's/.*/ [&]/')${reset}${text} \$ ${reset}"
 
 # Aliases
 alias ls='ls --color=auto'
