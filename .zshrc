@@ -60,7 +60,10 @@ cheat() {
 
 fzf-history-search() {
     local cmd
-    cmd=$(history 1 | awk '{$1=""; print substr($0,2)}' | awk '!seen[$0]++' | fzf --height 20 --reverse --query="$BUFFER")
+    cmd=$(fc -l -r 1 | \
+          awk '{$1=""; print substr($0,2)}' | \
+          awk '!seen[$0]++' | \
+          fzf --height 20 --reverse --query="$BUFFER")
     if [[ -n $cmd ]]; then
         BUFFER="$cmd"
         CURSOR=${#BUFFER}
