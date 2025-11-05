@@ -6,7 +6,7 @@ font-size = 16
 font-thicken = false
 
 # theme
-theme = dark:catppuccin-mocha,light:catppuccin-latte
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 fullscreen = true
 window-decoration = none
 window-padding-x = 10
