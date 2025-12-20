@@ -20,7 +20,7 @@ background-image-fit = cover
 
 # cursor
 cursor-color = #FF5F1F
-custom-shader = shaders/cursor_blaze.glsl
+custom-shader = shaders/cursor_sweep.glsl
 custom-shader-animation = true
 
 # misc
