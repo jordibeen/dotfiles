@@ -68,3 +68,6 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false -- Don't fold by default
 
 vim.opt.clipboard = "unnamedplus"
+
+-- Python 3 provider
+vim.g.python3_host_prog = vim.fn.expand('~/.config/.venv/bin/python3')
