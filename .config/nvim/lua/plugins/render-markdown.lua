@@ -2,6 +2,8 @@ return {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {
         file_types = { "markdown" },
-        { latex = { enabled = false } }
+        latex = {
+            enabled = false
+        },
     }
 }
