@@ -11,8 +11,8 @@ return {
             "You generate docstrings for functions that are passed to you.\nAnalyze the function for which language is used, and based on the language, generate a docstring based on that language's industry leading docstring format.\nIn case of Python, make sure to use Google Style.\nKeep it concise, returning at least a brief summary of the function, the arguments that can be passed, the return type and the exceptions it can raise.\nRespond with just the dosctring."
         }
         local conf = {
-            default_chat_agent = "qwen3",
-            default_command_agent = "qwen2.5-coder",
+            default_chat_agent = "qwen3.5:9b",
+            default_command_agent = "qwen3.5:9b",
 
             providers = {
                 openai = {
@@ -126,25 +126,13 @@ return {
                 },
                 {
                     disable = false,
-                    name = "gemma3",
-                    provider = "ollama",
-                    chat = true,
-                    command = true,
-                    model = {
-                        temperature = 0.6,
-                        model = "gemma3:4b",
-                    },
-                    system_prompt = prompts["default"],
-                },
-                {
-                    disable = false,
                     name = "ticket-creator",
                     provider = "ollama",
                     chat = true,
                     command = false,
                     model = {
                         temperature = 0.2,
-                        model = "qwen3:8b",
+                        model = "qwen3.5:9b",
                         think = false,
                     },
                     system_prompt = prompts["ticket_creator"],
@@ -157,43 +145,31 @@ return {
                     command = false,
                     model = {
                         temperature = 0.2,
-                        model = "qwen3:8b",
+                        model = "qwen3.5:9b",
                         think = false,
                     },
                     system_prompt = prompts["docstring_creator"],
                 },
                 {
                     disable = false,
-                    name = "qwen2.5-coder",
+                    name = "qwen3.5",
                     provider = "ollama",
                     chat = true,
                     command = true,
                     model = {
-                        model = "qwen2.5-coder:latest",
-                        temperature = 0.6
-                    },
-                    system_prompt = prompts["default"],
-                },
-                {
-                    disable = false,
-                    name = "qwen3",
-                    provider = "ollama",
-                    chat = true,
-                    command = true,
-                    model = {
-                        model = "qwen3:8b",
+                        model = "qwen3.5:9b",
                         think = false
                     },
                     system_prompt = prompts["default"],
                 },
                 {
                     disable = false,
-                    name = "qwen3-thinking",
+                    name = "qwen3.5-thinking",
                     provider = "ollama",
                     chat = true,
                     command = false,
                     model = {
-                        model = "qwen3:8b",
+                        model = "qwen3.5:9b",
                     },
                     system_prompt = prompts["default"],
                 },
