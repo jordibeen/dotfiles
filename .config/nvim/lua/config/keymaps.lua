@@ -3,31 +3,17 @@ local function map(mode, lhs, rhs, opts)
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- Split
 map("n", "<leader>%", ":vsp <cr>")
 map("n", "<leader>\"", ":sp <cr>")
 
--- Copy from clipboard
-map("n", "<C-v>", ":r !pbpaste<cr>")
-map("i", "<C-v>", "<cmd>r !pbpaste<cr>")
-
 -- Copy file path to clipboard
 map("n", "<leader>cfp", '<Cmd>let @+ = expand("%:p")<CR>', { desc = "[c]opy [f]ile [p]ath" })
 map("n", "<leader>ofp", '<Cmd>!open -R %<CR>', { desc = "[o]pen [f]ile [p]ath in Finder" })
 map("n", "<leader>ofd", '<Cmd>!open %:h<CR>', { desc = "[o]pen [f]ile's [d]irectory in Finder" })
-
--- Telescope
-map("n", "<leader>ff", '<cmd>lua require("telescope.builtin").find_files()<cr>')
-map("n", "<leader>fg", '<cmd>lua require("telescope.builtin").live_grep()<cr>')
-map("n", "<leader>fb", '<cmd>lua require("telescope.builtin").buffers()<cr>')
-map("n", "<leader>fh", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
-map("n", "<leader>fs", '<cmd>lua require("telescope.builtin").git_status()<cr>')
-
--- Trouble
-map("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle<cr>")
 
 -- LSP buffer
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -58,9 +44,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
     end
 })
-
--- Undotree Toggle
-map("n", "<leader>u", ":UndotreeToggle<cr>")
 
 -- Improved J (cursor stays in place instead of end of line)
 map("n", "J", "mzJ`z")
