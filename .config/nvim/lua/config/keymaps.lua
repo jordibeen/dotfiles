@@ -67,36 +67,33 @@ map("n", "<leader>Y", '"+Y')
 -- Awesome prime keymap to replace current selected word
 map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
--- NeoTree
-map("n", "<Leader>n", "<cmd>Neotree reveal focus<cr>")
-map("n", "\\", "<cmd>Neotree reveal toggle<cr>")
-
--- Git
-map("n", "<Leader>gos", "<cmd>Git<cr>")
-map("n", "<Leader>gov", "<cmd>Gvdiffsplit<cr>")
-
 -- Disable q recording
 map("n", "q", "<Nop>")
 
 -- Resize panels
 map("n", "<F9>", "<Cmd>resize -5<CR>")           -- decrease height
-map("n", "<F10>", "<Cmd>resize +5<CR>")          -- increase width
+map("n", "<F10>", "<Cmd>resize +5<CR>")          -- increase height
 map("n", "<F11>", "<Cmd>vertical resize -5<CR>") -- decrease width
 map("n", "<F12>", "<Cmd>vertical resize +5<CR>") -- increase width
 
--- Duck
-map("n", "<leader>dd", '<Cmd>lua require("duck").hatch()<CR>')
-map("n", "<leader>dk", '<Cmd>lua require("duck").cook()<CR>')
-
--- Markdown Preview
-map("n", "<leader>mdp", '<Cmd>MarkdownPreview<CR>')
-map("n", "<leader>mds", '<Cmd>MarkdownPreviewStop<CR>')
-
 -- Toggle dark mode
-vim.keymap.set('n', '<leader>tdm', function()
-    if vim.opt.background:get() == 'dark' then
-        vim.cmd(':set background=light')
+map("n", "<leader>tdm", function()
+    if vim.opt.background:get() == "dark" then
+        vim.cmd(":set background=light")
     else
-        vim.cmd(':set background=dark')
+        vim.cmd(":set background=dark")
     end
-end, { desc = '[T]oggle [D]ark [M]ode' })
+end, { desc = "[T]oggle [D]ark [M]ode" })
+
+-- Toggle virtual lines
+map('n', '<leader>tvl', function()
+    local config = vim.diagnostic.config()
+    vim.diagnostic.config({
+        virtual_lines = not config.virtual_lines,
+        virtual_text = not config.virtual_text,
+    })
+end, { desc = '[T]oggle [V]irtual [L]ines' })
+
+-- Buffer navigation
+map("n", "<S-h>", "<cmd>bprev<cr>")
+map("n", "<S-l>", "<cmd>bnext<cr>")
