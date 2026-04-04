@@ -1,27 +1,36 @@
 return {
     {
         "mason-org/mason.nvim",
-        opts = {}
-    },
-    {
-        "mason-org/mason-lspconfig.nvim",
-        opts = {
-            ensure_installed = {
-                "bashls",
+        opts = {},
+        config = function(_, opts)
+            local mason = require("mason")
+            mason.setup(opts)
+
+            local registry = require("mason-registry")
+            local packages = {
+                "bash-language-server",
                 "biome",
-                "helm_ls",
-                "jsonls",
-                "lua_ls",
+                "json-lsp",
+                -- "kube-linter",
+                "lua-language-server",
                 "marksman",
-                "pyright",
+                "ty",
                 "ruff",
-                "rust_analyzer",
-                "tailwindcss",
-                "terraformls",
-                "ts_ls",
-                "vimls",
-                "yamlls",
+                "rust-analyzer",
+                "tailwindcss-language-server",
+                "terraform-ls",
+                "typescript-language-server",
+                "vim-language-server",
+                "yaml-language-server",
+                -- "tree-sitter-cli",
             }
-        }
+
+            for _, pkg_name in ipairs(packages) do
+                local ok, pkg = pcall(registry.get_package, pkg_name)
+                if ok and not pkg:is_installed() then
+                    pkg:install()
+                end
+            end
+        end
     }
 }
