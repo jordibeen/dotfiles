@@ -1,0 +1,4 @@
+-- return {
+--     cmd = { "kube-linter" },
+--     filetypes = { "yaml" }
+-- }
