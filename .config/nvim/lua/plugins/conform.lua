@@ -10,7 +10,10 @@ return {
             lsp_fallback = true,
         },
         formatters_by_ft = {
-            python = { "isort" },
+            python = {
+                "ruff_fix",
+                "ruff_organize_imports"
+            },
             json = { "jq" },
             jsonc = { "jq" },
             javascript = { "biome-organize-imports" },
