@@ -6,6 +6,9 @@ return {
             format = {
                 enable = true
             },
+            validate = true,
+            hover = true,
+            completion = true,
             schemas = vim.tbl_extend("force", {
                 kubernetes = "k8s/**/*.yaml",
                 ["https://json.schemastore.org/chart.json"] = "Chart.{yml,yaml}",
