@@ -12,11 +12,12 @@ vim.opt.cursorlineopt = "number"
 -- Four space indents
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 0
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
 -- Smarter indenting
-vim.opt.smartindent = true
+vim.opt.smartindent = false
+vim.opt.indentexpr = "nvim_treesitter#indent()"
 
 -- Enable linewrap
 vim.opt.wrap = true
@@ -71,3 +72,6 @@ vim.opt.clipboard = "unnamedplus"
 
 -- Python 3 provider
 vim.g.python3_host_prog = vim.fn.expand('~/.config/.venv/bin/python3')
+
+-- vsplit to the right
+vim.o.splitright = true

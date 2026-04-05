@@ -3,5 +3,9 @@ return {
     dependencies = {
         "kyazdani42/nvim-web-devicons",
     },
-    opts = {}
+    opts = {},
+    keys = {
+
+        { "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", desc = "Toggle Trouble" },
+    }
 }

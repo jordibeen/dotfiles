@@ -25,6 +25,14 @@ return {
             require("telescope").load_extension("fzf")
             require("telescope").load_extension("ui-select")
         end,
+        keys = {
+            { "<leader>ff", '<cmd>lua require("telescope.builtin").find_files()<cr>', desc = "Telescope Find Files" },
+            { "<leader>fg", '<cmd>lua require("telescope.builtin").live_grep()<cr>',  desc = "Telescope Live Grep" },
+            { "<leader>fb", '<cmd>lua require("telescope.builtin").buffers()<cr>',    desc = "Telescope Find Buffers" },
+            { "<leader>fh", '<cmd>lua require("telescope.builtin").help_tags()<cr>',  desc = "Telescope Help Tags" },
+            { "<leader>fs", '<cmd>lua require("telescope.builtin").git_status()<cr>', desc = "Telescope Git Status" },
+
+        }
     },
     {
         "nvim-telescope/telescope-fzf-native.nvim",

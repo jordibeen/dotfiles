@@ -1,18 +1,18 @@
 vim.lsp.enable({
-    "bashls",
+    "bash-language-server",
     "biome",
-    "helm_ls",
-    "jsonls",
-    "lua_ls",
+    "helm-ls",
+    "json-lsp",
+    "lua-language-server",
     "marksman",
-    "pyright",
     "ruff",
-    "rust_analyzer",
-    "tailwindcss",
-    "terraformls",
-    "ts_ls",
-    "vimls",
-    "yamlls"
+    "rust-analyzer",
+    "tailwindcss-language-server",
+    "terraform-ls",
+    "ty",
+    "typescript-language-server",
+    "vim-language-server",
+    "yaml-language-server"
 })
 
 vim.diagnostic.config({

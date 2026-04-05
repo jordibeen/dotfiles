@@ -58,5 +58,9 @@ return {
                 ["t"] = "trash",
             },
         },
+    },
+    keys = {
+        { "\\", "<cmd>Neotree reveal toggle<cr>", desc = "Toggle Neotree" },
+
     }
 }

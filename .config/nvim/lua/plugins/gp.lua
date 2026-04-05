@@ -3,6 +3,7 @@ return {
     -- dir = "~/jordaye/gp.nvim",
     -- name = "gp.nvim",
     config = function()
+        local chat_dir = vim.fn.expand(os.getenv("GP_CHATS_DIR"))
         local prompts = {
             default = "You are a general AI assistant",
             ticket_creator =
@@ -40,12 +41,12 @@ return {
             agents = {
                 {
                     disable = false,
-                    name = "gpt-5",
+                    name = "gpt-5.4",
                     provider = "openai",
                     chat = true,
                     command = true,
                     model = {
-                        model = "gpt-5-2025-08-07",
+                        model = "gpt-5.4",
                     },
                     system_prompt = prompts["default"],
                 },
@@ -200,7 +201,7 @@ return {
             whisper = { disable = true, },
             image = { disable = true, },
 
-            chat_dir = vim.fn.expand(os.getenv("GP_CHATS_DIR")),
+            chat_dir = chat_dir,
             state_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/persisted",
             log_file = vim.fn.stdpath("log"):gsub("/$", "") .. "/gp.nvim.log",
             log_sensitive = false,
@@ -287,6 +288,22 @@ return {
             },
         }
         require("gp").setup(conf)
+
+        vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+            pattern = chat_dir,
+            callback = function()
+                vim.opt_local.autoread = true
+            end,
+        })
+
+        vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "FocusGained", "BufEnter" }, {
+            pattern = chat_dir .. "*",
+            callback = function()
+                if vim.fn.mode() ~= "c" then
+                    vim.cmd("checktime")
+                end
+            end,
+        })
 
         require("which-key").add({
             -- VISUAL mode mappings

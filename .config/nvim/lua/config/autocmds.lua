@@ -24,12 +24,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = event.buf,
             callback = function()
-                vim.lsp.buf.format({ async = false })
+                local clients = vim.lsp.get_clients({ bufnr = event.buf })
+                local has_formatter = vim.iter(clients):any(function(client)
+                    return client.supports_method("textDocument/formatting")
+                end)
+                if has_formatter then
+                    vim.lsp.buf.format({ async = false })
+                end
             end,
         })
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if client and client.supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
                 buffer = event.buf,
@@ -52,14 +58,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end
 
-        if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             vim.api.nvim_create_autocmd("InsertEnter", {
+                buffer = event.buf,
                 callback = function()
                     vim.lsp.inlay_hint.enable(false, { bufnr = event.buf })
                 end,
             })
 
             vim.api.nvim_create_autocmd("InsertLeave", {
+                buffer = event.buf,
                 callback = function()
                     vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
                 end,
