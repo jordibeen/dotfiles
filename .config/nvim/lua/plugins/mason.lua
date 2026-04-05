@@ -1,6 +1,5 @@
 return {
     "mason-org/mason.nvim",
-    opts = {},
     config = function(_, opts)
         local mason = require("mason")
         mason.setup(opts)
@@ -21,6 +20,7 @@ return {
             "typescript-language-server",
             "vim-language-server",
             "yaml-language-server",
+            "tree-sitter-cli",
         }
 
         for _, pkg_name in ipairs(packages) do
