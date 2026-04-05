@@ -21,7 +21,6 @@ return {
             "typescript-language-server",
             "vim-language-server",
             "yaml-language-server",
-            "tree-sitter-cli",
         }
 
         for _, pkg_name in ipairs(packages) do
