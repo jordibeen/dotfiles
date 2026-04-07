@@ -10,7 +10,7 @@ return {
             hover = true,
             completion = true,
             schemas = vim.tbl_extend("force", {
-                kubernetes = "k8s/**/*.yaml",
+                kubernetes = "{k8s/**/*.yaml,kubectl-edit-*.yaml}",
                 ["https://json.schemastore.org/chart.json"] = "Chart.{yml,yaml}",
                 ["https://json.schemastore.org/helmfile.json"] = "helmfile.{yml,yaml}",
                 ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*.{yml,yaml}",
