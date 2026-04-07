@@ -1,5 +1,3 @@
-auto-update-channel = tip
-
 # font 
 font-family = Cousine
 font-size = 16
@@ -20,3 +18,4 @@ custom-shader-animation = true
 # misc
 mouse-hide-while-typing = true
 macos-icon = glass
+confirm-close-surface = false

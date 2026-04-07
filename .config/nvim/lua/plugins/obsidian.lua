@@ -47,12 +47,13 @@ return {
                 mode = { "n" },
                 nowait = true,
                 remap = false,
-                { "<C-o>on", "<cmd>Obsidian new<cr>",                                                  desc = "Obsidian [O]pen [N]ew" },
-                { "<C-o>ot", "<cmd>Obsidian today<cr>",                                                desc = "Obsidian [O]pen [T]oday" },
-                { "<C-o>oy", "<cmd>Obsidian yesterday<cr>",                                            desc = "Obsidian [O]pen [Y]esterday" },
-                { "<C-o>s",  "<cmd>Obsidian open<cr>",                                                 desc = "Obsidian [S]how" },
-                { "<C-o>fn", function() telescope.find_files({ cwd = os.getenv("OBSIDIAN_DIR") }) end, desc = "Obsidian [F]ind [N]ote" },
-                { "<C-o>fg", function() telescope.live_grep({ cwd = os.getenv("OBSIDIAN_DIR") }) end,  desc = "Obsidian [F]ind [G]rep" },
+                { "<C-o>n", "<cmd>Obsidian new<cr>",                                                  desc = "Obsidian Open [N]ew" },
+                { "<C-o>t", "<cmd>Obsidian today<cr>",                                                desc = "Obsidian Open [T]oday" },
+                { "<C-o>y", "<cmd>Obsidian yesterday<cr>",                                            desc = "Obsidian Open [Y]esterday" },
+                { "<C-o>d", "<cmd>Obsidian dailies<cr>",                                              desc = "Obsidian Find [D]aily" },
+                { "<C-o>s", "<cmd>Obsidian open<cr>",                                                 desc = "Obsidian [S]how" },
+                { "<C-o>f", function() telescope.find_files({ cwd = os.getenv("OBSIDIAN_DIR") }) end, desc = "Obsidian [F]ind Note" },
+                { "<C-o>g", function() telescope.live_grep({ cwd = os.getenv("OBSIDIAN_DIR") }) end,  desc = "Obsidian Find [G]rep" },
             }
 
         })

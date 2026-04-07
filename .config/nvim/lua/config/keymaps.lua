@@ -56,14 +56,6 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
--- Preserve yank after paste
-map("x", "<leader>p", '"_dP')
-
--- Yank to clip
-map("n", "<leader>y", '"+y')
-map("v", "<leader>y", '"+y')
-map("n", "<leader>Y", '"+Y')
-
 -- Awesome prime keymap to replace current selected word
 map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
