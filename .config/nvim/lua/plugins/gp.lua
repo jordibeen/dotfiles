@@ -77,6 +77,17 @@ return {
                 },
                 {
                     disable = false,
+                    name = "claude-opus-4.7",
+                    provider = "anthropic",
+                    chat = true,
+                    command = true,
+                    model = {
+                        model = "claude-opus-4-7",
+                    },
+                    system_prompt = prompts["default"],
+                },
+                {
+                    disable = false,
                     name = "claude-opus-4.6",
                     provider = "anthropic",
                     chat = true,
