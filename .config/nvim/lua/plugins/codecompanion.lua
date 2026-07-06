@@ -99,6 +99,9 @@ return {
                         modes = { n = "gq" },
                     },
                 },
+                opts = {
+                    system_prompt = "You are a helpful assistant.",
+                }
             },
             inline = {
                 adapter = {
@@ -123,7 +126,6 @@ return {
                 agents = {
                     opencode = {
                         cmd = "opencode",
-                        args = {},
                         description = "Opencode CLI",
                         provider = "terminal",
                     },
@@ -174,10 +176,9 @@ return {
     keys = {
         { "<C-a>",         "<cmd>CodeCompanionActions<cr>",     mode = { "n", "v" }, desc = "Actions" },
         { "<localleader>", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" }, desc = "Toggle Chat" },
-        { "<leader>ccn",   "<cmd>CodeCompanionChat<cr>",        mode = { "n", "v" }, desc = "[C]ode [C]ompanion [N]ew" },
-        { "<leader>cca",   "<cmd>CodeCompanionChat Add<cr>",    mode = { "v" },      desc = "[C]ode [C]ompanion [A]dd" },
-        { "<leader>ccs",   "<cmd>CodeCompanionChatSave<cr>",    mode = { "n", "v" }, desc = "[C]ode [C]ompanion [S]ave to Obsidian" },
         { "ga",            "<cmd>CodeCompanionChat Add<cr>",    mode = { "v" },      desc = "Add To Chat" },
+        { "<leader>ccn",   "<cmd>CodeCompanionChat<cr>",        mode = { "n", "v" }, desc = "[C]ode [C]ompanion [N]ew" },
+        { "<leader>ccs",   "<cmd>CodeCompanionChatSave<cr>",    mode = { "n", "v" }, desc = "[C]ode [C]ompanion [S]ave to Obsidian" },
 
     },
     config = function(_, opts)
