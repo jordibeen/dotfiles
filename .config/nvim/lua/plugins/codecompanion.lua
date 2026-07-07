@@ -79,7 +79,7 @@ return {
             chat = {
                 adapter = {
                     name = "opper",
-                    model = "nebius/zai-org/GLM-5.2",
+                    model = "evroc/zai-org/GLM-5.2",
                 },
                 roles = {
                     user = "🔥 jb",
@@ -106,7 +106,7 @@ return {
             inline = {
                 adapter = {
                     name = "opper",
-                    model = "nebius/zai-org/GLM-5.2",
+                    model = "evroc/zai-org/GLM-5.2",
                 },
             },
             background = {
@@ -118,7 +118,7 @@ return {
             cmd = {
                 adapter = {
                     name = "opencode",
-                    model = "nebius/zai-org/GLM-5.2",
+                    model = "evroc/zai-org/GLM-5.2",
                 },
             },
             cli = {
@@ -150,13 +150,14 @@ return {
                     buflisted = true,
                 },
                 intro_message = "",
-                start_in_insert_mode = false,
+                start_in_insert_mode = true,
                 show_settings = false,
             },
         },
         extensions = {
             history = {
                 enabled = true,
+                delete_on_clearing_chat = true,
                 opts = {
                     dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
                     title_generation_opts = {
