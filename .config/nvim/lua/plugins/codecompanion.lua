@@ -82,7 +82,7 @@ return {
                     model = "evroc/zai-org/GLM-5.2",
                 },
                 roles = {
-                    user = "🔥 jb",
+                    user = "🔥 " .. os.getenv("USER"),
                     llm = function(adapter)
                         if adapter.type == "http" then
                             return string.format("💬 %s (%s)", adapter.model.name, adapter.name)
@@ -150,7 +150,7 @@ return {
                     buflisted = true,
                 },
                 intro_message = "",
-                start_in_insert_mode = true,
+                start_in_insert_mode = false,
                 show_settings = false,
             },
         },

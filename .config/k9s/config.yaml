@@ -2,3 +2,8 @@ k9s:
   ui:
     skin: catppuccin-mocha-transparent
     headless: true
+  logger:
+    tail: 1000
+    fullScreen: true
+    showTime: true
+    textWrap: true
