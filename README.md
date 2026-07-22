@@ -13,22 +13,27 @@ dotfiles config --local status.showUntrackedFiles no
 ```
 
 ## Install Dependencies
-- [kitty](https://github.com/kovidgoyal/kitty)
+- [ghostty](https://github.com/ghostty-org/ghostty)
 - [neovim](https://github.com/neovim/neovim)
-- [tmux](https://github.com/tmux/tmux)
-    - [tpm](https://github.com/tmux-plugins/tpm)
+- [tmux](https://github.com/tmux/tmux) & [tpm](https://github.com/tmux-plugins/tpm)
 - [brew](https://github.com/Homebrew/brew)
-- [ollama](https://ollama.com/download)
-    - [gemma3:4b](https://ollama.com/library/gemma3)
-    - [qwen3:4b](https://ollama.com/library/qwen3)
-    - [qwen2.5-coder](https://ollama.com/library/qwen2.5-coder)
 
 ### zsh
+**plugins**
 ```sh
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+```
+
+**completions**
+```sh
+docker completion zsh > ~/.zsh/completions/_docker
+kubectl completion zsh > ~/.zsh/completions/_kubectl
 ```
 
 ### brew
 ```sh
-cat .brew/requirements.txt | xargs brew install && cat .brew/casks.txt | xargs brew install --cask
+brew bundle install --file=~/.brew/Brewfile
 ```
+
+

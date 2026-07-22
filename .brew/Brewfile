@@ -1,0 +1,93 @@
+# taps
+tap "anomalyco/tap"
+tap "hashicorp/tap"
+
+# languages & runtimes
+brew "luarocks"
+brew "node"
+brew "python@3.14"
+
+# development tools
+brew "biome"
+brew "gh"
+brew "hey"
+brew "k6"
+brew "neovim"
+brew "openssl@3"
+brew "tmux"
+brew "anomalyco/tap/opencode", trusted: true
+
+# search & text processing
+brew "fd"
+brew "fzf"
+brew "jq"
+brew "ripgrep"
+
+# system & media
+brew "btop"
+brew "fastfetch"
+brew "imagemagick"
+brew "qrencode"
+
+# language servers
+brew "helm-ls"
+brew "terraform-ls"
+npm "typescript-language-server"
+npm "yaml-language-server"
+
+# cloud & infrastructure
+brew "awscli"
+brew "azure-cli"
+brew "doctl"
+brew "helm"
+brew "helm-docs"
+brew "k9s"
+brew "kubernetes-cli"
+
+# databases & data
+brew "kafka"
+brew "kcat"
+brew "parquet-cli"
+brew "pgcli"
+brew "redis"
+
+# networking
+brew "nmap"
+brew "telnet"
+brew "wget"
+cask "ngrok"
+
+# android
+brew "scrcpy"
+cask "android-platform-tools"
+cask "openmtp"
+
+# file sync & remote access
+brew "syncthing", restart_service: :changed
+cask "tigervnc"
+
+# GUIs
+cask "ghostty"
+cask "meetingbar"
+cask "mqttx"
+
+# joy
+brew "cbonsai"
+brew "sl"
+
+# fonts
+cask "font-fira-code-nerd-font"
+cask "font-hack-nerd-font"
+cask "font-inconsolata-nerd-font"
+cask "font-monocraft"
+cask "font-monofur-nerd-font"
+
+# cargo packages
+cargo "bacon"
+cargo "cargo-edit"
+
+# npm: dev runtimes & tools
+npm "biome"
+npm "bun"
+npm "neovim"
+npm "typescript"
