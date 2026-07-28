@@ -30,7 +30,7 @@ return {
                                                 },
                                             },
                                         },
-                                        ["claude-opus-4-8"] = {
+                                        ["claude-opus-5"] = {
                                             opts = {
                                                 extended_thinking = {
                                                     default = false,
@@ -43,25 +43,57 @@ return {
                         },
                     })
                 end,
-                opper = function()
+                opper_personal = function()
                     return require("codecompanion.adapters").extend("openai_compatible", {
                         env = {
                             url = "https://api.opper.ai/v3/compat",
                             chat_url = "/chat/completions",
-                            api_key = "OPPER_API_KEY",
+                            api_key = "OPPER_API_KEY_PERSONAL",
                         },
                         schema = {
                             model = {
                                 default = "evroc/zai-org/GLM-5.2",
                                 choices = {
                                     ["evroc/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
-                                    ["azure/gpt-5.5"] = { opts = { can_reason = true } },
-                                    ["geodd:no/gpt-oss-120b"] = { opts = { can_reason = true } },
-                                    ["azure/claude-sonnet-4-6"] = { opts = { can_reason = true } },
+                                    ["berget/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
+                                    ["aws/claude-opus-5"] = { opts = { can_reason = true } },
+                                    ["azure/claude-sonnet-5"] = { opts = { can_reason = true } },
                                     ["azure/claude-haiku-4-5"] = {},
-                                    ["aws/claude-opus-4-8"] = { opts = { can_reason = true } },
+                                    ["azure/gpt-5.5"] = { opts = { can_reason = true } },
                                     ["azure/gpt-5.4-mini"] = {},
                                     ["azure/gpt-5.4-nano"] = {},
+                                    ["berget/gemma-4-31b-it"] = { opts = { can_reason = true } },
+                                    ["tensorx/openai/gpt-oss-120b"] = { opts = { can_reason = true } },
+                                    ["anthropic/claude-fable-5"] = { opts = { can_reason = true } },
+                                    ["openai/gpt-5.6-sol"] = { opts = { can_reason = true } },
+                                    ["openai/gpt-5.6-luna"] = { opts = { can_reason = true } },
+                                    ["openai/gpt-5.6-terra"] = { opts = { can_reason = true } },
+                                },
+                            },
+                        },
+                    })
+                end,
+                opper_work = function()
+                    return require("codecompanion.adapters").extend("openai_compatible", {
+                        env = {
+                            url = "https://api.opper.ai/v3/compat",
+                            chat_url = "/chat/completions",
+                            api_key = "OPPER_API_KEY_WORK",
+                        },
+                        schema = {
+                            model = {
+                                default = "evroc/zai-org/GLM-5.2",
+                                choices = {
+                                    ["evroc/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
+                                    ["berget/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
+                                    ["aws/claude-opus-5"] = { opts = { can_reason = true } },
+                                    ["azure/claude-sonnet-5"] = { opts = { can_reason = true } },
+                                    ["azure/claude-haiku-4-5"] = {},
+                                    ["azure/gpt-5.5"] = { opts = { can_reason = true } },
+                                    ["azure/gpt-5.4-mini"] = {},
+                                    ["azure/gpt-5.4-nano"] = {},
+                                    ["berget/gemma-4-31b-it"] = { opts = { can_reason = true } },
+                                    ["tensorx/openai/gpt-oss-120b"] = { opts = { can_reason = true } },
                                 },
                             },
                         },
@@ -78,7 +110,7 @@ return {
         interactions = {
             chat = {
                 adapter = {
-                    name = "opper",
+                    name = "opper_work",
                     model = "evroc/zai-org/GLM-5.2",
                 },
                 roles = {
@@ -105,14 +137,14 @@ return {
             },
             inline = {
                 adapter = {
-                    name = "opper",
+                    name = "opper_work",
                     model = "evroc/zai-org/GLM-5.2",
                 },
             },
             background = {
                 adapter = {
-                    adapter = "opper",
-                    model = "azure/gpt-5.4-nano",
+                    adapter = "opper_work",
+                    model = "tensorx/openai/gpt-oss-120b",
                 },
             },
             cmd = {
@@ -161,8 +193,8 @@ return {
                 opts = {
                     dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
                     title_generation_opts = {
-                        adapter = "opper",
-                        model = "azure/gpt-5.4-nano",
+                        adapter = "opper_work",
+                        model = "tensorx/openai/gpt-oss-120b",
                         refresh_every_n_prompts = 0,
                         max_refreshes = 3,
                         format_title = function(title)
