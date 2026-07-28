@@ -56,6 +56,7 @@ return {
                                 choices = {
                                     ["evroc/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
                                     ["berget/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
+                                    ["sference/kimi-k3"] = { opts = { can_reason = true } },
                                     ["aws/claude-opus-5"] = { opts = { can_reason = true } },
                                     ["azure/claude-sonnet-5"] = { opts = { can_reason = true } },
                                     ["azure/claude-haiku-4-5"] = {},
@@ -86,6 +87,7 @@ return {
                                 choices = {
                                     ["evroc/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
                                     ["berget/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
+                                    ["sference/kimi-k3"] = { opts = { can_reason = true } },
                                     ["aws/claude-opus-5"] = { opts = { can_reason = true } },
                                     ["azure/claude-sonnet-5"] = { opts = { can_reason = true } },
                                     ["azure/claude-haiku-4-5"] = {},
