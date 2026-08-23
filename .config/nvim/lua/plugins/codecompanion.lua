@@ -1,3 +1,33 @@
+local opper_work_models = {
+    ["sference/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
+    ["sference/deepseek-ai/DeepSeek-V4-Flash-0731"] = { opts = { can_reason = true } },
+    ["sference/kimi-k3"] = { opts = { can_reason = true } },
+    ["sference/Qwen/Qwen3.6-35B-A3B"] = { opts = { can_reason = true } },
+
+    ["aws/claude-opus-5"] = { opts = { can_reason = true } },
+    ["aws/claude-opus-4-8"] = { opts = { can_reason = true } },
+    ["aws/claude-sonnet-5"] = { opts = { can_reason = true } },
+
+    ["azure-zdr/gpt-5.6-sol"] = { opts = { can_reason = true } },
+    ["azure-zdr/gpt-5.6-terra"] = { opts = { can_reason = true } },
+    ["azure-zdr/gpt-5.6-luna"] = { opts = { can_reason = true } },
+
+    ["vertexai/gemini-3.6-flash-eu"] = { opts = { can_reason = true } },
+
+    ["evroc/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
+    ["berget/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
+
+    ["berget/gemma-4-31b-it"] = { opts = { can_reason = true } },
+    ["tensorx/openai/gpt-oss-120b"] = { opts = { can_reason = true } },
+
+}
+
+local opper_personal_models = {}
+for k, v in pairs(opper_work_models) do
+    opper_personal_models[k] = v
+end
+opper_personal_models["anthropic/claude-fable-5"] = { opts = { can_reason = true } }
+
 return {
     "olimorris/codecompanion.nvim",
     version = "^19.0.0",
@@ -52,24 +82,8 @@ return {
                         },
                         schema = {
                             model = {
-                                default = "evroc/zai-org/GLM-5.2",
-                                choices = {
-                                    ["evroc/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
-                                    ["berget/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
-                                    ["sference/kimi-k3"] = { opts = { can_reason = true } },
-                                    ["aws/claude-opus-5"] = { opts = { can_reason = true } },
-                                    ["azure/claude-sonnet-5"] = { opts = { can_reason = true } },
-                                    ["azure/claude-haiku-4-5"] = {},
-                                    ["azure/gpt-5.5"] = { opts = { can_reason = true } },
-                                    ["azure/gpt-5.4-mini"] = {},
-                                    ["azure/gpt-5.4-nano"] = {},
-                                    ["berget/gemma-4-31b-it"] = { opts = { can_reason = true } },
-                                    ["tensorx/openai/gpt-oss-120b"] = { opts = { can_reason = true } },
-                                    ["anthropic/claude-fable-5"] = { opts = { can_reason = true } },
-                                    ["openai/gpt-5.6-sol"] = { opts = { can_reason = true } },
-                                    ["openai/gpt-5.6-luna"] = { opts = { can_reason = true } },
-                                    ["openai/gpt-5.6-terra"] = { opts = { can_reason = true } },
-                                },
+                                default = "sference/zai-org/GLM-5.2",
+                                choices = opper_personal_models,
                             },
                         },
                     })
@@ -83,20 +97,8 @@ return {
                         },
                         schema = {
                             model = {
-                                default = "evroc/zai-org/GLM-5.2",
-                                choices = {
-                                    ["evroc/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
-                                    ["berget/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
-                                    ["sference/kimi-k3"] = { opts = { can_reason = true } },
-                                    ["aws/claude-opus-5"] = { opts = { can_reason = true } },
-                                    ["azure/claude-sonnet-5"] = { opts = { can_reason = true } },
-                                    ["azure/claude-haiku-4-5"] = {},
-                                    ["azure/gpt-5.5"] = { opts = { can_reason = true } },
-                                    ["azure/gpt-5.4-mini"] = {},
-                                    ["azure/gpt-5.4-nano"] = {},
-                                    ["berget/gemma-4-31b-it"] = { opts = { can_reason = true } },
-                                    ["tensorx/openai/gpt-oss-120b"] = { opts = { can_reason = true } },
-                                },
+                                default = "sference/zai-org/GLM-5.2",
+                                choices = opper_work_models,
                             },
                         },
                     })
@@ -113,7 +115,7 @@ return {
             chat = {
                 adapter = {
                     name = "opper_work",
-                    model = "evroc/zai-org/GLM-5.2",
+                    model = "sference/zai-org/GLM-5.2"
                 },
                 roles = {
                     user = "🔥 " .. os.getenv("USER"),
@@ -140,19 +142,19 @@ return {
             inline = {
                 adapter = {
                     name = "opper_work",
-                    model = "evroc/zai-org/GLM-5.2",
+                    model = "sference/zai-org/GLM-5.2",
                 },
             },
             background = {
                 adapter = {
                     adapter = "opper_work",
-                    model = "tensorx/openai/gpt-oss-120b",
+                    model = "sference/Qwen/Qwen3.6-35B-A3B",
                 },
             },
             cmd = {
                 adapter = {
                     name = "opencode",
-                    model = "evroc/zai-org/GLM-5.2",
+                    model = "sference/zai-org/GLM-5.2",
                 },
             },
             cli = {
@@ -195,8 +197,8 @@ return {
                 opts = {
                     dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
                     title_generation_opts = {
-                        adapter = "opper_work",
-                        model = "tensorx/openai/gpt-oss-120b",
+                        adapter = "opper_personal",
+                        model = "sference/Qwen/Qwen3.6-35B-A3B",
                         refresh_every_n_prompts = 0,
                         max_refreshes = 3,
                         format_title = function(title)
@@ -209,11 +211,10 @@ return {
         }
     },
     keys = {
-        { "<C-a>",         "<cmd>CodeCompanionActions<cr>",     mode = { "n", "v" }, desc = "Actions" },
-        { "<localleader>", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" }, desc = "Toggle Chat" },
-        { "ga",            "<cmd>CodeCompanionChat Add<cr>",    mode = { "v" },      desc = "Add To Chat" },
-        { "<leader>ccn",   "<cmd>CodeCompanionChat<cr>",        mode = { "n", "v" }, desc = "[C]ode [C]ompanion [N]ew" },
-        { "<leader>ccs",   "<cmd>CodeCompanionChatSave<cr>",    mode = { "n", "v" }, desc = "[C]ode [C]ompanion [S]ave to Obsidian" },
+        { "<C-a>",          "<cmd>CodeCompanionActions<cr>",     mode = { "n", "v" }, desc = "Actions" },
+        { "<localleader>a", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" }, desc = "Toggle Chat" },
+        { "ga",             "<cmd>CodeCompanionChat Add<cr>",    mode = { "v" },      desc = "Add To Chat" },
+        { "<leader>ccs",    "<cmd>CodeCompanionChatSave<cr>",    mode = { "n", "v" }, desc = "[C]ode [C]ompanion [S]ave to Obsidian" },
 
     },
     config = function(_, opts)
