@@ -88,6 +88,18 @@ jwt-decode() {
     jq -R 'split(".") |.[0:2] | map(gsub("-"; "+") | gsub("_"; "/") | gsub("%3D"; "=") | @base64d) | map(fromjson)' <<< $1
 }
 
+unix-to-utc() {
+    date -u -r $1
+}
+
+utc-to-unix() {
+    date -j -u -f "%Y-%m-%dT%H:%M" "$1" +%s
+}
+
+kctx() {
+    k config use-context $1
+}
+
 # Load private .env file
 [[ -f ~/.env ]] && export $(grep -v '^#' ~/.env | xargs)
 
