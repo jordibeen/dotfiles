@@ -23,18 +23,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
         end
 
-        -- defaults:
-        -- https://neovim.io/doc/user/news-0.11.html#_defaults
+        local telescope = require("telescope.builtin")
 
         bufmap("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
-        bufmap("K", vim.lsp.buf.hover, "Hover Documentation")
-        bufmap("gs", vim.lsp.buf.signature_help, "Signature Documentation")
+        bufmap("<leader>xx", telescope.diagnostics, "Diagnostics")
+
         bufmap("gd", vim.lsp.buf.definition, "Goto definition")
-        bufmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
-        bufmap("<leader>la", vim.lsp.buf.code_action, "Code Action")
-        bufmap("<leader>lr", vim.lsp.buf.rename, "Rename all references")
+        bufmap("gvd", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
+        bufmap("gxd", "<cmd>split | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Horizontal Split")
+
+        bufmap("grr", telescope.lsp_references, "References (Telescope)")
+        bufmap("gri", telescope.lsp_implementations, "Implementations (Telescope)")
+        bufmap("grt", telescope.lsp_type_definitions, "Type Definitions (Telescope)")
+        bufmap("gO", telescope.lsp_document_symbols, "Document Symbols (Telescope)")
+
+        bufmap("<leader>lS", telescope.lsp_workspace_symbols, "Workspace Symbols")
         bufmap("<leader>lf", vim.lsp.buf.format, "Format")
-        bufmap("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
