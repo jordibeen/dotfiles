@@ -18,8 +18,6 @@ local opper_work_models = {
     ["berget/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
 
     ["berget/gemma-4-31b-it"] = { opts = { can_reason = true } },
-    ["tensorx/openai/gpt-oss-120b"] = { opts = { can_reason = true } },
-
 }
 
 local opper_personal_models = {}
