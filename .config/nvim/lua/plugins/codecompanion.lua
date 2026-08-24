@@ -195,7 +195,7 @@ return {
                 opts = {
                     dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
                     title_generation_opts = {
-                        adapter = "opper_personal",
+                        adapter = "opper_work",
                         model = "sference/Qwen/Qwen3.6-35B-A3B",
                         refresh_every_n_prompts = 0,
                         max_refreshes = 3,
