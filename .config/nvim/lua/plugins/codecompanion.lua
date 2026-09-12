@@ -1,22 +1,28 @@
 local opper_work_models = {
-    ["sference/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
-    ["sference/deepseek-ai/DeepSeek-V4-Flash-0731"] = { opts = { can_reason = true } },
+    -- Open frontier
+    ["sference/zai-org/GLM-5.3"] = { opts = { can_reason = true } },
     ["sference/kimi-k3"] = { opts = { can_reason = true } },
-    ["sference/Qwen/Qwen3.6-35B-A3B"] = { opts = { can_reason = true } },
 
+    -- Flash models
+    ["nextbit/glm:5.3-flash"] = { opts = { can_reason = true } },
+    ["melious/deepseek-v4.1-flash"] = { opts = { can_reason = true } },
+    ["tensorx/qwen/qwen3.8-27b"] = { opts = { can_reason = true } },
+
+    -- Anthropic
     ["aws/claude-opus-5"] = { opts = { can_reason = true } },
     ["aws/claude-opus-4-8"] = { opts = { can_reason = true } },
     ["aws/claude-sonnet-5"] = { opts = { can_reason = true } },
 
-    ["azure-zdr/gpt-5.6-sol"] = { opts = { can_reason = true } },
-    ["azure-zdr/gpt-5.6-terra"] = { opts = { can_reason = true } },
-    ["azure-zdr/gpt-5.6-luna"] = { opts = { can_reason = true } },
+    -- OpenAI
+    ["azure/gpt-5.6-sol"] = { opts = { can_reason = true } },
+    ["azure/gpt-5.6-terra"] = { opts = { can_reason = true } },
+    ["azure/gpt-5.6-luna"] = { opts = { can_reason = true } },
+    ["azure/gpt-6-astra-global"] = { opts = { can_reason = true } },
 
+    -- Google
     ["vertexai/gemini-3.6-flash-eu"] = { opts = { can_reason = true } },
-
-    ["evroc/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
-    ["berget/zai-org/GLM-5.2"] = { opts = { can_reason = true } },
-
+    ["vertexai/gemini-3.7-flash-eu"] = { opts = { can_reason = true } },
+    ["vertexai/gemini-3.8-flash-eu"] = { opts = { can_reason = true } },
     ["berget/gemma-4-31b-it"] = { opts = { can_reason = true } },
 }
 
@@ -25,6 +31,7 @@ for k, v in pairs(opper_work_models) do
     opper_personal_models[k] = v
 end
 opper_personal_models["anthropic/claude-fable-5"] = { opts = { can_reason = true } }
+opper_personal_models["anthropic/claude-fable-5-1"] = { opts = { can_reason = true } }
 
 return {
     "olimorris/codecompanion.nvim",
@@ -80,7 +87,7 @@ return {
                         },
                         schema = {
                             model = {
-                                default = "sference/zai-org/GLM-5.2",
+                                default = "sference/zai-org/GLM-5.3",
                                 choices = opper_personal_models,
                             },
                         },
@@ -95,7 +102,7 @@ return {
                         },
                         schema = {
                             model = {
-                                default = "sference/zai-org/GLM-5.2",
+                                default = "sference/zai-org/GLM-5.3",
                                 choices = opper_work_models,
                             },
                         },
@@ -113,7 +120,7 @@ return {
             chat = {
                 adapter = {
                     name = "opper_work",
-                    model = "sference/zai-org/GLM-5.2"
+                    model = "sference/zai-org/GLM-5.3"
                 },
                 roles = {
                     user = "🔥 " .. os.getenv("USER"),
@@ -140,19 +147,19 @@ return {
             inline = {
                 adapter = {
                     name = "opper_work",
-                    model = "sference/zai-org/GLM-5.2",
+                    model = "sference/zai-org/GLM-5.3",
                 },
             },
             background = {
                 adapter = {
                     adapter = "opper_work",
-                    model = "sference/Qwen/Qwen3.6-35B-A3B",
+                    model = "tensorx/qwen/qwen3.8-27b",
                 },
             },
             cmd = {
                 adapter = {
                     name = "opencode",
-                    model = "sference/zai-org/GLM-5.2",
+                    model = "melious/deepseek-v4.1-flash",
                 },
             },
             cli = {
@@ -196,7 +203,7 @@ return {
                     dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
                     title_generation_opts = {
                         adapter = "opper_work",
-                        model = "sference/Qwen/Qwen3.6-35B-A3B",
+                        model = "tensorx/qwen/qwen3.8-27b",
                         refresh_every_n_prompts = 0,
                         max_refreshes = 3,
                         format_title = function(title)
