@@ -32,19 +32,19 @@ alias ls='ls --color=auto'
 alias ll='ls -alF --color'
 alias grep='grep --color'
 alias vi='nvim'
+alias dotvi='cd $HOME/.config && GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim'
 alias zsource='source ~/.zshrc && source ~/.zprofile'
 alias tsource='tmux source-file ~/.tmux.conf'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias python='/opt/homebrew/bin/python3'
 alias k='kubectl'
-alias k9sjordaye='k9s --context jordaye'
+alias k9sdo='k9s --context jordaye'
 alias k9stest='k9s --context test'
 alias k9sprod='k9s --context production'
 
 # AWS profiles
-alias aws-default='export AWS_PROFILE=default'
-alias aws-check='export AWS_PROFILE=check'
-alias aws-do='export AWS_PROFILE=do'
+alias aws-personal='export AWS_PROFILE=do'
+alias aws-work='export AWS_PROFILE=check'
 
 # Functions
 darkmode() {

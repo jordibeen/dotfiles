@@ -1,3 +1,9 @@
-.DS_Store
-lazy-lock.json
-.env
+/*
+!/.brew
+!/.config/
+!/.env.template
+!/.gitignore
+!/.tmux.conf
+!/.zprofile
+!/.zshrc
+!/README.md

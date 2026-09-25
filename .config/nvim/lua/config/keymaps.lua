@@ -93,3 +93,7 @@ end, { desc = '[T]oggle [V]irtual [L]ines' })
 -- Buffer navigation
 map("n", "<S-h>", "<cmd>bprev<cr>")
 map("n", "<S-l>", "<cmd>bnext<cr>")
+
+-- Quickfix navigation
+map("n", "<leader>j", ":cnext<CR>")
+map("n", "<leader>k", ":cprevious<CR>")
