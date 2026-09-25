@@ -1,0 +1,123 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+	"model": "opper_work/melious/glm-5.3",
+	"enabled_providers": ["opper_personal", "opper_work"],
+	"provider": {
+		"opper_personal": {
+			"npm": "@ai-sdk/openai-compatible",
+			"name": "opper_personal",
+			"options": {
+				"baseURL": "https://api.opper.ai/v3/compat",
+				"apiKey": "{env:OPPER_API_KEY_PERSONAL}"
+			},
+			"models": {
+				"melious/glm-5.3": {
+					"name": "melious/glm-5.3"
+				},
+				"sference/kimi-k3": {
+					"name": "sference/kimi-k3"
+				},
+				"berget/zai-org/GLM-5.3-Flash": {
+					"name": "berget/zai-org/GLM-5.3-Flash"
+				},
+				"melious/deepseek-v4.1-flash": {
+					"name": "melious/deepseek-v4.1-flash"
+				},
+				"tensorx/qwen/qwen3.8-27b": {
+					"name": "tensorx/qwen/qwen3.8-27b"
+				},
+				"aws/claude-opus-5-5": {
+					"name": "aws/claude-opus-5-5"
+				},
+				"aws/claude-sonnet-5": {
+					"name": "aws/claude-sonnet-5"
+				},
+				"aws/claude-opus-4-8": {
+					"name": "aws/claude-opus-4-8"
+				},
+				"azure:eu/gpt-6-sol": {
+					"name": "azure:eu/gpt-6-sol"
+				},
+				"azure:eu/gpt-6-luna": {
+					"name": "azure:eu/gpt-6-luna"
+				},
+				"azure/gpt-6-astra-global": {
+					"name": "azure/gpt-6-astra-global"
+				},
+				"vertexai/gemini-3.6-flash-eu": {
+					"name": "vertexai/gemini-3.6-flash-eu"
+				},
+				"vertexai/gemini-3.7-flash-eu": {
+					"name": "vertexai/gemini-3.7-flash-eu"
+				},
+				"vertexai/gemini-3.8-flash-eu": {
+					"name": "vertexai/gemini-3.8-flash-eu"
+				},
+				"berget/gemma-4-31b-it": {
+					"name": "berget/gemma-4-31b-it"
+				},
+				"anthropic/claude-fable-5": {
+					"name": "anthropic/claude-fable-5"
+				},
+				"anthropic/claude-fable-5-1": {
+					"name": "anthropic/claude-fable-5-1"
+				}
+			}
+		},
+		"opper_work": {
+			"npm": "@ai-sdk/openai-compatible",
+			"name": "opper_work",
+			"options": {
+				"baseURL": "https://api.opper.ai/v3/compat",
+				"apiKey": "{env:OPPER_API_KEY_WORK}"
+			},
+			"models": {
+				"melious/glm-5.3": {
+					"name": "melious/glm-5.3"
+				},
+				"sference/kimi-k3": {
+					"name": "sference/kimi-k3"
+				},
+				"berget/zai-org/glm-5.3-Flash": {
+					"name": "berget/zai-org/glm-5.3-Flash"
+				},
+				"melious/deepseek-v4.1-flash": {
+					"name": "melious/deepseek-v4.1-flash"
+				},
+				"tensorx/qwen/qwen3.8-27b": {
+					"name": "tensorx/qwen/qwen3.8-27b"
+				},
+				"aws/claude-opus-5-5": {
+					"name": "aws/claude-opus-5-5"
+				},
+				"aws/claude-sonnet-5": {
+					"name": "aws/claude-sonnet-5"
+				},
+				"aws/claude-opus-4-8": {
+					"name": "aws/claude-opus-4-8"
+				},
+				"azure:eu/gpt-6-sol": {
+					"name": "azure:eu/gpt-6-sol"
+				},
+				"azure:eu/gpt-6-luna": {
+					"name": "azure:eu/gpt-6-luna"
+				},
+				"azure/gpt-6-astra-global": {
+					"name": "azure/gpt-6-astra-global"
+				},
+				"vertexai/gemini-3.6-flash-eu": {
+					"name": "vertexai/gemini-3.6-flash-eu"
+				},
+				"vertexai/gemini-3.7-flash-eu": {
+					"name": "vertexai/gemini-3.7-flash-eu"
+				},
+				"vertexai/gemini-3.8-flash-eu": {
+					"name": "vertexai/gemini-3.8-flash-eu"
+				},
+				"berget/gemma-4-31b-it": {
+					"name": "berget/gemma-4-31b-it"
+				}
+			}
+		}
+	}
+}
