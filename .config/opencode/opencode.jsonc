@@ -1,6 +1,6 @@
 {
 	"$schema": "https://opencode.ai/config.json",
-	"model": "opper_work/melious/glm-5.3",
+	"model": "inceptron/zai-org/GLM-5.3",
 	"enabled_providers": ["opper_personal", "opper_work"],
 	"provider": {
 		"opper_personal": {
@@ -11,14 +11,14 @@
 				"apiKey": "{env:OPPER_API_KEY_PERSONAL}"
 			},
 			"models": {
-				"melious/glm-5.3": {
-					"name": "melious/glm-5.3"
+				"inceptron/zai-org/GLM-5.3": {
+					"name": "inceptron/zai-org/GLM-5.3"
 				},
 				"sference/kimi-k3": {
 					"name": "sference/kimi-k3"
 				},
-				"berget/zai-org/GLM-5.3-Flash": {
-					"name": "berget/zai-org/GLM-5.3-Flash"
+				"greenference/glm-5.3-flash": {
+					"name": "greenference/glm-5.3-flash"
 				},
 				"melious/deepseek-v4.1-flash": {
 					"name": "melious/deepseek-v4.1-flash"
@@ -72,14 +72,14 @@
 				"apiKey": "{env:OPPER_API_KEY_WORK}"
 			},
 			"models": {
-				"melious/glm-5.3": {
-					"name": "melious/glm-5.3"
+				"inceptron/zai-org/GLM-5.3": {
+					"name": "inceptron/zai-org/GLM-5.3"
 				},
 				"sference/kimi-k3": {
 					"name": "sference/kimi-k3"
 				},
-				"berget/zai-org/glm-5.3-Flash": {
-					"name": "berget/zai-org/glm-5.3-Flash"
+				"greenference/glm-5.3-flash": {
+					"name": "greenference/glm-5.3-flash"
 				},
 				"melious/deepseek-v4.1-flash": {
 					"name": "melious/deepseek-v4.1-flash"

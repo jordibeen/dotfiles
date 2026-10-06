@@ -1,8 +1,8 @@
 local OPPER_URL = "https://api.opper.ai/v3/compat"
 local OPPER_CHAT_URL = "/chat/completions"
 
-local DEFAULT_MODEL = "melious/glm-5.3"
-local MODEL_FLASH = "berget/zai-org/GLM-5.3-Flash"
+local DEFAULT_MODEL = "inceptron/zai-org/GLM-5.3"
+local MODEL_FLASH = "greenference/glm-5.3-flash"
 local MODEL_BACKGROUND = "tensorx/qwen/qwen3.8-27b"
 
 local OBSIDIAN = vim.env.OBSIDIAN_DIR and vim.fn.expand(vim.env.OBSIDIAN_DIR) or nil
@@ -23,11 +23,11 @@ end
 
 local opper_work_models = {
     -- Open frontier
-    ["melious/glm-5.3"] = { opts = { can_reason = true } },
+    ["inceptron/zai-org/GLM-5.3"] = { opts = { can_reason = true } },
     ["sference/kimi-k3"] = { opts = { can_reason = true } },
 
     -- Flash models
-    ["berget/zai-org/GLM-5.3-Flash"] = { opts = { can_reason = true } },
+    ["greenference/glm-5.3-flash"] = { opts = { can_reason = true } },
     ["melious/deepseek-v4.1-flash"] = { opts = { can_reason = true } },
     ["tensorx/qwen/qwen3.8-27b"] = { opts = { can_reason = true } },
 
