@@ -31,13 +31,16 @@ local opper_work_models = {
     ["melious/deepseek-v4.1-flash"] = { opts = { can_reason = true } },
     ["tensorx/qwen/qwen3.8-27b"] = { opts = { can_reason = true } },
 
+    -- Mistral
+    ["mistral:eu/mistral-large-4"] = { opts = { can_reason = true } },
+
     -- Anthropic
     ["aws/claude-opus-5-5"] = { opts = { can_reason = true } },
-    ["aws/claude-sonnet-5"] = { opts = { can_reason = true } },
-    ["aws/claude-opus-4-8"] = { opts = { can_reason = true } },
+    ["vertexai/claude-sonnet-5-5-eu"] = { opts = { can_reason = true } },
+    ["aws/claude-haiku-5-5-eu"] = { opts = { can_reason = true } },
 
     -- OpenAI
-    ["azure:eu/gpt-6-sol"] = { opts = { can_reason = true } },
+    ["azure:eu/gpt-6.1-sol"] = { opts = { can_reason = true } },
     ["azure:eu/gpt-6-luna"] = { opts = { can_reason = true } },
     ["azure/gpt-6-astra-global"] = { opts = { can_reason = true } },
 

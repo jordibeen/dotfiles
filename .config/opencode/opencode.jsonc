@@ -26,17 +26,20 @@
 				"tensorx/qwen/qwen3.8-27b": {
 					"name": "tensorx/qwen/qwen3.8-27b"
 				},
+				"mistral:eu/mistral-large-4": {
+					"name": "mistral:eu/mistral-large-4"
+				},
 				"aws/claude-opus-5-5": {
 					"name": "aws/claude-opus-5-5"
 				},
-				"aws/claude-sonnet-5": {
-					"name": "aws/claude-sonnet-5"
+				"vertexai/claude-sonnet-5-5-eu": {
+					"name": "vertexai/claude-sonnet-5-5-eu"
 				},
-				"aws/claude-opus-4-8": {
-					"name": "aws/claude-opus-4-8"
+				"aws/claude-haiku-5-5-eu": {
+					"name": "aws/claude-haiku-5-5-eu"
 				},
-				"azure:eu/gpt-6-sol": {
-					"name": "azure:eu/gpt-6-sol"
+				"azure:eu/gpt-6.1-sol": {
+					"name": "azure:eu/gpt-6.1-sol"
 				},
 				"azure:eu/gpt-6-luna": {
 					"name": "azure:eu/gpt-6-luna"
@@ -87,17 +90,20 @@
 				"tensorx/qwen/qwen3.8-27b": {
 					"name": "tensorx/qwen/qwen3.8-27b"
 				},
+				"mistral:eu/mistral-large-4": {
+					"name": "mistral:eu/mistral-large-4"
+				},
 				"aws/claude-opus-5-5": {
 					"name": "aws/claude-opus-5-5"
 				},
-				"aws/claude-sonnet-5": {
-					"name": "aws/claude-sonnet-5"
+				"vertexai/claude-sonnet-5-5-eu": {
+					"name": "vertexai/claude-sonnet-5-5-eu"
 				},
-				"aws/claude-opus-4-8": {
-					"name": "aws/claude-opus-4-8"
+				"aws/claude-haiku-5-5-eu": {
+					"name": "aws/claude-haiku-5-5-eu"
 				},
-				"azure:eu/gpt-6-sol": {
-					"name": "azure:eu/gpt-6-sol"
+				"azure:eu/gpt-6.1-sol": {
+					"name": "azure:eu/gpt-6.1-sol"
 				},
 				"azure:eu/gpt-6-luna": {
 					"name": "azure:eu/gpt-6-luna"
