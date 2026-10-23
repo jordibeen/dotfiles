@@ -1,8 +1,8 @@
 local OPPER_URL = "https://api.opper.ai/v3/compat"
 local OPPER_CHAT_URL = "/chat/completions"
 
-local DEFAULT_MODEL = "inceptron/zai-org/GLM-5.3"
-local MODEL_FLASH = "greenference/glm-5.3-flash"
+local DEFAULT_MODEL = "sference/zai-org/GLM-5.3"
+local MODEL_FLASH = "greenpt/glm-5.3-flash"
 local MODEL_BACKGROUND = "tensorx/qwen/qwen3.8-27b"
 
 local OBSIDIAN = vim.env.OBSIDIAN_DIR and vim.fn.expand(vim.env.OBSIDIAN_DIR) or nil
@@ -23,13 +23,14 @@ end
 
 local opper_work_models = {
     -- Open frontier
-    ["inceptron/zai-org/GLM-5.3"] = { opts = { can_reason = true } },
+    ["sference/zai-org/GLM-5.3"] = { opts = { can_reason = true } },
     ["sference/kimi-k3"] = { opts = { can_reason = true } },
+    ["inceptron/zai-org/GLM-5.3"] = { opts = { can_reason = true } },
 
     -- Flash models
-    ["greenference/glm-5.3-flash"] = { opts = { can_reason = true } },
-    ["melious/deepseek-v4.1-flash"] = { opts = { can_reason = true } },
-    ["tensorx/qwen/qwen3.8-27b"] = { opts = { can_reason = true } },
+    ["sference/zai-org/GLM-5.3-Flash"] = { opts = { can_reason = true } },
+    ["sference/deepseek-ai/DeepSeek-V4.1-Flash-1017"] = { opts = { can_reason = true } },
+    ["tensorx/deepseek/deepseek-v4.1-flash-1017"] = { opts = { can_reason = true } },
 
     -- Mistral
     ["mistral:eu/mistral-large-4"] = { opts = { can_reason = true } },
@@ -45,8 +46,7 @@ local opper_work_models = {
     ["azure/gpt-6-astra-global"] = { opts = { can_reason = true } },
 
     -- Google
-    ["vertexai/gemini-3.6-flash-eu"] = { opts = { can_reason = true } },
-    ["vertexai/gemini-3.7-flash-eu"] = { opts = { can_reason = true } },
+    ["vertexai/gemini-4-argon-eu"] = { opts = { can_reason = true } },
     ["vertexai/gemini-3.8-flash-eu"] = { opts = { can_reason = true } },
     ["berget/gemma-4-31b-it"] = { opts = { can_reason = true } },
 }

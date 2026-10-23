@@ -1,6 +1,6 @@
 {
 	"$schema": "https://opencode.ai/config.json",
-	"model": "inceptron/zai-org/GLM-5.3",
+	"model": "sference/zai-org/GLM-5.3",
 	"enabled_providers": ["opper_personal", "opper_work"],
 	"provider": {
 		"opper_personal": {
@@ -11,14 +11,14 @@
 				"apiKey": "{env:OPPER_API_KEY_PERSONAL}"
 			},
 			"models": {
-				"inceptron/zai-org/GLM-5.3": {
-					"name": "inceptron/zai-org/GLM-5.3"
+				"sference/zai-org/GLM-5.3": {
+					"name": "sference/zai-org/GLM-5.3"
 				},
 				"sference/kimi-k3": {
 					"name": "sference/kimi-k3"
 				},
-				"greenference/glm-5.3-flash": {
-					"name": "greenference/glm-5.3-flash"
+				"sference/zai-org/GLM-5.3-Flash": {
+					"name": "sference/zai-org/GLM-5.3-Flash"
 				},
 				"melious/deepseek-v4.1-flash": {
 					"name": "melious/deepseek-v4.1-flash"
@@ -47,11 +47,8 @@
 				"azure/gpt-6-astra-global": {
 					"name": "azure/gpt-6-astra-global"
 				},
-				"vertexai/gemini-3.6-flash-eu": {
-					"name": "vertexai/gemini-3.6-flash-eu"
-				},
-				"vertexai/gemini-3.7-flash-eu": {
-					"name": "vertexai/gemini-3.7-flash-eu"
+				"vertexai/gemini-4-argon-eu": {
+					"name": "vertexai/gemini-4-argon-eu"
 				},
 				"vertexai/gemini-3.8-flash-eu": {
 					"name": "vertexai/gemini-3.8-flash-eu"
@@ -75,14 +72,14 @@
 				"apiKey": "{env:OPPER_API_KEY_WORK}"
 			},
 			"models": {
-				"inceptron/zai-org/GLM-5.3": {
-					"name": "inceptron/zai-org/GLM-5.3"
+				"sference/zai-org/GLM-5.3": {
+					"name": "sference/zai-org/GLM-5.3"
 				},
 				"sference/kimi-k3": {
 					"name": "sference/kimi-k3"
 				},
-				"greenference/glm-5.3-flash": {
-					"name": "greenference/glm-5.3-flash"
+				"sference/zai-org/GLM-5.3-Flash": {
+					"name": "sference/zai-org/GLM-5.3-Flash"
 				},
 				"melious/deepseek-v4.1-flash": {
 					"name": "melious/deepseek-v4.1-flash"
@@ -111,11 +108,8 @@
 				"azure/gpt-6-astra-global": {
 					"name": "azure/gpt-6-astra-global"
 				},
-				"vertexai/gemini-3.6-flash-eu": {
-					"name": "vertexai/gemini-3.6-flash-eu"
-				},
-				"vertexai/gemini-3.7-flash-eu": {
-					"name": "vertexai/gemini-3.7-flash-eu"
+				"vertexai/gemini-4-argon-eu": {
+					"name": "vertexai/gemini-4-argon-eu"
 				},
 				"vertexai/gemini-3.8-flash-eu": {
 					"name": "vertexai/gemini-3.8-flash-eu"
