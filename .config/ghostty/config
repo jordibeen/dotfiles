@@ -25,3 +25,6 @@ custom-shader-animation = true
 mouse-hide-while-typing = true
 macos-icon = glass
 confirm-close-surface = false
+
+# startup command
+command = /opt/homebrew/bin/tmux new-session -A -s config -c ~/.config

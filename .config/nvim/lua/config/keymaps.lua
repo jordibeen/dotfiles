@@ -6,6 +6,9 @@ local function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
+-- Easy escape out of insert mode
+map("i", "jj", "<ESC>")
+
 -- Split
 map("n", "<leader>%", ":vsp <cr>")
 map("n", "<leader>\"", ":sp <cr>")
@@ -73,13 +76,13 @@ map("n", "<F11>", "<Cmd>vertical resize -5<CR>") -- decrease width
 map("n", "<F12>", "<Cmd>vertical resize +5<CR>") -- increase width
 
 -- Toggle dark mode
-map("n", "<leader>tdm", function()
+map("n", "<leader>tm", function()
     if vim.opt.background:get() == "dark" then
         vim.cmd(":set background=light")
     else
         vim.cmd(":set background=dark")
     end
-end, { desc = "[T]oggle [D]ark [M]ode" })
+end, { desc = "[T]oggle Dark [M]ode" })
 
 -- Toggle virtual lines
 map('n', '<leader>tvl', function()
@@ -97,3 +100,5 @@ map("n", "<S-l>", "<cmd>bnext<cr>")
 -- Quickfix navigation
 map("n", "<leader>j", ":cnext<CR>")
 map("n", "<leader>k", ":cprevious<CR>")
+
+map("n", "<leader>bd", "<Cmd>:%bd<CR>:Octo notification list<CR>")

@@ -45,6 +45,13 @@ return {
     config = function(_, opts)
         require("octo").setup(opts)
 
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "octo",
+            callback = function()
+                vim.bo.filetype = "markdown"
+            end,
+        })
+
         local function mirror_mapping(key)
             return function()
                 local m = vim.fn.maparg(key, "i", false, true)
@@ -71,7 +78,7 @@ return {
             pattern = "TelescopePrompt",
             callback = function(args)
                 local picker = require("telescope.actions.state").get_current_picker(args.buf)
-                if picker and picker.prompt_title:match("Github Notifications") then
+                if picker and picker.prompt_title and picker.prompt_title:match("Github Notifications") then
                     require("which-key").add({
                         { "<localleader>n",  group = "Notification", buffer = args.buf },
                         { "<localleader>nr", desc = "Mark as read",  buffer = args.buf },

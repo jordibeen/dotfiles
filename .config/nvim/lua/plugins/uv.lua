@@ -1,9 +1,8 @@
 return {
     "benomahony/uv.nvim",
     opts = {
-        -- Auto-activate virtual environments when found
         auto_activate_venv = true,
-        notify_activate_venv = true,
+        notify_activate_venv = false,
 
         -- Auto commands for directory changes
         auto_commands = true,
